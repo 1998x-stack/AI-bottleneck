@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-coding",
+  "files": [
+    {
+      "id": "ai-coding-bottlenecks-v1",
+      "source": "reports/ai-coding/bottlenecks-2026-11-17.md",
+      "sourceSha256": "c7768984c7a1b046456a410e78be8b6def4a2813346c1611e294e9f8b7a35e32",
+      "docxSha256": "5c6bcc7ee3dff323e69f973dea0b119b89cef78070fbc67d137e96a94f41ee60",
+      "pdfSha256": "f51b96d2ec1f0fc81f3eb8179438d6b600372bd0a2cabedf672d5c73c0ba225b",
+      "docxBytes": 60101,
+      "pdfBytes": 835962
+    },
+    {
+      "id": "ai-coding-solutions-v2",
+      "source": "reports/ai-coding/solutions-2026-11-17.md",
+      "sourceSha256": "05c60a65ffbaba4774569e28a880c37d915d929791dcfce757bcf86e707e1ed4",
+      "docxSha256": "3788ff1458ea59dd102e5068b50a51ebd8bc1abef7422e972432429afba0fc1b",
+      "pdfSha256": "334e382c3fe57690431c6a52622fd81e8a66cc69bac3fea954b4b42d634da10a",
+      "docxBytes": 81169,
+      "pdfBytes": 1268155
+    }
+  ]
+}
