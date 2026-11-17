@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 当前已导入 **AI 短剧** 专题（12 个 DR issues、33 条来源、2 份完整 Markdown 研究报告）。其他领域显示为**规划中**，不冒充已完成研究。
+**状态：** 已发布 **AI 短剧**（12 项）、**企业 AI 知识库**（22 项）和 **AI Coding Agent**（16 项、38 条来源、两份深度研究报告）；后续领域按统一数据契约逐步扩展。
 
 ## 产品定位
 
@@ -63,6 +63,15 @@
 
 **说明：** 已有报告的 Markdown 为版本化来源，Git 归档中的 DOCX/PDF 是由它重新排版并生成的出版版本，不保证字节级等同于此前单独提供的 Word 文件。
 
+## 企业 AI 知识库专题
+
+- [领域总览](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=overview) · [22 项 Issue 图谱](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=issues) · [报告在线阅读](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=reports)
+- [Markdown 原始研究](reports/enterprise-knowledge/enterprise-knowledge-research-2026-11-17.md)
+- GitHub Word：[DOCX](reports/enterprise-knowledge/exports/enterprise-km-research-v2.docx) · GitHub PDF：[PDF](reports/enterprise-knowledge/exports/enterprise-km-research-v2.pdf)
+- Pages：[下载 Word](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.docx) / [下载 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.pdf)
+- 合并后 Actions 通过 Markdown 自动生成版本化文档、SHA256 清单，提交至 `reports/<domain>/exports/` 并发布到 Pages。
+- [Web UI 设计与可扩展架构 v2](docs/ui-design-v2.md)。
+
 ## 本地运行
 
 需要 Node.js 22+、Python 3.10+；浏览器通过 HTTP 访问（不能直接双击 index.html）。
@@ -110,11 +119,10 @@ cd dist && python3 -m http.server 8000
 研究文档引用的第三方资料受其各自权利声明约束；引用与链接并不代表获得第三方素材的再发行许可。站点代码可以进一步采用明确的开源 LICENSE 后对外授权；在仓库指定许可证前，不应默认允许无限制复制和商业再使用。
 
 
-## AI Coding Agent · 新增专题（2026-11-17）
+## AI Coding Agent · 2026-11-17
 
-- [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding) · 16 类核心瓶颈、38 条参考来源。
-- [逐项解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2) · 技术选型、工程实施配方、验收指标与局限。
-- [跨领域比较](https://1998x-stack.github.io/AI-bottleneck/?view=compare) · 仅展示结构化目录中的已发布领域，不将相对优先级当做发生率。
-- 原始 Markdown：`reports/ai-coding/`；由最新 Word/PDF 归档流水线生成二进制文档至 `reports/ai-coding/exports/`，并与 Pages 下载副本核对 SHA-256。
+- [Coding Agent 核心 Issues](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding)
+- [逐项解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2)
+- [跨领域研究对照](https://1998x-stack.github.io/AI-bottleneck/?view=compare)
 
-Web UI 支持领域切换、全站搜索与 `?domain=<id>&view=issues&issue=<id>` 深链接；新增领域只需提供 JSON 数据与报告，不需要复制前端。
+源文档：`reports/ai-coding/`。Word、PDF 及 SHA256 版本清单：`reports/ai-coding/exports/`；GitHub Actions 校验站点下载内容与归档字节一致。

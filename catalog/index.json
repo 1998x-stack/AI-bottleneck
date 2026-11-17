@@ -13,14 +13,13 @@
     {
       "id": "ai-short-drama",
       "path": "catalog/domains/ai-short-drama.json"
+    },
+    {
+      "id": "enterprise-knowledge",
+      "path": "catalog/domains/enterprise-knowledge.json"
     }
   ],
   "planned": [
-    {
-      "id": "enterprise-knowledge",
-      "title": "企业知识库",
-      "description": "数据治理、检索、权限、更新与可信回答"
-    },
     {
       "id": "ai-fiction",
       "title": "AI 小说",

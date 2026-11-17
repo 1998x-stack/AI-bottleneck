@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "domainId": "enterprise-knowledge",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "KMWorld, The State of KM & AI: Results of a KMWorld Survey, January 2026, n=202.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://kwfoundation.org/wp-content/uploads/2026/04/2026-State-of-KM-AI-Report.pdf",
+      "type": "report"
+    },
+    {
+      "id": "S2",
+      "title": "APQC, 2026 Knowledge Management Priorities and Trends Survey Report, 2026.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.apqc.org/resource-library/resource-listing/2026-knowledge-management-priorities-and-trends-survey-report",
+      "type": "report"
+    },
+    {
+      "id": "S3",
+      "title": "Gartner, Why 50% of GenAI Projects Fail — And How to Beat the Odds, 2026-01-26.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.gartner.com/en/articles/genai-project-failure",
+      "type": "report"
+    },
+    {
+      "id": "S4",
+      "title": "Gartner, 30% of Generative AI Projects Will Be Abandoned After PoC, 2024-07-29 (historical forecast).",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025",
+      "type": "report"
+    },
+    {
+      "id": "S5",
+      "title": "McKinsey, The state of AI: How organizations are rewiring to capture value, 2025-03-12.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value",
+      "type": "report"
+    },
+    {
+      "id": "S6",
+      "title": "Microsoft Learn, Document-Level Access Control in Azure AI Search, 2026.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview",
+      "type": "policy"
+    },
+    {
+      "id": "S7",
+      "title": "Google Developers, Google Drive changes.list / Retrieve changes.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://developers.google.com/workspace/drive/api/reference/rest/v3/changes/list",
+      "type": "policy"
+    },
+    {
+      "id": "S8",
+      "title": "Microsoft Graph, driveItem delta.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-delta?view=graph-rest-1.0",
+      "type": "policy"
+    },
+    {
+      "id": "S9",
+      "title": "OWASP GenAI Security Project, LLM Top 10 2026 (2026-08-04).",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/README.md",
+      "type": "tool"
+    },
+    {
+      "id": "S10",
+      "title": "Yang et al., CRAG — Comprehensive RAG Benchmark, NeurIPS 2024.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/1435d2d0fca85a84d83ddcb754f58c29-Abstract-Datasets_and_Benchmarks_Track.html",
+      "type": "research"
+    },
+    {
+      "id": "S11",
+      "title": "Miao et al., EnterpriseRAG, arXiv 2608.11584, 2026-08-12, preprint.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://arxiv.org/abs/2608.11584",
+      "type": "research"
+    },
+    {
+      "id": "S12",
+      "title": "Liu et al., Lost in the Middle: How Language Models Use Long Contexts, TACL 2024.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "type": "research"
+    },
+    {
+      "id": "S13",
+      "title": "Friel et al., RAGBench, arXiv 2407.11005, 2024.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://arxiv.org/abs/2407.11005",
+      "type": "research"
+    },
+    {
+      "id": "S14",
+      "title": "Ragas, Available Metrics.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://docs.ragas.io/en/v0.3.7/concepts/metrics/available_metrics/",
+      "type": "tool"
+    },
+    {
+      "id": "S15",
+      "title": "NVIDIA, Enterprise RAG Retrieval Scaling and Sizing Guide.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://docs.nvidia.com/enterprise-reference-architectures/enterprise-rag-retrieval-scaling-and-sizing-guide/latest/rag-scaling-guidelines.html",
+      "type": "tool"
+    },
+    {
+      "id": "S16",
+      "title": "Docling Project, Model Catalog / Document Layout and OCR.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/docling-project/docling/blob/main/docs/usage/model_catalog.md",
+      "type": "tool"
+    },
+    {
+      "id": "S17",
+      "title": "NIST, Artificial Intelligence Risk Management Framework: Generative AI Profile (AI 600-1), 2024.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+      "type": "policy"
+    },
+    {
+      "id": "S18",
+      "title": "Elastic, The State of Search & AI 2026 (vendor survey, >330 IT leaders).",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.elastic.co/resources/search/report/state-of-search-and-ai",
+      "type": "report"
+    },
+    {
+      "id": "S19",
+      "title": "Google Drive, Retrieve changes / startPageToken / watch behavior.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://developers.google.com/workspace/drive/api/guides/manage-changes",
+      "type": "policy"
+    },
+    {
+      "id": "S20",
+      "title": "Microsoft Learn, Document-level access control in Azure AI Search（注意 Preview 与权限同步条件）.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview",
+      "type": "policy"
+    },
+    {
+      "id": "S21",
+      "title": "Unstructured, Partitioning strategy and document types.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://unstructured.readthedocs.io/en/latest/core/partition.html-",
+      "type": "tool"
+    },
+    {
+      "id": "S22",
+      "title": "AWS, Amazon Verified Permissions and Cedar policies",
+      "note": "Policy-based authorization reference; production use requires integration design and access tests.",
+      "url": "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/",
+      "type": "policy"
+    },
+    {
+      "id": "S23",
+      "title": "PostgreSQL, Row Security Policies.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+      "type": "policy"
+    },
+    {
+      "id": "S24",
+      "title": "OpenAI API, Data controls, retention, training, and ZDR limitations.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "type": "tool"
+    },
+    {
+      "id": "S25",
+      "title": "OWASP, LLM Prompt Injection Prevention Cheat Sheet.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "type": "policy"
+    },
+    {
+      "id": "S26",
+      "title": "Qdrant, Hybrid and Multi-Stage Queries.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://qdrant.tech/documentation/hybrid-queries/",
+      "type": "tool"
+    },
+    {
+      "id": "S27",
+      "title": "OpenSearch, Hybrid search.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/",
+      "type": "tool"
+    },
+    {
+      "id": "S28",
+      "title": "Weaviate, Hybrid search.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://docs.weaviate.io/weaviate/concepts/search/hybrid-search",
+      "type": "tool"
+    },
+    {
+      "id": "S29",
+      "title": "Microsoft Learn, Create a Hybrid Query in Azure AI Search.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query",
+      "type": "policy"
+    },
+    {
+      "id": "S30",
+      "title": "Ragas, Context Recall and reference-based retrieval evaluation.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/vibrantlabsai/ragas/blob/main/docs/concepts/metrics/available_metrics/context_recall.md",
+      "type": "tool"
+    },
+    {
+      "id": "S31",
+      "title": "Microsoft GraphRAG, Query Engine: Local / Global / DRIFT.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/microsoft/graphrag/blob/main/docs/query/overview.md",
+      "type": "tool"
+    },
+    {
+      "id": "S32",
+      "title": "Langfuse, Evaluation overview: datasets, traces, experiments, CI.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://langfuse.com/docs/evaluation/overview",
+      "type": "tool"
+    },
+    {
+      "id": "S33",
+      "title": "OpenAI, Evaluation best practices（核验平台版本及弃用时间）.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "type": "tool"
+    },
+    {
+      "id": "S34",
+      "title": "OpenTelemetry, GenAI span semantic conventions（演进中）.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md",
+      "type": "tool"
+    },
+    {
+      "id": "S35",
+      "title": "Temporal, Error handling: idempotent Activities, Saga compensation.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://github.com/temporalio/documentation/blob/main/docs/best-practices/error-handling.mdx",
+      "type": "tool"
+    },
+    {
+      "id": "S36",
+      "title": "APQC, Top Knowledge Management Priorities for 2026.",
+      "note": "企业知识库问题、解决方案与技术背景；请按来源适用条件核验。",
+      "url": "https://www.apqc.org/resource-library/resource/top-knowledge-management-priorities-2026/html",
+      "type": "report"
+    }
+  ]
+}

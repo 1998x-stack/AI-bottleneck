@@ -30,11 +30,7 @@
     "label": "研究标题",
     "description": "本版覆盖范围",
     "path": "reports/ai-short-drama/file.md",
-    "date": "2026-11-17",
-    "artifacts": {
-      "docx": "reports/ai-short-drama/exports/unique-report-id.docx",
-      "pdf": "reports/ai-short-drama/exports/unique-report-id.pdf"
-    }
+    "date": "2026-11-17"
   }],
   "issues": [{
     "id": "DR-01",
@@ -64,15 +60,16 @@
 ### 强制校验
 `node scripts/validate.mjs` 负责检查 ID 唯一性、引用存在、来源 HTTPS、报告路径与实际文件存在、类别和枚举合法性。更严格的 schema 和跨域统计在后续迭代引入。
 
-## 版本化 Word / PDF 归档规范
+## 扩展说明（v1 兼容）
 
-每份已发布报告必须声明 `reports/<domainId>/exports/<reportId>.docx` 与 `.pdf`；这些是**正式的 Git 仓库文件**，不是 Pages 暂存产物。自动构建为每个领域生成同目录的 `manifest.json`，记录 Markdown 来源及 DOCX/PDF SHA-256。CI 中 `scripts/verify_exports.py` 检查源文档变更、文档完整性、PDF 页数及 Pages 下载副本的字节级一致性。报告更新后重新生成的文件由 Actions 自动提交到主分支。
+- `index.domains` 可注册任意数量的领域；前端使用 `?domain=<slug>` 保留选中领域。
+- 所有 `reports[]` 都生成 Word/PDF，版本化文件和 SHA256 清单在 `reports/<domain>/exports/`，部署工作流需要 LibreOffice 和中文字体。
+- 完整 Markdown 与 `catalog/domains/<slug>.json` 是分离的：前者用于完整阅读和下载，后者用于筛选、Issue 抽屉和跨领域搜索。
+- 研究中标注的 M2/M3 为现有方案可集成性评估，不代表问题已在任何具体企业消除。
+- 新领域的 Issue ID 在领域内唯一，跨领域引用使用 `<domain>/<issue>`。
 
 
-## Cross-domain UI and traceable routing (2026-11-17)
-
-- Across-domain issue identity: `<domainId>/<issueId>`, not an issue ID by itself.
-- `?domain=ai-coding&view=issues&issue=CA-01` links preserve domain context.
-- Only `domains` contribute to published statistics; `planned` is excluded.
-- External evidence is a cited research reference, not necessarily validation of a tool's real-world effectiveness.
-- Report Word/PDF artifacts are committed to `reports/<domainId>/exports/`, with SHA256 manifest checks and byte-for-byte matching Pages downloads.
+## Cross-domain issue identity · 2026-11-17
+- Global issue key is `<domainId>/<issueId>`, not issue ID alone.
+- Share links preserve domain: `?view=issues&domain=ai-coding&issue=CA-01`.
+- Planned domains do not contribute to the published statistics; P0/P1/P2 are engineering priorities rather than incidence rates.

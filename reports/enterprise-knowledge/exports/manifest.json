@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "domainId": "enterprise-knowledge",
+  "files": [
+    {
+      "id": "enterprise-km-research-v2",
+      "source": "reports/enterprise-knowledge/enterprise-knowledge-research-2026-11-17.md",
+      "sourceSha256": "d2197b627e899a124614a9e95e3a133f7c15a405b4f4e9f5fd3a175bbe110b3e",
+      "docxSha256": "cc1945a6154b5e82b54b9b1370da49075d5df051747d03d790e545df2bd78c2e",
+      "pdfSha256": "2ac87cae8359e78dc02a19904634878a9b70b94adbf5e4447110d1ccf31919f4",
+      "docxBytes": 86520,
+      "pdfBytes": 1323711
+    }
+  ]
+}
