@@ -8,6 +8,8 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import argparse
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,7 +57,27 @@ def export_docx(markdown: Path, output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     doc.save(output)
 
+
+def export_pdf(docx: Path, required: bool = False) -> bool:
+    office = shutil.which("libreoffice") or shutil.which("soffice")
+    if not office:
+        if required:
+            raise RuntimeError("LibreOffice or soffice is required for published PDF downloads")
+        print("WARNING: LibreOffice not installed; PDF export skipped")
+        return False
+    output = docx.with_suffix(".pdf")
+    profile = DIST / ".lo-profile"
+    cmd = [office, "-env:UserInstallation=" + profile.as_uri(), "--headless",
+           "--convert-to", "pdf:writer_pdf_Export", "--outdir", str(docx.parent), str(docx)]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    if result.returncode != 0 or not output.is_file() or output.stat().st_size < 1000:
+        raise RuntimeError("PDF conversion failed for " + docx.name + ": " + result.stdout + result.stderr)
+    return True
+
 def main() -> None:
+    p = argparse.ArgumentParser()
+    p.add_argument('--require-pdf', action='store_true')
+    args = p.parse_args()
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
@@ -66,6 +88,7 @@ def main() -> None:
     (DIST/'.nojekyll').write_text('',encoding='utf-8')
     idx=json.loads((ROOT/'catalog/index.json').read_text(encoding='utf-8'))
     count=0
+    pdf_count=0
     try:
         from docx import Document # noqa: F401
         docx_available=True
@@ -78,7 +101,12 @@ def main() -> None:
             if docx_available:
                 export_docx(ROOT/report['path'],DIST/'downloads'/(report['id']+'.docx'))
                 count+=1
-    print(f'Built Pages at {DIST}, {len(idx["domains"])} domain(s), {count} Word documents')
+                if export_pdf(DIST/'downloads'/(report['id']+'.docx'), required=args.require_pdf):
+                    pdf_count+=1
+    if args.require_pdf and (not docx_available or pdf_count != count):
+        raise RuntimeError('Required DOCX/PDF reports are missing')
+    shutil.rmtree(DIST/'.lo-profile', ignore_errors=True)
+    print(f'Built Pages at {DIST}, {len(idx["domains"])} domain(s), {count} DOCX and {pdf_count} PDFs')
 
 if __name__ == '__main__':
     main()
