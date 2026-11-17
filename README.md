@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 已发布 **AI 短剧**（12 项 DR issues）和 **企业 AI 知识库**（22 项 KM issues、36 条来源、v2.0 完整研究手册），其他领域按统一数据契约逐步扩展。
+**状态：** 已发布 **AI 短剧**（12 项）、**企业 AI 知识库**（22 项）和 **AI Coding Agent**（16 项、38 条来源、两份深度研究报告）；后续领域按统一数据契约逐步扩展。
 
 ## 产品定位
 
@@ -118,15 +118,23 @@ cd dist && python3 -m http.server 8000
 
 研究文档引用的第三方资料受其各自权利声明约束；引用与链接并不代表获得第三方素材的再发行许可。站点代码可以进一步采用明确的开源 LICENSE 后对外授权；在仓库指定许可证前，不应默认允许无限制复制和商业再使用。
 
-## AI 音乐生产专题
 
-AI 音乐研究于 2026-11-17 发布，完整保留原研究的“瓶颈 v1 → 现有解决方案 v2”递进结构，并将 **20 项核心 Issue、44 条研究/政策/工具来源、80 条可执行 SOP 步骤**纳入已有跨行业可检索研究图谱。
+## AI Coding Agent · 2026-11-17
 
-- [AI 音乐瓶颈研究 v1](reports/ai-music/bottlenecks-2026-11-17.md)
-- [AI 音乐 20 项解决方案深度研究 v2](reports/ai-music/solutions-2026-11-17.md)
-- [结构化 Issue 数据](catalog/domains/ai-music.json)；[44 条来源](catalog/sources/ai-music.json)
-- [在线 Issue 图谱](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-music&view=issues)
-- [在线阅读 v2](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-music&view=reports&report=ai-music-solutions-v2)
-- [版本化 Word/PDF 归档](reports/ai-music/exports/)（GitHub Actions 渲染和提交后可用）
+- [Coding Agent 核心 Issues](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding)
+- [逐项解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2)
+- [跨领域研究对照](https://1998x-stack.github.io/AI-bottleneck/?view=compare)
 
-报告的 Markdown 是研究原稿；GitHub Actions 按既有流水线生成 Word/PDF、校验来源 SHA256 和文件完整性，并将成品写入 `reports/<domain>/exports`、同步至 Pages 下载目录。二进制导出是重新排版的出版版，并非历史聊天附件的字节级副本。
+源文档：`reports/ai-coding/`。Word、PDF 及 SHA256 版本清单：`reports/ai-coding/exports/`；GitHub Actions 校验站点下载内容与归档字节一致。
+
+## AI 音乐生产专题（2026-11-17）
+
+已加入 20 项核心 Issue、44 条可追溯参考资料与 80 条可执行 SOP，均继承现有跨行业研究数据合约。
+
+- [瓶颈调查 v1](reports/ai-music/bottlenecks-2026-11-17.md)；[解决方案 v2](reports/ai-music/solutions-2026-11-17.md)
+- [结构化 Issue 与 SOP](catalog/domains/ai-music.json)；[来源登记](catalog/sources/ai-music.json)
+- [在线问题图谱](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-music&view=issues)
+- [在线研究报告 v2](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-music&view=reports&report=ai-music-solutions-v2)
+- [Word / PDF 二进制归档](reports/ai-music/exports/)（成功运行主分支文档发布工作流后生成）
+
+Markdown 为可信原稿；GitHub Actions 负责 Word/PDF 重新排版、SHA256 哈希清单、二进制入库与 Pages 下载。研究与商业声明的证据等级须保持区分。

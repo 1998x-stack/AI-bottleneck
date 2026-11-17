@@ -7,6 +7,10 @@
   },
   "domains": [
     {
+      "id": "ai-coding",
+      "path": "catalog/domains/ai-coding.json"
+    },
+    {
       "id": "ai-short-drama",
       "path": "catalog/domains/ai-short-drama.json"
     },
@@ -20,11 +24,6 @@
     }
   ],
   "planned": [
-    {
-      "id": "ai-coding",
-      "title": "AI Coding Agent",
-      "description": "端到端开发交付的质量、可靠性与评测瓶颈"
-    },
     {
       "id": "ai-fiction",
       "title": "AI 小说",

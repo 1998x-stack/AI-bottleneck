@@ -68,11 +68,12 @@
 - 研究中标注的 M2/M3 为现有方案可集成性评估，不代表问题已在任何具体企业消除。
 - 新领域的 Issue ID 在领域内唯一，跨领域引用使用 `<domain>/<issue>`。
 
-## 领域可选扩展字段：AI Music (向后兼容)
 
-音乐 Issue 保留 `originalId`（MUS-001…MUS-020），站内短 ID 为 MU-01…MU-20，允许 GitHub Issue 与研究源稿双向映射。
+## Cross-domain issue identity · 2026-11-17
+- Global issue key is `<domainId>/<issueId>`, not issue ID alone.
+- Share links preserve domain: `?view=issues&domain=ai-coding&issue=CA-01`.
+- Planned domains do not contribute to the published statistics; P0/P1/P2 are engineering priorities rather than incidence rates.
 
-- `issues[].sop`: 可执行步骤数组；仅当存在时在详情抽屉显示。
-- `issues[].verification` / `evidenceLevel` / `residualRisk`: 研究证据与验收辅助说明，不代表实测故障发生率。
-- `reports[].artifacts.docx` 和 `reports[].artifacts.pdf`: 合约要求其值为 `reports/<domain>/exports/<reportId>.<ext>`，CI 校验。
-- 每个领域由独立的 `catalog/domains/<domain>.json` 和 `catalog/sources/<domain>.json` 维护，旧领域无需升级字段；不做跨行业优先级“统计排行榜”的误导性推断。
+## AI 音乐专题：可选向后兼容字段
+
+音乐领域使用 MU-01…MU-20 作为站内短 ID，并保留原稿 `originalId`（MUS-001…MUS-020）。Issue 可以增补 `sop[]`、`verification`、`evidenceLevel`、`residualRisk`，旧领域无需修改。Word/PDF 路径使用强制声明 `reports[].artifacts.{docx,pdf}`，以支持 Git 归档与 SHA256 审计。
