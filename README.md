@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 当前已导入 **AI 短剧** 专题（12 个 DR issues、33 条来源、2 份完整 Markdown 研究报告）。其他领域显示为**规划中**，不冒充已完成研究。
+**状态：** 已发布 **AI 短剧**（12 项 DR issues）和 **企业 AI 知识库**（22 项 KM issues、36 条来源、v2.0 完整研究手册），其他领域按统一数据契约逐步扩展。
 
 ## 产品定位
 
@@ -62,6 +62,15 @@
 归档目录还包含 `manifest.json`，保存 Markdown、DOCX、PDF 的 SHA-256 与文件大小；`scripts/verify_exports.py` 检查源文档一致性、PDF 页数、Word 压缩包完整性及 Pages 下载文件完整性。
 
 **说明：** 已有报告的 Markdown 为版本化来源，Git 归档中的 DOCX/PDF 是由它重新排版并生成的出版版本，不保证字节级等同于此前单独提供的 Word 文件。
+
+## 企业 AI 知识库专题
+
+- [领域总览](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=overview) · [22 项 Issue 图谱](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=issues) · [报告在线阅读](https://1998x-stack.github.io/AI-bottleneck/?domain=enterprise-knowledge&view=reports)
+- [Markdown 原始研究](reports/enterprise-knowledge/enterprise-knowledge-research-2026-11-17.md)
+- GitHub Word：[DOCX](reports/enterprise-knowledge/exports/enterprise-km-research-v2.docx) · GitHub PDF：[PDF](reports/enterprise-knowledge/exports/enterprise-km-research-v2.pdf)
+- Pages：[下载 Word](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.docx) / [下载 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.pdf)
+- 合并后 Actions 通过 Markdown 自动生成版本化文档、SHA256 清单，提交至 `reports/<domain>/exports/` 并发布到 Pages。
+- [Web UI 设计与可扩展架构 v2](docs/ui-design-v2.md)。
 
 ## 本地运行
 
