@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-music",
+  "files": [
+    {
+      "id": "ai-music-bottlenecks-v1",
+      "source": "reports/ai-music/bottlenecks-2026-11-17.md",
+      "sourceSha256": "39c2336c2d57534d9c7ac212afd26a7341f402bba39528aea467076a25bd4c99",
+      "docxSha256": "0c2d9ae035dd780a090083d7a6dadc4a783907dc031cf692563ff8766497d638",
+      "pdfSha256": "53f8d63d9ba82089a2add1a8096fe07cb2e479596d58aa09c7cae585c6d2da5e",
+      "docxBytes": 59171,
+      "pdfBytes": 827691
+    },
+    {
+      "id": "ai-music-solutions-v2",
+      "source": "reports/ai-music/solutions-2026-11-17.md",
+      "sourceSha256": "071b23e32c2fba96d795b8481fb5a7c42e813d42901c45e3fe98b00066fcbf3a",
+      "docxSha256": "8a9024b67b7968ea30311f3573f1dfa69ef21d3ab42e2803cc84604316c7e18a",
+      "pdfSha256": "4f051d1c5e8f6130dbebfdffe59bfed8e7dca9cc9bb87000d2f6f91e71284cfd",
+      "docxBytes": 78583,
+      "pdfBytes": 1268259
+    }
+  ]
+}
