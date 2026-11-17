@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-fiction",
+  "files": [
+    {
+      "id": "novel-bottlenecks-v1",
+      "source": "reports/ai-fiction/bottlenecks-2026-11-17.md",
+      "sourceSha256": "fdc6831cdad6187cd88569663750ec8c09f8904919e221574345aba397b5d90c",
+      "docxSha256": "c0ed032f0d88664183264cce7d8972c93ace5de201b8b9836d49b0fcb35dd004",
+      "pdfSha256": "4a9fea26b93d75757155a6b9ffa8ee5657a77213f1aad1fcb1eecc32cdfb7c4a",
+      "docxBytes": 58275,
+      "pdfBytes": 781696
+    },
+    {
+      "id": "novel-solutions-v2",
+      "source": "reports/ai-fiction/solutions-2026-11-17.md",
+      "sourceSha256": "04e96851c6806638897231a9a59a75a13e55d404519c3b98c1ad86eae8124623",
+      "docxSha256": "bbbe9f6147bf6696e67e55865ef30a71a4413d2d29b012ad67a0967da2e97291",
+      "pdfSha256": "4944d5306826a1cc054e9452cda9aa73e49fee0a028aa4a48645ef4dbc09353a",
+      "docxBytes": 76886,
+      "pdfBytes": 1161418
+    }
+  ]
+}
