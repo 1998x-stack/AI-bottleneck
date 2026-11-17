@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 已发布 **AI 短剧**（12 项 DR issues）和 **企业 AI 知识库**（22 项 KM issues、36 条来源、v2.0 完整研究手册），其他领域按统一数据契约逐步扩展。
+**状态：** 已发布 **AI 短剧**、**企业 AI 知识库**、**AI 音乐**、**AI 小说** 等 4 个专题。AI 小说收录 20 类核心问题、40 条研究来源、两版完整报告及 Word/PDF 归档。
 
 ## 产品定位
 
@@ -71,6 +71,15 @@
 - Pages：[下载 Word](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.docx) / [下载 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/enterprise-km-research-v2.pdf)
 - 合并后 Actions 通过 Markdown 自动生成版本化文档、SHA256 清单，提交至 `reports/<domain>/exports/` 并发布到 Pages。
 - [Web UI 设计与可扩展架构 v2](docs/ui-design-v2.md)。
+
+
+## AI 小说生产专题
+
+- [研究总览](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=overview) · [20 类问题](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=issues) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=evidence) · [在线报告](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=reports)
+- 原文：[v1 瓶颈调查](reports/ai-fiction/bottlenecks-2026-11-17.md) · [v2 解决方案](reports/ai-fiction/solutions-2026-11-17.md)
+- Git 归档：[v1 Word](reports/ai-fiction/exports/novel-bottlenecks-v1.docx) / [v1 PDF](reports/ai-fiction/exports/novel-bottlenecks-v1.pdf) · [v2 Word](reports/ai-fiction/exports/novel-solutions-v2.docx) / [v2 PDF](reports/ai-fiction/exports/novel-solutions-v2.pdf)
+- Pages 下载：[v1 DOCX](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-bottlenecks-v1.docx) / [v1 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-bottlenecks-v1.pdf) · [v2 DOCX](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-solutions-v2.docx) / [v2 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-solutions-v2.pdf)
+- [跨领域 Web UI 设计与可扩展架构](docs/ui-system-v2.md)
 
 ## 本地运行
 
