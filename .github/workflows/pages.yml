@@ -30,16 +30,38 @@ jobs:
           node --check markdown.js
       - name: Validate Python build script
         run: python -m py_compile scripts/build_site.py
+      - name: Install PDF renderer and Chinese fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-noto-cjk
       - name: Install Word conversion dependency
         run: python -m pip install --disable-pip-version-check python-docx==1.2.0
       - name: Build static website and downloadable documents
-        run: python scripts/build_site.py
+        run: python scripts/build_site.py --require-pdf
       - name: Verify bundled files and Word outputs
         run: |
           test -s dist/index.html
           test -s dist/catalog/domains/ai-short-drama.json
           test -s dist/downloads/ai-drama-bottlenecks-v1.docx
           test -s dist/downloads/ai-drama-solutions-v2.docx
+          test -s dist/catalog/domains/ai-coding.json
+          test -s dist/downloads/ai-coding-bottlenecks-v1.docx
+          test -s dist/downloads/ai-coding-bottlenecks-v1.pdf
+          test -s dist/downloads/ai-coding-solutions-v2.docx
+          test -s dist/downloads/ai-coding-solutions-v2.pdf
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          index=json.loads(Path('catalog/index.json').read_text())
+          for item in index['domains']:
+              domain=json.loads(Path(item['path']).read_text())
+              for report in domain['reports']:
+                  for ext, magic in [('docx', b'PK'),('pdf',b'%PDF')]:
+                      path=Path('dist/downloads')/(report['id']+'.'+ext)
+                      assert path.is_file() and path.stat().st_size>1000, f'missing {path}'
+                      assert path.open('rb').read(len(magic))==magic, f'invalid {path}'
+          print('Verified all research DOCX/PDF signatures')
+          PY
       - name: Upload preview build
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
@@ -64,8 +86,11 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/validate.mjs
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-noto-cjk
       - run: python -m pip install --disable-pip-version-check python-docx==1.2.0
-      - run: python scripts/build_site.py
+      - run: python scripts/build_site.py --require-pdf
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
@@ -73,3 +98,45 @@ jobs:
       - name: Deploy site to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  publish-binaries:
+    name: Mirror Word/PDF publications to Git
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-noto-cjk
+      - run: python -m pip install --disable-pip-version-check python-docx==1.2.0
+      - run: python scripts/build_site.py --require-pdf
+      - name: Stage versioned Word/PDF deliverables
+        run: |
+          python - <<'PY'
+          import json
+          import shutil
+          from pathlib import Path
+          index=json.loads(Path('catalog/index.json').read_text())
+          for item in index['domains']:
+              domain=json.loads(Path(item['path']).read_text())
+              for report in domain['reports']:
+                  dest=Path('publications')/domain['id']
+                  dest.mkdir(parents=True,exist_ok=True)
+                  for ext in ['docx','pdf']:
+                      name=report['id']+'.'+ext
+                      shutil.copy2(Path('dist/downloads')/name,dest/name)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add publications/
+          if git diff --cached --quiet; then
+            echo "No changes in versioned documents."
+          else
+            git commit -m "build: mirror generated research DOCX/PDF [skip ci]"
+            git push origin HEAD:main
+          fi
