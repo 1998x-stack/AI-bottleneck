@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-short-drama",
+  "files": [
+    {
+      "id": "ai-drama-bottlenecks-v1",
+      "source": "reports/ai-short-drama/bottlenecks-2026-11-17.md",
+      "sourceSha256": "8e8e14979899543168723b7ebde5c62b4a4bf903f354f34b63629ccd927a0596",
+      "docxSha256": "61f3da8733982dc786845d9eebdd5583fbecbf93b628e1c862abe7fc0908bbc2",
+      "pdfSha256": "9c97820614a3aeaed54cbf33b22e0909b22ab20ba42813918f15489ee2934c61",
+      "docxBytes": 56002,
+      "pdfBytes": 768228
+    },
+    {
+      "id": "ai-drama-solutions-v2",
+      "source": "reports/ai-short-drama/solutions-2026-11-17.md",
+      "sourceSha256": "54c6a04ac1a027a46ffbc49c3e433357dde845b72fa5365603c41623dbfd755e",
+      "docxSha256": "adb27ec6a73ffbdd835221a3f220aa0d85c2b2153ea57637aa9ba39c8692b5e1",
+      "pdfSha256": "73661664367aed3ab40381b24a35b7b1340cc541c8321b66be970cb35c1fe5c2",
+      "docxBytes": 79660,
+      "pdfBytes": 1250565
+    }
+  ]
+}

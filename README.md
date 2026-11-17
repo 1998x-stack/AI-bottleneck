@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 已导入 **AI 短剧**（12 个核心问题）与 **AI Coding Agent**（16 个核心问题、38 条来源、两版中文研究报告）；其它领域显示为**规划中**，不冒充已完成研究。
+**状态：** 当前已导入 **AI 短剧** 专题（12 个 DR issues、33 条来源、2 份完整 Markdown 研究报告）。其他领域显示为**规划中**，不冒充已完成研究。
 
 ## 产品定位
 
@@ -12,9 +12,9 @@
 
 - 从「现象与严重度」进入「技术根因」，逐项对应「已有工具/方法」、「适用边界」、「验收指标」和「证据来源」。
 - 单一领域报告与结构化问题索引同时存在；研究更新可追溯，不以模型宣传值代替实测指标。
-- 全站跨领域搜索、领域切换、问题筛选、跨领域对照、详情抽屉、报告阅读、来源登记、Word/PDF 下载、明暗主题、响应式布局。
+- 全站搜索、问题筛选、详情抽屉、文档阅读、来源登记、明暗主题、响应式布局。
 - 使用 GitHub Pages 发布，**前端无框架依赖、无数据库、无账号系统**；每加入一个行业不需要重写前端。
-- GitHub Actions 校验 JSON schema 合约、引用、报告文件，构建 Word/PDF 下载版本并部署 Pages。
+- GitHub Actions 校验 JSON schema 合约、引用、报告文件，构建 Word 下载版本并部署 Pages。
 
 ## 目录
 
@@ -34,8 +34,10 @@
 ├── reports/
 │   └── ai-short-drama/
 │       ├── bottlenecks-2026-11-17.md
-│       └── solutions-2026-11-17.md
+│       ├── solutions-2026-11-17.md
+│       └── exports/  # 两版 DOCX/PDF + SHA256 manifest
 ├── scripts/
+│   ├── verify_exports.py  # DOCX/PDF/下载副本校验
 │   ├── validate.mjs        # 跨领域合约和引用校验
 │   └── build_site.py       # 静态打包与生成 Word
 ├── docs/
@@ -47,6 +49,19 @@
 ├── CONTRIBUTING.md
 └── AGENTS.md
 ```
+
+## Word / PDF 正式文档归档
+
+**Word 和 PDF 不再只是 Pages 构建时的临时文件。** 每个研究报告的导出文件与 Markdown 一同归档在 Git 的 `reports/<domain>/exports/` 中，并提供 Pages 在线下载。主分支工作流会在报告内容变更时重新生成、校验并提交二进制文件。
+
+| 研究版本 | Word（GitHub 仓库） | PDF（GitHub 仓库） | Pages 下载 |
+|---|---|---|---|
+| AI 短剧瓶颈 v1 | [DOCX](reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.docx) | [PDF](reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.pdf) | [Word](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-bottlenecks-v1.docx) / [PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-bottlenecks-v1.pdf) |
+| AI 短剧解决方案 v2 | [DOCX](reports/ai-short-drama/exports/ai-drama-solutions-v2.docx) | [PDF](reports/ai-short-drama/exports/ai-drama-solutions-v2.pdf) | [Word](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-solutions-v2.docx) / [PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-solutions-v2.pdf) |
+
+归档目录还包含 `manifest.json`，保存 Markdown、DOCX、PDF 的 SHA-256 与文件大小；`scripts/verify_exports.py` 检查源文档一致性、PDF 页数、Word 压缩包完整性及 Pages 下载文件完整性。
+
+**说明：** 已有报告的 Markdown 为版本化来源，Git 归档中的 DOCX/PDF 是由它重新排版并生成的出版版本，不保证字节级等同于此前单独提供的 Word 文件。
 
 ## 本地运行
 
@@ -60,11 +75,13 @@ python3 -m http.server 8000
 # 访问 http://localhost:8000/
 ```
 
-生成与 GitHub Pages 一致的静态站点（包含 Word/PDF 下载）：
+生成与 GitHub Pages 一致的站点与 Word/PDF 归档：
 
 ```bash
-python3 -m pip install python-docx==1.2.0  # PDF 转换另需 LibreOffice / soffice
+python3 -m pip install python-docx==1.2.0
+# 另需安装 LibreOffice Writer 与中文字体（Noto CJK）
 python3 scripts/build_site.py
+python3 scripts/verify_exports.py
 cd dist && python3 -m http.server 8000
 ```
 
@@ -93,11 +110,11 @@ cd dist && python3 -m http.server 8000
 研究文档引用的第三方资料受其各自权利声明约束；引用与链接并不代表获得第三方素材的再发行许可。站点代码可以进一步采用明确的开源 LICENSE 后对外授权；在仓库指定许可证前，不应默认允许无限制复制和商业再使用。
 
 
-## 已发布专题与下载
+## AI Coding Agent · 新增专题（2026-11-17）
 
-- [AI Coding Agent · Issues](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding)
-- [AI Coding Agent · 解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2)
-- [AI 短剧 · 原研究](https://1998x-stack.github.io/AI-bottleneck/?view=overview&domain=ai-short-drama)
-- [跨领域瓶颈对照](https://1998x-stack.github.io/AI-bottleneck/?view=compare)
+- [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding) · 16 类核心瓶颈、38 条参考来源。
+- [逐项解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2) · 技术选型、工程实施配方、验收指标与局限。
+- [跨领域比较](https://1998x-stack.github.io/AI-bottleneck/?view=compare) · 仅展示结构化目录中的已发布领域，不将相对优先级当做发生率。
+- 原始 Markdown：`reports/ai-coding/`；由最新 Word/PDF 归档流水线生成二进制文档至 `reports/ai-coding/exports/`，并与 Pages 下载副本核对 SHA-256。
 
-源文件：`reports/<domain>/`；可下载格式：`downloads/<report-id>.docx`、`downloads/<report-id>.pdf`（GitHub Pages 构建产物）。`publications/<domain>/` 用于 Git 历史中的二进制镜像（由 CI 生成，不是人工编辑源）。
+Web UI 支持领域切换、全站搜索与 `?domain=<id>&view=issues&issue=<id>` 深链接；新增领域只需提供 JSON 数据与报告，不需要复制前端。

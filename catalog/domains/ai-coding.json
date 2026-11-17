@@ -33,7 +33,11 @@
       "label": "Coding Agent 高频 Issues 与核心瓶颈",
       "description": "开发者痛点、失败类型、实证证据、根因模型与风险排序",
       "path": "reports/ai-coding/bottlenecks-2026-11-17.md",
-      "date": "2026-11-17"
+      "date": "2026-11-17",
+      "artifacts": {
+        "docx": "reports/ai-coding/exports/ai-coding-bottlenecks-v1.docx",
+        "pdf": "reports/ai-coding/exports/ai-coding-bottlenecks-v1.pdf"
+      }
     },
     {
       "id": "ai-coding-solutions-v2",
@@ -41,7 +45,11 @@
       "label": "Coding Agent 逐项解决方案与工程实施研究",
       "description": "16 类问题、工具选型、实施 SOP、故障注入与验收指标",
       "path": "reports/ai-coding/solutions-2026-11-17.md",
-      "date": "2026-11-17"
+      "date": "2026-11-17",
+      "artifacts": {
+        "docx": "reports/ai-coding/exports/ai-coding-solutions-v2.docx",
+        "pdf": "reports/ai-coding/exports/ai-coding-solutions-v2.pdf"
+      }
     }
   ],
   "disclaimer": "P0/P1/P2 为工程风险优先级，不是行业故障频率；成熟度为研究者判断。问卷、工具 Issue 和任务基准的分母不同，不可合并为统一故障率。",

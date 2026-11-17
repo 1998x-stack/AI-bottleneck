@@ -30,7 +30,11 @@
     "label": "研究标题",
     "description": "本版覆盖范围",
     "path": "reports/ai-short-drama/file.md",
-    "date": "2026-11-17"
+    "date": "2026-11-17",
+    "artifacts": {
+      "docx": "reports/ai-short-drama/exports/unique-report-id.docx",
+      "pdf": "reports/ai-short-drama/exports/unique-report-id.pdf"
+    }
   }],
   "issues": [{
     "id": "DR-01",
@@ -60,13 +64,15 @@
 ### 强制校验
 `node scripts/validate.mjs` 负责检查 ID 唯一性、引用存在、来源 HTTPS、报告路径与实际文件存在、类别和枚举合法性。更严格的 schema 和跨域统计在后续迭代引入。
 
+## 版本化 Word / PDF 归档规范
 
-## v2 实施说明：跨领域与文档衍生物
+每份已发布报告必须声明 `reports/<domainId>/exports/<reportId>.docx` 与 `.pdf`；这些是**正式的 Git 仓库文件**，不是 Pages 暂存产物。自动构建为每个领域生成同目录的 `manifest.json`，记录 Markdown 来源及 DOCX/PDF SHA-256。CI 中 `scripts/verify_exports.py` 检查源文档变更、文档完整性、PDF 页数及 Pages 下载副本的字节级一致性。报告更新后重新生成的文件由 Actions 自动提交到主分支。
 
-- `catalog/index.json` 的 `domains` 列表只存已发布领域，`planned` 列表不可计入统计。
-- Issue ID 只需领域内唯一；全局标识使用 `domainId/issueId`，例如 `ai-coding/CA-01`。
-- `sourceIds` 始终指向本领域的 `catalog/sources/<domain>.json`；同一 `S01` 在两个领域不表示同一来源。
-- `reports[].path` 指向 Git 内真实 Markdown 源文档；站点构建衍生 `downloads/<report.id>.docx` 和 `.pdf`，站点不依赖外部 PDF URL。
-- `publications/<domainId>/` 可以镜像生成的 Word/PDF 文件用于 Git 历史留存；这些是衍生物，Markdown + Catalog 仍是唯一可编辑源。
-- 扩展字段使用可选策略，不能在不升级 `schemaVersion` 的情况下破坏 v1 必填字段。
-- 所有来源需有类型与 URL；公开调查百分比与工程风险优先级禁止直接进行算术比较。
+
+## Cross-domain UI and traceable routing (2026-11-17)
+
+- Across-domain issue identity: `<domainId>/<issueId>`, not an issue ID by itself.
+- `?domain=ai-coding&view=issues&issue=CA-01` links preserve domain context.
+- Only `domains` contribute to published statistics; `planned` is excluded.
+- External evidence is a cited research reference, not necessarily validation of a tool's real-world effectiveness.
+- Report Word/PDF artifacts are committed to `reports/<domainId>/exports/`, with SHA256 manifest checks and byte-for-byte matching Pages downloads.

@@ -29,6 +29,9 @@ for(const ref of idx.domains){
   assert.match(r.path,/^reports\/[a-z0-9-]+\/[a-z0-9-]+\.md$/);
   assert.ok(fs.existsSync(r.path),'missing report '+r.path);
   assert.ok(fs.readFileSync(r.path,'utf8').length>500,'report too short');
+  for(const ext of ['docx','pdf']) {
+   assert.equal(r.artifacts?.[ext],`reports/${d.id}/exports/${r.id}.${ext}`,'invalid artifact path for '+r.id);
+  }
  }
  for(const i of d.issues){
   assert.match(i.id,/^[A-Z]{2}-\d{2}$/);
