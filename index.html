@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="light dark"/>
+<meta name="description" content="AI Bottleneck Observatory：跨行业 AI 生产流程问题、证据、成熟技术方案与可验证工程路线。"/>
+<meta property="og:title" content="AI Bottleneck Observatory · 产业瓶颈研究图谱"/>
+<meta property="og:description" content="让产业研究从长报告变为可检索、可追踪、可扩展的证据图谱。"/>
+<title>AI Bottleneck Observatory | 跨领域研究图谱</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"/>
+<link rel="stylesheet" href="./styles.css"/>
+</head><body>
+<a class="skip-link" href="#content">跳转到内容</a>
+<div id="app">
+<header class="topbar">
+ <a class="brand" href="./" aria-label="AI Bottleneck Observatory 首页"><span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-name"><b>AI<span class="brand-dot">.</span>BOTTLENECK</b><small>OBSERVATORY / 研究图谱</small></span></a>
+ <nav class="topnav" aria-label="主导航"><button class="nav-link active" data-view="overview">总览</button><button class="nav-link" data-view="issues">问题图谱</button><button class="nav-link" data-view="reports">研究报告</button><button class="nav-link" data-view="evidence">证据库</button></nav>
+ <div class="top-actions"><button class="search-trigger" id="searchTrigger" title="搜索问题，快捷键 /"><span aria-hidden="true">⌕</span> <span>搜索问题与方案</span> <kbd>/</kbd></button><button class="icon-button" id="themeToggle" title="切换主题" aria-label="切换明暗主题">◐</button><a class="github-link" href="https://github.com/1998x-stack/AI-bottleneck" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></div>
+</header>
+<div class="announcement"><span class="live-pulse"></span><span>开放研究知识库 · 2026 / 11</span><span class="announcement-sep">/</span><span>Evidence-led · Open methodology · Versioned research</span></div>
+<main id="content">
+ <section class="hero">
+  <div class="hero-left"><div class="eyebrow"><span class="dash"></span> AI INDUSTRY INTELLIGENCE</div><h1>看见瓶颈，<br/><span>找到突破路径。</span></h1><p class="hero-intro">不是一份份孤立的研究报告，而是一张持续生长的产业问题图谱。从症状到根因，从现有方案到工程验收，让每个判断有证据、每种方案有边界。</p><div class="hero-ctas"><button class="primary-cta" data-view="issues">探索问题图谱 <span>↗</span></button><button class="secondary-cta" data-view="reports">阅读研究报告 <span>→</span></button></div><div id="heroStats" class="hero-stats" aria-label="知识库规模"><span>正在载入研究数据…</span></div></div>
+  <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="orbit-grid"></div><div class="orbit-core"><span>RESEARCH</span><strong>OS</strong><small>01 / EXPANDING</small></div><span class="orbit-chip chip-a">ISSUE → ROOT CAUSE</span><span class="orbit-chip chip-b">EVIDENCE → SOLUTION</span><span class="orbit-chip chip-c">TEST → ITERATE</span><span class="spark spark-a"></span><span class="spark spark-b"></span><span class="spark spark-c"></span></div>
+ </section>
+ <section class="workspace">
+  <aside class="sidebar" aria-label="研究分类">
+   <div class="sidebar-block"><div class="sidebar-heading">研究导航 <span>LIBRARY</span></div><button class="side-link selected" data-view="overview"><span class="side-icon">◈</span> 研究总览 <span class="side-arrow">↗</span></button><button class="side-link" data-view="issues"><span class="side-icon">▤</span> 问题图谱</button><button class="side-link" data-view="reports"><span class="side-icon">▣</span> 报告档案</button><button class="side-link" data-view="evidence"><span class="side-icon">⌁</span> 证据与来源</button><button class="side-link" data-view="methods"><span class="side-icon">◇</span> 研究方法</button></div>
+   <div class="sidebar-block"><div class="sidebar-heading">已发布领域 <span id="domainCount">0</span></div><div id="domainNav"><div class="skeleton slim"></div></div></div>
+   <div class="sidebar-block sidebar-future"><div class="sidebar-heading">研究规划 <span>UP NEXT</span></div><div id="plannedNav"></div></div>
+   <div class="sidebar-foot"><b>OPEN RESEARCH</b><p>欢迎通过 GitHub Issue 提交新行业、错误反馈和证据补充。</p><a href="https://github.com/1998x-stack/AI-bottleneck/issues/new" target="_blank" rel="noopener noreferrer">参与研究 ↗</a></div>
+  </aside>
+  <div class="main-column">
+   <div class="content-topline"><div class="breadcrumb" id="breadcrumb">Knowledge base / Overview</div><span class="time-tag" id="lastUpdate">数据载入中</span></div>
+   <div id="viewRoot" aria-live="polite"><div class="loading-state"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton short"></div></div></div>
+  </div>
+ </section>
+</main>
+<footer class="footer"><div class="footer-brand"><span class="footer-logo">AI<span>.</span>BOTTLENECK</span><p>Research is a process, not a PDF.</p></div><div class="footer-links"><a href="https://github.com/1998x-stack/AI-bottleneck" target="_blank" rel="noopener noreferrer">GitHub 仓库 ↗</a><button data-view="methods">研究方法</button><button data-view="evidence">资料来源</button></div><div class="footer-note">© 2026 · Versioned evidence, not infallible conclusions.</div></footer>
+</div>
+<div id="modalLayer"></div><div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="./app.js"></script>
+</body></html>

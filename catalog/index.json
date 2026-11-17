@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "title": "AI Bottleneck Observatory",
+    "subtitle": "跨领域 AI 生产瓶颈与解决方案研究库",
+    "updatedAt": "2026-11-17"
+  },
+  "domains": [
+    {
+      "id": "ai-short-drama",
+      "path": "catalog/domains/ai-short-drama.json"
+    }
+  ],
+  "planned": [
+    {
+      "id": "ai-coding",
+      "title": "AI Coding Agent",
+      "description": "端到端开发交付的质量、可靠性与评测瓶颈"
+    },
+    {
+      "id": "enterprise-knowledge",
+      "title": "企业知识库",
+      "description": "数据治理、检索、权限、更新与可信回答"
+    },
+    {
+      "id": "ai-fiction",
+      "title": "AI 小说",
+      "description": "长篇人物一致性、结构、风格与内容评估"
+    },
+    {
+      "id": "news-video",
+      "title": "AI 新闻视频",
+      "description": "来源核验、分镜、配音、合规和自动发布"
+    }
+  ]
+}

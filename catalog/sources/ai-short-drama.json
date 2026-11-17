@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-short-drama",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "艺恩，2026 AI 漫剧市场发展趋势洞察（2026-04）",
+      "note": "行业报告；本文用于行业痛点、同质化与报告口径下的破亿率变化。",
+      "url": "https://pdf.dfcfw.com/pdf/H3_AP202604241821525833_1.pdf",
+      "type": "tool"
+    },
+    {
+      "id": "S02",
+      "title": "明略科技 × 中国广告协会相关委员会，《2026 中国 AI 短剧行业发展与受众洞察报告》（2026-03，调研 2026-02，N=1000）",
+      "note": "用于观众顾虑与优化期待。",
+      "url": "https://pdf.dfcfw.com/pdf/H3_AP202604101821108151_1.pdf",
+      "type": "report"
+    },
+    {
+      "id": "S03",
+      "title": "Wang et al., PersonaShot: Benchmarking Person-Centric Narrative Continuity in Multi-Shot Video Generation（2026-08）",
+      "note": "多镜头物理、情绪和电影语法测评。",
+      "url": "https://arxiv.org/abs/2608.16717",
+      "type": "research"
+    },
+    {
+      "id": "S04",
+      "title": "He et al., EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation（2026-05）",
+      "note": "多镜头长距离实体一致性。",
+      "url": "https://arxiv.org/abs/2605.15199",
+      "type": "tool"
+    },
+    {
+      "id": "S05",
+      "title": "Wang et al., FilmBench: A Film-Grade Benchmark for Cinematic Video Generation（2026-07）",
+      "note": "专业电影语言与多镜头评估。",
+      "url": "https://arxiv.org/abs/2607.24241",
+      "type": "research"
+    },
+    {
+      "id": "S06",
+      "title": "Google Research, Automating coherent long-form video generation（2026）",
+      "note": "结构化视觉记忆、长时序视频与评测进展。",
+      "url": "https://research.google/blog/coherent-long-form-video-generation/",
+      "type": "research"
+    },
+    {
+      "id": "S07",
+      "title": "国家广播电视总局令第 16 号《微短剧发展管理办法》（2026-07-30 发布，2026-09-01 实施）",
+      "note": "",
+      "url": "https://www.nrta.gov.cn/art/2026/7/31/art_113_73785.html",
+      "type": "policy"
+    },
+    {
+      "id": "S08",
+      "title": "国家网信办，《人工智能生成合成内容标识办法》答记者问（2025-03）",
+      "note": "显式/隐式标识与实施要求。",
+      "url": "https://www.cac.gov.cn/2025-03/14/c_1743654685896173.htm",
+      "type": "policy"
+    },
+    {
+      "id": "S09",
+      "title": "BytePlus / ModelArk, Dreamina Seedance 2.5 series tutorial（页面更新于 2026-11-16）",
+      "note": "最长 30 秒、参考输入能力介绍。",
+      "url": "https://docs.byteplus.com/en/docs/ModelArk/seedance-2-5",
+      "type": "tool"
+    },
+    {
+      "id": "S10",
+      "title": "中国青年报，经中新网转载，《AI 影视剧观感如何：超六成受访者感觉“偶尔会出戏”》（2026-04-09）",
+      "note": "观众观感交叉参考。",
+      "url": "https://www.chinanews.com/cul/2026/04-09/10600737.shtml",
+      "type": "tool"
+    },
+    {
+      "id": "S11",
+      "title": "生数科技，《2026 AI 漫剧视频模型行业白皮书》（行业供应商报告）",
+      "note": "垂直模型、工具链与 SOP 问题；供应商观点，证据权重较低。",
+      "url": "https://doc.mbalib.com/m/view/64718df111b5fd40e649143f775fda1f.html",
+      "type": "report"
+    },
+    {
+      "id": "S12",
+      "title": "艾媒咨询，《2025–2026 年中国 AI 漫剧行业趋势白皮书》",
+      "note": "2025-12、N=1074 受众调研，经第三方文档渠道取得，样本与题目不可与 S02 直接合并。",
+      "url": "https://www.scribd.com/document/1007380621/",
+      "type": "report"
+    },
+    {
+      "id": "S13",
+      "title": "文投控股，《2026 年半年度报告》",
+      "note": "供给扩张、内容结构与商业叙述的公司披露，涉及引述第三方数据，非独立行业普查。",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-08-29/1225531739.PDF",
+      "type": "report"
+    },
+    {
+      "id": "S14",
+      "title": "山东省法院网站转载，深圳市龙岗区法院审理短剧改编侵权案件（2026-06-05）",
+      "note": "用于说明未经授权改编传播的法律风险；非 AI 专项判例。",
+      "url": "https://sdcourt.gov.cn/dyzy/372897/372899/44601278/index.html",
+      "type": "policy"
+    },
+    {
+      "id": "S15",
+      "title": "Google Research, Automating coherent long-form video generation（2026-09-24）",
+      "note": "Co-Director、CANVAS、A²RD、VQQA 四项研究，持续视觉记忆与闭环视频优化；为研究成果，不能当成通用商用 API。",
+      "url": "https://research.google/blog/coherent-long-form-video-generation/",
+      "type": "research"
+    },
+    {
+      "id": "S16",
+      "title": "Runway, Introducing Aleph 2.0 and Edit Studio（2026-05-21）",
+      "note": "局部编辑与输入视频保真；具体使用权限、资费与效果以当前平台为准。",
+      "url": "https://runway.com/news/introducing-aleph-2-and-edit-studio",
+      "type": "tool"
+    },
+    {
+      "id": "S17",
+      "title": "TMCADV, VACE: All-in-One Video Creation and Editing（ICCV 2025）",
+      "note": "开源 reference-to-video、video-to-video、masked edit。",
+      "url": "https://github.com/TMCADV/vace",
+      "type": "research"
+    },
+    {
+      "id": "S18",
+      "title": "Meta, Segment Anything 2（SAM 2）",
+      "note": "提示驱动的视频目标分割与跟踪组件；不能取代场景因果判断。",
+      "url": "https://github.com/facebookresearch/sam2",
+      "type": "tool"
+    },
+    {
+      "id": "S19",
+      "title": "Google Developers, Introducing Veo 3.1 and new creative capabilities in the Gemini API",
+      "note": "最多三张参考图、首尾帧控制的官方接口能力说明，具体限制以版本为准。",
+      "url": "https://developers.googleblog.com/en/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/",
+      "type": "tool"
+    },
+    {
+      "id": "S20",
+      "title": "ByteDance, LatentSync",
+      "note": "音频驱动口型视频编辑开源实现，版本差异与 GPU 显存要求以 README 为准。",
+      "url": "https://github.com/bytedance/LatentSync",
+      "type": "tool"
+    },
+    {
+      "id": "S21",
+      "title": "WhisperX",
+      "note": "词级时间戳、说话人分离及语音强制对齐开源实现。",
+      "url": "https://github.com/m-bain/whisperX",
+      "type": "tool"
+    },
+    {
+      "id": "S22",
+      "title": "PySceneDetect",
+      "note": "场景切换检测与视频分割工具；官方开源仓库。",
+      "url": "https://github.com/Breakthrough/PySceneDetect",
+      "type": "tool"
+    },
+    {
+      "id": "S23",
+      "title": "FFmpeg Filters Documentation",
+      "note": "`blackdetect`、`silencedetect`、`loudnorm` 等视频/音频规则检测。",
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "type": "tool"
+    },
+    {
+      "id": "S24",
+      "title": "Remotion, Render your video",
+      "note": "React/JS 视频模板与 CLI/服务端渲染能力。",
+      "url": "https://www.remotion.dev/docs/render",
+      "type": "tool"
+    },
+    {
+      "id": "S25",
+      "title": "C2PA Specifications",
+      "note": "来源溯源、Content Credentials 与媒体编辑历史；不是版权合法性本身。",
+      "url": "https://spec.c2pa.org/",
+      "type": "policy"
+    },
+    {
+      "id": "S26",
+      "title": "ComfyUI, Workflow API Format and Server Routes",
+      "note": "API 格式的节点工作流及服务端任务接口说明。",
+      "url": "https://github.com/Comfy-Org/docs/blob/main/development/api-development/workflow-api-format.mdx",
+      "type": "tool"
+    },
+    {
+      "id": "S27",
+      "title": "AWS S3, Object Lock",
+      "note": "对象防覆盖/不可变保留机制的官方文档。",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
+      "type": "tool"
+    },
+    {
+      "id": "S28",
+      "title": "Netflix, VMAF",
+      "note": "有参考感知视频质量评估，非生成叙事一致性/版权评估工具。",
+      "url": "https://github.com/Netflix/vmaf",
+      "type": "tool"
+    },
+    {
+      "id": "S29",
+      "title": "Huang et al., PoCo: Rethinking Position Embedding as a Context Controller for Multi-Reference and Multi-Shot Video Generation（CVPR 2026）",
+      "note": "多参考/多镜头实体身份与场景保持研究。",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Huang_Rethinking_Position_Embedding_as_a_Context_Controller_for_Multi-Reference_and_CVPR_2026_paper.pdf",
+      "type": "research"
+    },
+    {
+      "id": "S30",
+      "title": "Wang et al., MultiShotMaster: A Controllable Multi-Shot Video Generation Framework（CVPR 2026）",
+      "note": "可控多镜头生成及角色/背景一致性。",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wang_MultiShotMaster_A_Controllable_Multi-Shot_Video_Generation_Framework_CVPR_2026_paper.pdf",
+      "type": "research"
+    },
+    {
+      "id": "S31",
+      "title": "AWS Billing, Cost Allocation Tags",
+      "note": "通过资源标签核算云计算使用成本；不能直接覆盖所有第三方 AI API 费用。",
+      "url": "https://docs.aws.amazon.com/us_en/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
+      "type": "tool"
+    },
+    {
+      "id": "S32",
+      "title": "艾媒咨询，《2026—2027 年中国 AI 微短剧行业趋势白皮书》（2026-11-05）",
+      "note": "用于供给、原创性、产业链和内容竞争观察；数值以报告口径为限。",
+      "url": "https://www.iimedia.cn/c400/119676.html",
+      "type": "report"
+    },
+    {
+      "id": "S33",
+      "title": "Runway Developer API Reference",
+      "note": "Video-to-Video 任务接口、可选模型与输入格式；实时可用性需以账号与 API 响应验证。",
+      "url": "https://docs.dev.runwayml.com/api/",
+      "type": "tool"
+    }
+  ]
+}
