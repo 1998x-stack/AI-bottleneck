@@ -102,71 +102,57 @@
       "title": "空间关系、站位与道具状态连续性",
       "category": "视觉一致性",
       "priority": "P0",
-      "maturity": "跨镜头道具凭空出现、位置跳变、视线或空间关系冲突",
-      "summary": "模型未显式维护场景拓扑和可变世界状态",
-      "rootCause": [
+      "maturity": "M2",
+      "summary": "跨镜头道具凭空出现、位置跳变、视线或空间关系冲突",
+      "rootCause": "模型未显式维护场景拓扑和可变世界状态",
+      "symptoms": [
         "钥匙已放下仍拿在手里",
         "反打镜头左右关系颠倒",
         "门窗布局发生变化"
       ],
-      "symptoms": [
-        [
-          "World State 事件账本",
-          "把人物、道具与场景状态记录为前置条件和结果事件，逐镜验证状态转移。",
-          "需要人工维护关键事件，无法单靠视觉自动推断",
-          [
+      "solutions": [
+        {
+          "name": "World State 事件账本",
+          "approach": "把人物、道具与场景状态记录为前置条件和结果事件，逐镜验证状态转移。",
+          "limitations": "需要人工维护关键事件，无法单靠视觉自动推断",
+          "tools": [
             "Scene Graph",
             "Event Ledger"
           ]
-        ],
-        [
-          "二维机位图或 3D Blocking",
-          "制作场景平面图、人物站位和镜头轴线约束，再出分镜预演。",
-          "增加前期制作步骤",
-          [
+        },
+        {
+          "name": "二维机位图或 3D Blocking",
+          "approach": "制作场景平面图、人物站位和镜头轴线约束，再出分镜预演。",
+          "limitations": "增加前期制作步骤",
+          "tools": [
             "Blender",
             "Storyboard"
           ]
-        ],
-        [
-          "镜头状态一致性审查",
-          "检测画面中实体位置与连续性差异，高风险镜头人工复审。",
-          "自动视觉检查有误报和漏报",
-          [
+        },
+        {
+          "name": "镜头状态一致性审查",
+          "approach": "检测画面中实体位置与连续性差异，高风险镜头人工复审。",
+          "limitations": "自动视觉检查有误报和漏报",
+          "tools": [
             "SAM 2",
             "EntityBench"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "道",
-          "approach": "具",
-          "limitations": "状",
-          "tools": "态"
-        },
-        {
-          "name": "空",
-          "approach": "间",
-          "limitations": "连",
-          "tools": "续"
-        },
-        {
-          "name": "复",
-          "approach": "审",
-          "limitations": "工",
-          "tools": "时"
         }
       ],
       "metrics": [
-        "S04",
-        "S06",
-        "S18"
+        "道具状态违例率",
+        "空间连续性错误数/分钟",
+        "复审工时"
       ],
       "tags": [
         "视觉一致性",
         "P0",
-        "跨镜头道具凭空出现、位置跳变、视线或空间关系冲突"
+        "M2"
+      ],
+      "sourceIds": [
+        "S04",
+        "S06",
+        "S18"
       ]
     },
     {
@@ -174,77 +160,58 @@
       "title": "抽卡返工、成本波动与交付不确定性",
       "category": "生成与控制",
       "priority": "P0",
-      "maturity": "生成成功不等于镜头可用，返工放大成本",
-      "summary": "随机采样、供应商差异和缺乏质量门禁",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "生成成功不等于镜头可用，返工放大成本",
+      "rootCause": "随机采样、供应商差异和缺乏质量门禁",
+      "symptoms": [
         "多个版本皆不可用",
         "总计费时长远高于成片时长",
         "任务超时无法恢复"
       ],
-      "symptoms": [
-        [
-          "镜头级预算与有限重试",
-          "每镜限制次数与金额，记录输入哈希、错误类型和可用片段率。",
-          "质量阈值过严会增加人工升级",
-          [
+      "solutions": [
+        {
+          "name": "镜头级预算与有限重试",
+          "approach": "每镜限制次数与金额，记录输入哈希、错误类型和可用片段率。",
+          "limitations": "质量阈值过严会增加人工升级",
+          "tools": [
             "Shot Queue",
             "Budget Circuit Breaker"
           ]
-        ],
-        [
-          "多模型路由",
-          "按动作复杂度、参考控制、价格选择模型，并用固定样片集定期回归。",
-          "需要承担多供应商集成与合规成本",
-          [
+        },
+        {
+          "name": "多模型路由",
+          "approach": "按动作复杂度、参考控制、价格选择模型，并用固定样片集定期回归。",
+          "limitations": "需要承担多供应商集成与合规成本",
+          "tools": [
             "Provider Adapter",
             "A/B Benchmark"
           ]
-        ],
-        [
-          "失败分类路由",
-          "将失败分为内容、身份、动作、服务超时和审核失败，决定重试、编辑或人工接管。",
-          "需要有标注良好的失败数据",
-          [
+        },
+        {
+          "name": "失败分类路由",
+          "approach": "将失败分为内容、身份、动作、服务超时和审核失败，决定重试、编辑或人工接管。",
+          "limitations": "需要有标注良好的失败数据",
+          "tools": [
             "Quality Agent",
             "Human Review"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "可",
-          "approach": "用",
-          "limitations": "秒",
-          "tools": "数"
-        },
-        {
-          "name": "首",
-          "approach": "次",
-          "limitations": "通",
-          "tools": "过"
-        },
-        {
-          "name": "P",
-          "approach": "9",
-          "limitations": "5",
-          "tools": " "
-        },
-        {
-          "name": "超",
-          "approach": "预",
-          "limitations": "算",
-          "tools": "比"
         }
       ],
       "metrics": [
-        "S09",
-        "S31",
-        "S33"
+        "可用秒数/计费秒数",
+        "首次通过率",
+        "P95 成片交付时长",
+        "超预算比例"
       ],
       "tags": [
         "生成与控制",
         "P0",
-        "生成成功不等于镜头可用，返工放大成本"
+        "M3"
+      ],
+      "sourceIds": [
+        "S09",
+        "S31",
+        "S33"
       ]
     },
     {
@@ -252,71 +219,57 @@
       "title": "剧本连续性、人物动机与长篇叙事失控",
       "category": "创作与内容",
       "priority": "P0",
-      "maturity": "单集看似通顺，整季时间线、伏笔与人物动机前后矛盾",
-      "summary": "LLM 局部上下文优化，缺少长程叙事结构和因果核查",
-      "rootCause": [
+      "maturity": "M2",
+      "summary": "单集看似通顺，整季时间线、伏笔与人物动机前后矛盾",
+      "rootCause": "LLM 局部上下文优化，缺少长程叙事结构和因果核查",
+      "symptoms": [
         "人物突然改变立场",
         "关键伏笔遗忘",
         "每集重复同一反转"
       ],
-      "symptoms": [
-        [
-          "Story Bible 与剧情知识图谱",
-          "结构化保存人物目标、关系、时间线、承诺与伏笔，分集检索。",
-          "结构化信息不等于自动产生精彩剧情",
-          [
+      "solutions": [
+        {
+          "name": "Story Bible 与剧情知识图谱",
+          "approach": "结构化保存人物目标、关系、时间线、承诺与伏笔，分集检索。",
+          "limitations": "结构化信息不等于自动产生精彩剧情",
+          "tools": [
             "Story Bible",
             "Narrative Graph"
           ]
-        ],
-        [
-          "分层编剧与交叉审稿",
-          "整季大纲→场次→对白，分别审查因果、戏剧节奏和人物一致性。",
-          "审稿仍需要专业编剧判断",
-          [
+        },
+        {
+          "name": "分层编剧与交叉审稿",
+          "approach": "整季大纲→场次→对白，分别审查因果、戏剧节奏和人物一致性。",
+          "limitations": "审稿仍需要专业编剧判断",
+          "tools": [
             "Outline Agent",
             "Critic Agent"
           ]
-        ],
-        [
-          "叙事矛盾自动检测",
-          "利用约束查询和 LLM 对照检查人物、时间、道具的矛盾，并输出证据位置。",
-          "模型批评结果需要人审，不能仅看总评分",
-          [
+        },
+        {
+          "name": "叙事矛盾自动检测",
+          "approach": "利用约束查询和 LLM 对照检查人物、时间、道具的矛盾，并输出证据位置。",
+          "limitations": "模型批评结果需要人审，不能仅看总评分",
+          "tools": [
             "RAG",
             "Temporal Constraints"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "剧",
-          "approach": "情",
-          "limitations": "矛",
-          "tools": "盾"
-        },
-        {
-          "name": "伏",
-          "approach": "笔",
-          "limitations": "兑",
-          "tools": "现"
-        },
-        {
-          "name": "专",
-          "approach": "家",
-          "limitations": "审",
-          "tools": "稿"
         }
       ],
       "metrics": [
-        "S03",
-        "S05",
-        "S06"
+        "剧情矛盾数/集",
+        "伏笔兑现率",
+        "专家审稿通过率"
       ],
       "tags": [
         "创作与内容",
         "P0",
-        "单集看似通顺，整季时间线、伏笔与人物动机前后矛盾"
+        "M2"
+      ],
+      "sourceIds": [
+        "S03",
+        "S05",
+        "S06"
       ]
     },
     {
@@ -324,71 +277,57 @@
       "title": "多人互动、动作接触与导演镜头控制",
       "category": "生成与控制",
       "priority": "P0",
-      "maturity": "肢体接触、多人对视、复杂镜头运动容易失败",
-      "summary": "生成过程缺乏精确三维几何与接触约束",
-      "rootCause": [
+      "maturity": "M2",
+      "summary": "肢体接触、多人对视、复杂镜头运动容易失败",
+      "rootCause": "生成过程缺乏精确三维几何与接触约束",
+      "symptoms": [
         "握手错位",
         "多人物站位交换",
         "推拉摇移轨迹错误"
       ],
-      "symptoms": [
-        [
-          "3D 预演与关键帧控制",
-          "先固定走位、景别和关键动作，再调用 image-to-video / controlled video。",
-          "工作量高于纯文本生成",
-          [
+      "solutions": [
+        {
+          "name": "3D 预演与关键帧控制",
+          "approach": "先固定走位、景别和关键动作，再调用 image-to-video / controlled video。",
+          "limitations": "工作量高于纯文本生成",
+          "tools": [
             "Blender",
             "Keyframe Reference"
           ]
-        ],
-        [
-          "镜头动作拆解",
-          "把复杂互动拆成可控的动作单元，通过剪辑建立连续感。",
-          "会牺牲部分长镜头表现",
-          [
+        },
+        {
+          "name": "镜头动作拆解",
+          "approach": "把复杂互动拆成可控的动作单元，通过剪辑建立连续感。",
+          "limitations": "会牺牲部分长镜头表现",
+          "tools": [
             "Animatic",
             "Shot Planning"
           ]
-        ],
-        [
-          "混合制作",
-          "高风险动作改为真人拍摄、传统动画或人工合成。",
-          "需备选素材和后期技能",
-          [
+        },
+        {
+          "name": "混合制作",
+          "approach": "高风险动作改为真人拍摄、传统动画或人工合成。",
+          "limitations": "需备选素材和后期技能",
+          "tools": [
             "Compositing",
             "Motion Capture"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "动",
-          "approach": "作",
-          "limitations": "符",
-          "tools": "合"
-        },
-        {
-          "name": "多",
-          "approach": "人",
-          "limitations": "身",
-          "tools": "份"
-        },
-        {
-          "name": "导",
-          "approach": "演",
-          "limitations": "要",
-          "tools": "求"
         }
       ],
       "metrics": [
-        "S05",
-        "S19",
-        "S30"
+        "动作符合率",
+        "多人身份混淆率",
+        "导演要求达成率"
       ],
       "tags": [
         "生成与控制",
         "P0",
-        "肢体接触、多人对视、复杂镜头运动容易失败"
+        "M2"
+      ],
+      "sourceIds": [
+        "S05",
+        "S19",
+        "S30"
       ]
     },
     {
@@ -396,71 +335,57 @@
       "title": "局部修改、版本回滚与修改波及半径",
       "category": "生产工程",
       "priority": "P0",
-      "maturity": "一句台词或一处道具变化可能触发全段重新生成",
-      "summary": "只有视频文件，没有可编辑的镜头依赖图",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "一句台词或一处道具变化可能触发全段重新生成",
+      "rootCause": "只有视频文件，没有可编辑的镜头依赖图",
+      "symptoms": [
         "修改一处重做整集",
         "素材版本不明",
         "无法比较历史版本"
       ],
-      "symptoms": [
-        [
-          "Shot DAG 与内容寻址存储",
-          "每镜单独保存源资产、提示词、模型参数和依赖关系，变更时按依赖精确失效。",
-          "需要设计版本规则",
-          [
+      "solutions": [
+        {
+          "name": "Shot DAG 与内容寻址存储",
+          "approach": "每镜单独保存源资产、提示词、模型参数和依赖关系，变更时按依赖精确失效。",
+          "limitations": "需要设计版本规则",
+          "tools": [
             "Content Hash",
             "Dependency DAG"
           ]
-        ],
-        [
-          "Video-to-Video / Masked Edit",
-          "使用局部编辑工具替换人物、道具或局部画面，保留未受影响素材。",
-          "复杂修改可能产生接缝和运动漂移",
-          [
+        },
+        {
+          "name": "Video-to-Video / Masked Edit",
+          "approach": "使用局部编辑工具替换人物、道具或局部画面，保留未受影响素材。",
+          "limitations": "复杂修改可能产生接缝和运动漂移",
+          "tools": [
             "VACE",
             "Aleph 2.0"
           ]
-        ],
-        [
-          "时间线独立合成",
-          "在可编辑 timeline 中管理音视频与字幕，不把所有内容烘焙进单一片段。",
-          "需要标准化时间基与媒体格式",
-          [
+        },
+        {
+          "name": "时间线独立合成",
+          "approach": "在可编辑 timeline 中管理音视频与字幕，不把所有内容烘焙进单一片段。",
+          "limitations": "需要标准化时间基与媒体格式",
+          "tools": [
             "Remotion",
             "FFmpeg"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "单",
-          "approach": "镜",
-          "limitations": "修",
-          "tools": "改"
-        },
-        {
-          "name": "平",
-          "approach": "均",
-          "limitations": "修",
-          "tools": "复"
-        },
-        {
-          "name": "资",
-          "approach": "产",
-          "limitations": "回",
-          "tools": "滚"
         }
       ],
       "metrics": [
-        "S16",
-        "S17",
-        "S24"
+        "单镜修改波及半径",
+        "平均修复时间",
+        "资产回滚成功率"
       ],
       "tags": [
         "生产工程",
         "P0",
-        "一句台词或一处道具变化可能触发全段重新生成"
+        "M3"
+      ],
+      "sourceIds": [
+        "S16",
+        "S17",
+        "S24"
       ]
     },
     {
@@ -468,71 +393,57 @@
       "title": "对白情绪、音色、口型与音画同步",
       "category": "音频与后期",
       "priority": "P1",
-      "maturity": "声音机械、口型不同步、不同集音色漂移",
-      "summary": "TTS 时长、视觉口型和情绪控制缺少统一时间线",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "声音机械、口型不同步、不同集音色漂移",
+      "rootCause": "TTS 时长、视觉口型和情绪控制缺少统一时间线",
+      "symptoms": [
         "台词延迟",
         "口型与发音错位",
         "角色声音忽高忽低"
       ],
-      "symptoms": [
-        [
-          "音频先行与角色音色档案",
-          "保存角色合法授权的声音与情绪参数，先锁对白时长再制作口型。",
-          "强情绪和非语言发声仍需人工导演",
-          [
+      "solutions": [
+        {
+          "name": "音频先行与角色音色档案",
+          "approach": "保存角色合法授权的声音与情绪参数，先锁对白时长再制作口型。",
+          "limitations": "强情绪和非语言发声仍需人工导演",
+          "tools": [
             "Voice Registry",
             "TTS"
           ]
-        ],
-        [
-          "口型驱动与强制对齐",
-          "用 lip-sync 模型修口型、ASR 强制对齐做字幕时间线。",
-          "跨语言配音和多人遮挡会影响结果",
-          [
+        },
+        {
+          "name": "口型驱动与强制对齐",
+          "approach": "用 lip-sync 模型修口型、ASR 强制对齐做字幕时间线。",
+          "limitations": "跨语言配音和多人遮挡会影响结果",
+          "tools": [
             "LatentSync",
             "WhisperX"
           ]
-        ],
-        [
-          "双层 QA",
-          "自动检查静音、响度、音画偏移，人工审听情感与对白自然度。",
-          "客观音频指标无法充分反映表演质量",
-          [
+        },
+        {
+          "name": "双层 QA",
+          "approach": "自动检查静音、响度、音画偏移，人工审听情感与对白自然度。",
+          "limitations": "客观音频指标无法充分反映表演质量",
+          "tools": [
             "FFmpeg",
             "Listening Review"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "字",
-          "approach": "幕",
-          "limitations": "时",
-          "tools": "间"
-        },
-        {
-          "name": "口",
-          "approach": "型",
-          "limitations": "同",
-          "tools": "步"
-        },
-        {
-          "name": "人",
-          "approach": "工",
-          "limitations": "语",
-          "tools": "音"
         }
       ],
       "metrics": [
-        "S20",
-        "S21",
-        "S23"
+        "字幕时间偏差",
+        "口型同步评分",
+        "人工语音自然度评分"
       ],
       "tags": [
         "音频与后期",
         "P1",
-        "声音机械、口型不同步、不同集音色漂移"
+        "M3"
+      ],
+      "sourceIds": [
+        "S20",
+        "S21",
+        "S23"
       ]
     },
     {
@@ -540,71 +451,57 @@
       "title": "同质化、原创性不足与市场适配",
       "category": "创作与内容",
       "priority": "P1",
-      "maturity": "产量增加但内容题材雷同、观众难以区分",
-      "summary": "平台热点模仿与低成本模板重复",
-      "rootCause": [
+      "maturity": "M2",
+      "summary": "产量增加但内容题材雷同、观众难以区分",
+      "rootCause": "平台热点模仿与低成本模板重复",
+      "symptoms": [
         "同类情节密集复用",
         "开头和反转高度相似",
         "流量难持续"
       ],
-      "symptoms": [
-        [
-          "题材-结构去重",
-          "对大纲、人物设定、冲突链和结局做语义相似性审查。",
-          "相似性得分不能直接证明法律侵权",
-          [
+      "solutions": [
+        {
+          "name": "题材-结构去重",
+          "approach": "对大纲、人物设定、冲突链和结局做语义相似性审查。",
+          "limitations": "相似性得分不能直接证明法律侵权",
+          "tools": [
             "Embeddings",
             "Editorial Audit"
           ]
-        ],
-        [
-          "原创开发工作坊",
-          "由作者提出独特人物目标与主题命题，再由 Agent 辅助扩写、辩论、审稿。",
-          "原创性依赖主创判断",
-          [
+        },
+        {
+          "name": "原创开发工作坊",
+          "approach": "由作者提出独特人物目标与主题命题，再由 Agent 辅助扩写、辩论、审稿。",
+          "limitations": "原创性依赖主创判断",
+          "tools": [
             "Writer Room",
             "Critic Agent"
           ]
-        ],
-        [
-          "小样本内容测试",
-          "用多版本预告和明确口径的留存指标验证受众，而非追逐单一播放量。",
-          "平台流量波动与样本偏差显著",
-          [
+        },
+        {
+          "name": "小样本内容测试",
+          "approach": "用多版本预告和明确口径的留存指标验证受众，而非追逐单一播放量。",
+          "limitations": "平台流量波动与样本偏差显著",
+          "tools": [
             "Experiment Design",
             "Analytics"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "题",
-          "approach": "材",
-          "limitations": "重",
-          "tools": "复"
-        },
-        {
-          "name": "试",
-          "approach": "映",
-          "limitations": "反",
-          "tools": "馈"
-        },
-        {
-          "name": "下",
-          "approach": "一",
-          "limitations": "集",
-          "tools": "转"
         }
       ],
       "metrics": [
-        "S01",
-        "S02",
-        "S32"
+        "题材重复率",
+        "试映反馈",
+        "下一集转化率"
       ],
       "tags": [
         "创作与内容",
         "P1",
-        "产量增加但内容题材雷同、观众难以区分"
+        "M2"
+      ],
+      "sourceIds": [
+        "S01",
+        "S02",
+        "S32"
       ]
     },
     {
@@ -612,74 +509,60 @@
       "title": "缺乏影视叙事 Benchmark 与统一质量标准",
       "category": "生产工程",
       "priority": "P1",
-      "maturity": "模型在通用视频指标上好看，故事连续性仍可能很差",
-      "summary": "当前评测偏重单片视觉质量，缺少叙事级验收",
-      "rootCause": [
+      "maturity": "M2",
+      "summary": "模型在通用视频指标上好看，故事连续性仍可能很差",
+      "rootCause": "当前评测偏重单片视觉质量，缺少叙事级验收",
+      "symptoms": [
         "自动评分与人工审片结论不一致",
         "缺陷无统一分类",
         "难追踪迭代是否改进"
       ],
-      "symptoms": [
-        [
-          "分层 QA 体系",
-          "分别量化技术质量、视觉连续性、叙事表现和发行合规。",
-          "各类指标不能简单相加为可信总分",
-          [
+      "solutions": [
+        {
+          "name": "分层 QA 体系",
+          "approach": "分别量化技术质量、视觉连续性、叙事表现和发行合规。",
+          "limitations": "各类指标不能简单相加为可信总分",
+          "tools": [
             "FilmBench",
             "PersonaShot",
             "EntityBench"
           ]
-        ],
-        [
-          "固定 Benchmark 套件",
-          "覆盖换装、多人交互、物体交接、反打、对口型和长距离人物重现。",
-          "公开 Benchmark 与业务真实素材存在分布差异",
-          [
+        },
+        {
+          "name": "固定 Benchmark 套件",
+          "approach": "覆盖换装、多人交互、物体交接、反打、对口型和长距离人物重现。",
+          "limitations": "公开 Benchmark 与业务真实素材存在分布差异",
+          "tools": [
             "Golden Set",
             "Regression Test"
           ]
-        ],
-        [
-          "人机一致性研究",
-          "抽样双人盲审并统计分歧，再决定自动评分的实际决策权限。",
-          "需要持续投入标注与校准",
-          [
+        },
+        {
+          "name": "人机一致性研究",
+          "approach": "抽样双人盲审并统计分歧，再决定自动评分的实际决策权限。",
+          "limitations": "需要持续投入标注与校准",
+          "tools": [
             "Reviewer Agreement",
             "QA Rubric"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "缺",
-          "approach": "陷",
-          "limitations": "漏",
-          "tools": "检"
-        },
-        {
-          "name": "双",
-          "approach": "人",
-          "limitations": "审",
-          "tools": "查"
-        },
-        {
-          "name": "回",
-          "approach": "归",
-          "limitations": "集",
-          "tools": "通"
         }
       ],
       "metrics": [
+        "缺陷漏检率",
+        "双人审查一致率",
+        "回归集通过率"
+      ],
+      "tags": [
+        "生产工程",
+        "P1",
+        "M2"
+      ],
+      "sourceIds": [
         "S03",
         "S04",
         "S05",
         "S22",
         "S28"
-      ],
-      "tags": [
-        "生产工程",
-        "P1",
-        "模型在通用视频指标上好看，故事连续性仍可能很差"
       ]
     },
     {
@@ -687,72 +570,58 @@
       "title": "版权、肖像、声音、AI 标识与合法发行",
       "category": "合规与商业",
       "priority": "P1",
-      "maturity": "未授权内容和漏标识使作品存在下架和法律风险",
-      "summary": "素材授权链分散，内容与发行流程没有合规门禁",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "未授权内容和漏标识使作品存在下架和法律风险",
+      "rootCause": "素材授权链分散，内容与发行流程没有合规门禁",
+      "symptoms": [
         "授权不覆盖改编类型",
         "肖像/声音许可不明确",
         "逐集 AI 标识遗漏"
       ],
-      "symptoms": [
-        [
-          "Rights Ledger",
-          "为 IP、人物、声音、音乐和第三方素材记录许可主体、范围、期限、地域和证据。",
-          "管理台账不替代法律解释",
-          [
+      "solutions": [
+        {
+          "name": "Rights Ledger",
+          "approach": "为 IP、人物、声音、音乐和第三方素材记录许可主体、范围、期限、地域和证据。",
+          "limitations": "管理台账不替代法律解释",
+          "tools": [
             "Rights Registry",
             "Contract Check"
           ]
-        ],
-        [
-          "自动标识与发布门禁",
-          "自动嵌入适用 AI 标识、保存来源元数据，未审核禁止上架。",
-          "特定平台与地区规定会变化",
-          [
+        },
+        {
+          "name": "自动标识与发布门禁",
+          "approach": "自动嵌入适用 AI 标识、保存来源元数据，未审核禁止上架。",
+          "limitations": "特定平台与地区规定会变化",
+          "tools": [
             "C2PA",
             "Release Gate"
           ]
-        ],
-        [
-          "人工法律与播前审核",
-          "对微短剧许可/备案类别、内容审核、合同和平台规则逐一核验。",
-          "不能由模型单独出具法律合规结论",
-          [
+        },
+        {
+          "name": "人工法律与播前审核",
+          "approach": "对微短剧许可/备案类别、内容审核、合同和平台规则逐一核验。",
+          "limitations": "不能由模型单独出具法律合规结论",
+          "tools": [
             "Legal Review",
             "Publication Checklist"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "授",
-          "approach": "权",
-          "limitations": "缺",
-          "tools": "失"
-        },
-        {
-          "name": "未",
-          "approach": "标",
-          "limitations": "识",
-          "tools": "集"
-        },
-        {
-          "name": "发",
-          "approach": "布",
-          "limitations": "审",
-          "tools": "查"
         }
       ],
       "metrics": [
-        "S07",
-        "S08",
-        "S14",
-        "S25"
+        "授权缺失件数",
+        "未标识集数",
+        "发布审查阻断数"
       ],
       "tags": [
         "合规与商业",
         "P1",
-        "未授权内容和漏标识使作品存在下架和法律风险"
+        "M3"
+      ],
+      "sourceIds": [
+        "S07",
+        "S08",
+        "S14",
+        "S25"
       ]
     },
     {
@@ -760,71 +629,57 @@
       "title": "资产管理、模型任务、并发和跨团队协作",
       "category": "生产工程",
       "priority": "P1",
-      "maturity": "素材散乱、重复调用、任务丢失且难以复盘",
-      "summary": "缺少统一任务状态、对象存储、版本和审计事件",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "素材散乱、重复调用、任务丢失且难以复盘",
+      "rootCause": "缺少统一任务状态、对象存储、版本和审计事件",
+      "symptoms": [
         "不同同事使用不同角色版本",
         "Webhook 丢失导致任务卡死",
         "重复提交被重复计费"
       ],
-      "symptoms": [
-        [
-          "结构化资产与对象存储",
-          "采用 PostgreSQL 保存元数据，S3/MinIO 保存不可变文件与版本。",
-          "引入存储治理和成本",
-          [
+      "solutions": [
+        {
+          "name": "结构化资产与对象存储",
+          "approach": "采用 PostgreSQL 保存元数据，S3/MinIO 保存不可变文件与版本。",
+          "limitations": "引入存储治理和成本",
+          "tools": [
             "PostgreSQL",
             "S3/MinIO"
           ]
-        ],
-        [
-          "持久化工作流",
-          "提供可重试队列、幂等键、状态机和死信队列。",
-          "分布式事务与云服务失败需专项演练",
-          [
+        },
+        {
+          "name": "持久化工作流",
+          "approach": "提供可重试队列、幂等键、状态机和死信队列。",
+          "limitations": "分布式事务与云服务失败需专项演练",
+          "tools": [
             "Worker Queue",
             "Idempotency"
           ]
-        ],
-        [
-          "模型适配层",
-          "统一提交、查询、取消、计费与错误语义，不让业务代码与某厂商 API 耦合。",
-          "不同模型可控特性无法完全抹平",
-          [
+        },
+        {
+          "name": "模型适配层",
+          "approach": "统一提交、查询、取消、计费与错误语义，不让业务代码与某厂商 API 耦合。",
+          "limitations": "不同模型可控特性无法完全抹平",
+          "tools": [
             "Provider Adapter",
             "ComfyUI API"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "任",
-          "approach": "务",
-          "limitations": "恢",
-          "tools": "复"
-        },
-        {
-          "name": "重",
-          "approach": "复",
-          "limitations": "计",
-          "tools": "费"
-        },
-        {
-          "name": "资",
-          "approach": "产",
-          "limitations": "可",
-          "tools": "追"
         }
       ],
       "metrics": [
-        "S26",
-        "S27",
-        "S31"
+        "任务恢复率",
+        "重复计费次数",
+        "资产可追溯率"
       ],
       "tags": [
         "生产工程",
         "P1",
-        "素材散乱、重复调用、任务丢失且难以复盘"
+        "M3"
+      ],
+      "sourceIds": [
+        "S26",
+        "S27",
+        "S31"
       ]
     },
     {
@@ -832,72 +687,58 @@
       "title": "发行收益、ROI、回款与供应商依赖",
       "category": "合规与商业",
       "priority": "P2",
-      "maturity": "播放量增长与盈利不匹配，供应商价格或可用性波动",
-      "summary": "缺少贯通成本、渠道与净收入的数据归因",
-      "rootCause": [
+      "maturity": "M3",
+      "summary": "播放量增长与盈利不匹配，供应商价格或可用性波动",
+      "rootCause": "缺少贯通成本、渠道与净收入的数据归因",
+      "symptoms": [
         "流量高但结算少",
         "推广成本蚕食利润",
         "模型限流影响交付"
       ],
-      "symptoms": [
-        [
-          "全口径 Unit Economics",
-          "按每剧、每集、每分钟统计 IP+人工+生成+审核+推广成本及净贡献。",
-          "成本分类口径必须稳定",
-          [
+      "solutions": [
+        {
+          "name": "全口径 Unit Economics",
+          "approach": "按每剧、每集、每分钟统计 IP+人工+生成+审核+推广成本及净贡献。",
+          "limitations": "成本分类口径必须稳定",
+          "tools": [
             "Cost Ledger",
             "Contribution Margin"
           ]
-        ],
-        [
-          "渠道实验与分层投放",
-          "建立作品/渠道/版本分层归因，谨慎从留存信号推断真实盈利。",
-          "平台口径和自然流量变化会干扰实验",
-          [
+        },
+        {
+          "name": "渠道实验与分层投放",
+          "approach": "建立作品/渠道/版本分层归因，谨慎从留存信号推断真实盈利。",
+          "limitations": "平台口径和自然流量变化会干扰实验",
+          "tools": [
             "Experiment Design",
             "Attribution"
           ]
-        ],
-        [
-          "供应商韧性管理",
-          "保留模型替代方案、数据导出、版本锁定与容量降级策略。",
-          "需要额外维护与采购成本",
-          [
+        },
+        {
+          "name": "供应商韧性管理",
+          "approach": "保留模型替代方案、数据导出、版本锁定与容量降级策略。",
+          "limitations": "需要额外维护与采购成本",
+          "tools": [
             "Multi-provider",
             "Fallback Playbook"
           ]
-        ]
-      ],
-      "solutions": [
-        {
-          "name": "净",
-          "approach": "贡",
-          "limitations": "献",
-          "tools": "利"
-        },
-        {
-          "name": "实",
-          "approach": "际",
-          "limitations": "回",
-          "tools": "款"
-        },
-        {
-          "name": "供",
-          "approach": "应",
-          "limitations": "商",
-          "tools": "切"
         }
       ],
       "metrics": [
-        "S01",
-        "S13",
-        "S31",
-        "S33"
+        "净贡献利润",
+        "实际回款周期",
+        "供应商切换恢复时间"
       ],
       "tags": [
         "合规与商业",
         "P2",
-        "播放量增长与盈利不匹配，供应商价格或可用性波动"
+        "M3"
+      ],
+      "sourceIds": [
+        "S01",
+        "S13",
+        "S31",
+        "S33"
       ]
     }
   ]
