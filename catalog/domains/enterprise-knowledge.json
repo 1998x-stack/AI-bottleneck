@@ -1,0 +1,730 @@
+{
+  "schemaVersion": 1,
+  "id": "enterprise-knowledge",
+  "title": "企业 AI 知识库",
+  "titleEn": "Enterprise AI Knowledge",
+  "subtitle": "从知识源、治理与权限，到可信检索和可控 Agent 执行",
+  "description": "22 项关键问题，36 条证据来源，逐项拆解根因、现有技术方案、适用边界与工程验收。",
+  "updatedAt": "2026-11-17",
+  "status": "published",
+  "categories": [
+    "知识源",
+    "知识生产",
+    "更新",
+    "版本",
+    "解析",
+    "语义",
+    "访问控制",
+    "合规",
+    "提示注入",
+    "检索",
+    "答案",
+    "推理",
+    "拒答",
+    "结构化事实",
+    "评估",
+    "性能",
+    "可观测",
+    "集成",
+    "治理",
+    "使用",
+    "ROI",
+    "Agent 行动"
+  ],
+  "issueCount": 22,
+  "reports": [
+    {
+      "id": "enterprise-km-research-v2",
+      "version": "v2.0",
+      "label": "企业知识库 · 22 项瓶颈与完整解决方案",
+      "description": "完整研究报告；包含问题调查、22 项解决方案、接口范式、评测与 90 天实施路线",
+      "path": "reports/enterprise-knowledge/enterprise-knowledge-research-2026-11-17.md",
+      "date": "2026-11-17",
+      "pdf": true
+    }
+  ],
+  "disclaimer": "研究基于公开来源，问题优先级与方案成熟度为本报告工程判断；不构成企业安全审计结论。",
+  "issues": [
+    {
+      "id": "KM-01",
+      "title": "部门信息孤岛、跨系统知识无法统一检索（P0）",
+      "category": "知识源",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "部门孤岛、系统互不相通",
+      "rootCause": "数据所有权/连接器/流程割裂",
+      "symptoms": [
+        "部门孤岛、系统互不相通"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "方案 A：联邦搜索/按需查询。 查询时通过各系统原生搜索/API 执行，保持权限和事实实时性；适合 CRM/ERP、强监管和更新非常快的数据。代价是 API 限流、长尾延迟、系统故障级联及跨源排序难。 方案 B：统一索引 + Source Registry。 将可缓存的非结构化内容异步抓取，保存 `source_system/source_id/source_version/canonical_url/owner/tenant/acl_ref/validity`，索引只放内容副本和证据定位；结构化事实仍由受控 API 提供。适合海量文档、跨源搜索高频的场景。 推荐实施。 (1) 访谈 10–20 位业务用户，整理问题→权威来源映射；(2) 以数据源×业务域矩阵登记 owner、API、增量能力、更新 SLA、权限语义与限流；(3) 建立主数据实体映射，例如 `customer_master_id↔crm_customer_id↔erp_buyer_id`，关系未经确认不自动合并；(4) 试点 2–3 个源，按问题类型路由“索引/RPC/API”；(5) 将跨源查询和未覆盖查询加入评测集。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "目标源覆盖率、跨源问题命中率"
+      ],
+      "sourceIds": [
+        "S7",
+        "S8",
+        "S19"
+      ],
+      "tags": [
+        "知识源",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-02",
+      "title": "隐性经验散落在聊天/会议，知识沉淀效率低（P1）",
+      "category": "知识生产",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "专家经验只留在聊天和脑中",
+      "rootCause": "缺 owner、记录成本高",
+      "symptoms": [
+        "专家经验只留在聊天和脑中"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 (A) 会议/工单/事故记录自动生成结构化草稿；(B) 专家确认的知识卡片模板；(C) 项目结束后的 After Action Review（AAR）与团队知识分享实践。APQC 将组织文化、负责人和协作机制视为关键改进点 。 实施。 选择高价值触发点：故障关闭、PR 合并、客服升级、合同审批结束；通过事件收集原始材料，提取 `事件→背景→行动→结果→待验证原因→证据链接`。每条 AI 草稿保留 `proposed_by=AI`、`reviewer`、`reviewed_at`、`status`，根因与决策需专家签收；通过平台的“确认/修改/拒绝”三按钮降低工作量。",
+          "limitations": "不适用与风险。 员工隐私或保密聊天不能默认采集；会议 ASR 错误、讽刺表达和推测不应直接成为事实。强制每条聊天沉淀会导致海量低质量条目。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "已审核知识新增率、专家接纳率"
+      ],
+      "sourceIds": [
+        "S2",
+        "S36"
+      ],
+      "tags": [
+        "知识生产",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-03",
+      "title": "删除、撤权后索引/缓存仍可见（P0）",
+      "category": "更新",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "删除或改权限后索引仍可见",
+      "rootCause": "增量同步、撤销链路不完整",
+      "symptoms": [
+        "删除或改权限后索引仍可见"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 Microsoft Graph Delta/Google Drive Changes 支持变化游标和删除相关事件；Azure AI Search 的文档级 ACL 可以在查询时过滤，但其授权结果依赖索引中的权限元数据是否已同步。特别注意部分 SharePoint 继承权限变更需额外刷新，部分原生方案仍处 Preview 。 实施流程。 (1) 以稳定 source_id + revision 保存原件；(2) 变更事件区分 `CONTENT_UPDATE / DELETE / ACL_CHANGE / INHERITANCE_CHANGE / GROUP_CHANGE`；(3) 对 DELETE/REVOKE 先将文档放入 denylist/tombstone，立即阻断读取，再异步删除索引和缓存；(4) 聚合关联的 chunk、摘要、embedding、索引键和引用；(5) 变更游标在下游持久提交后再确认；(6) 每日全量抽样对账源列表、权限哈希和索引状态；(7) 对权限源失联场景 fail-closed。",
+          "limitations": "常见坑。 Webhook 仅表示“有变化”，并不保证包含完整变化明细；文件 rename/move 不应被误判成新增与旧文件永久保留；永远不要把“缺失 ACL 元数据”视为 public。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "删除/撤权传播时延与零越权测试"
+      ],
+      "sourceIds": [
+        "S6",
+        "S7",
+        "S8",
+        "S19",
+        "S20"
+      ],
+      "tags": [
+        "更新",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-04",
+      "title": "新旧政策冲突、历史文件成为“最新答案”（P0）",
+      "category": "版本",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "新旧政策混用、多文件冲突",
+      "rootCause": "无权威源、有效期和废止状态",
+      "symptoms": [
+        "新旧政策混用、多文件冲突"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 文档管理系统的版本/审批、事件溯源（event sourcing）、知识条目生命周期，外加 bitemporal（业务生效时间与系统记录时间）建模；搜索时以状态与有效时间做硬过滤，而不是给最新文件简单加权。 实施。 (1) 建立 `authority_rank, effective_from, effective_to, recorded_at, supersedes_id, status, owner`；(2) 关键规则只允许一个已批准的权威条目成为默认答案；(3) 对冲突文档输出“冲突卡”给 owner，禁止模型自行裁决；(4) 时间敏感问题提取 `as_of` 并检索当时有效版本；(5) 原版不可变，废止后仅内部授权审计可查询；(6) 关联说明“废止原因”防止反复误导。",
+          "limitations": "失效边界。 时间戳不完整时仅凭时间不可判定权威；有些业务需要同时使用地方政策和集团制度，必须有适用范围（jurisdiction/site/business_unit）。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "版本冲突测试、过期引用率"
+      ],
+      "sourceIds": [
+        "S17"
+      ],
+      "tags": [
+        "版本",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-05",
+      "title": "PDF/Excel/扫描件复杂解析错误（P1）",
+      "category": "解析",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "PDF 表格、公式、图片漏读",
+      "rootCause": "结构丢失、OCR/版面错误",
+      "symptoms": [
+        "PDF 表格、公式、图片漏读"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有工具与选型。 Docling 提供多格式和布局相关解析；Unstructured 具备 `fast / hi_res / ocr_only` 等解析路径及表格结构处理，部署和版本差异需要核验 。对重要表格可使用专门表格抽取/人工复核；ASR 会议材料需要说话人、时间戳、噪声误识别管理。 实施。 先做文件分类器（原生文本 PDF / 扫描件 / 多表 PDF / PPT / Excel / 图片）；选择解析器并保存 `page, block_id, bbox, heading_path, table_cell, source_hash`；表格以 HTML/JSON 结构保存、连同标题与单位，不只保存逐行拼接文本；Excel 同时记录公式、计算结果、工作表与单元格坐标；建立 50–100 份“难解析文档”人工标注集，按类型评测。",
+          "limitations": "风险。 没有一个解析器对所有文档普适；视觉模型识别出来的数字不能不校验即用于金融/安全决策；OCR 置信度高不等于表格语义正确。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "关键字段保真率、版面回溯"
+      ],
+      "sourceIds": [
+        "S16",
+        "S21"
+      ],
+      "tags": [
+        "解析",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-06",
+      "title": "知识标签、业务实体、时间维度缺失（P1）",
+      "category": "语义",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "缺少部门、项目、实体和时间元数据",
+      "rootCause": "标签/本体缺失",
+      "symptoms": [
+        "缺少部门、项目、实体和时间元数据"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 受控分类体系（taxonomy）、实体字典、规范 ID 与别名表，辅以 NER/LLM 候选抽取；必要时引入图结构，但从核心实体开始比大规模自动图谱更可控。 实施。 (1) 与业务 owner 确定最小实体集合：客户、项目、产品、部门、人员角色、政策、合同和时间；(2) 建别名词典、合法枚举、层级分类及版本；(3) LLM 只提出实体候选，低置信度走人工审核；(4) 给检索加 `business_unit, entity_id, validity, doc_type` 过滤；(5) 对回溯错误做错误别名映射和歧义标注。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "元数据覆盖、实体召回"
+      ],
+      "sourceIds": [
+        "S17"
+      ],
+      "tags": [
+        "语义",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-07",
+      "title": "文档/段落级访问控制和跨租户泄露（P0）",
+      "category": "访问控制",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "用户看到不应看到的片段",
+      "rootCause": "ACL 只在前端过滤",
+      "symptoms": [
+        "用户看到不应看到的片段"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 Azure AI Search 文档级 security filter 或来源限制的原生 ACL；自建系统可使用 Policy Decision Point（PDP）+ Policy Enforcement Point（PEP），策略引擎如 Cedar、OPA；结构化记录可叠加 PostgreSQL Row Level Security（RLS）。 推荐实施。 (1) 认证从企业 SSO/OIDC 开始，解析租户、用户、组与属性；(2) 数据索引记录 `tenant_id, source_acl_ref, acl_version, classification`；(3) 检索时以用户身份与策略过滤候选；(4) 在显示/送入 LLM/导出/引用预览/缓存命中等每个出口重新进行授权；(5) 继承权限变化时做 fail-closed 或在线源复核；(6) 单独测试 admin、service account 的旁路；(7) 日志按权限脱敏。若使用自建数据库 RLS，注意表所有者与 bypassrls 角色可能绕过策略。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "越权测试 0 例、Fail-closed"
+      ],
+      "sourceIds": [
+        "S6",
+        "S23"
+      ],
+      "tags": [
+        "访问控制",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-08",
+      "title": "数据合规、PII/敏感信息出域（P0）",
+      "category": "合规",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "私密数据发至不合适的模型/地区",
+      "rootCause": "缺分级、DLP、供应商审查",
+      "symptoms": [
+        "私密数据发至不合适的模型/地区"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 数据分类（公开/内部/敏感/严格限制）、DLP 与 PII 检测、脱敏/令牌化、供应商处理协议、区域路由、企业加密与留存策略。OpenAI 官方数据控制说明明确区分训练、滥用监控和应用状态保留，并指出 Zero Data Retention 是有适用条件与端点限制的能力 ；NIST AI RMF 提供治理框架 。 实施。 (1) 建立数据流图：来源→解析→embedding→Rerank→LLM→追踪/缓存→备份；(2) 每个节点标注数据种类、处理目的、驻留区与保留期限；(3) 秘钥/PII 扫描阻断高敏原文出域；(4) 需要可逆脱敏时将映射表与 LLM 隔离；(5) 优先文档片段最小化传输；(6) 每家供应商核验 DPA、留存、子处理方、区域、模型训练条款；(7) 留痕审批和定期复审。",
+          "limitations": "现有方案。 数据分类（公开/内部/敏感/严格限制）、DLP 与 PII 检测、脱敏/令牌化、供应商处理协议、区域路由、企业加密与留存策略。OpenAI 官方数据控制说明明确区分训练、滥用监控和应用状态保留，并指出 Zero Data Retention 是有适用条件与端点限制的能力 ；NIST AI RMF 提供治理框架 。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "数据流映射和合规审批"
+      ],
+      "sourceIds": [
+        "S24",
+        "S17"
+      ],
+      "tags": [
+        "合规",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-09",
+      "title": "间接提示注入、检索文档投毒（P0）",
+      "category": "提示注入",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "检索到的文档控制 Agent 指令",
+      "rootCause": "把不可信内容当命令",
+      "symptoms": [
+        "检索到的文档控制 Agent 指令"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 OWASP 建议区分不可信内容、最小工具权限、输入输出校验、敏感动作审批、攻击模拟 。结构化输出验证、检索文档信誉度、URL allowlist、明确 action policy 是互补控制，而非单个万能过滤器。 实施。 (1) 给每个来源标识 trust level；(2) 用户命令、系统命令、工具输出与检索证据分开传递；(3) 在可信代码层做工具鉴权和参数校验；(4) 对文档中的 URL、代码、Shell 命令当作数据而不是待执行命令；(5) 对外发邮件/执行脚本/支付等动作要求高风险审批；(6) 建立跨语言、Unicode、HTML 注释、图像内隐指令等攻击集；(7) 定期红队测试。 验收。 攻击样本不能取得系统机密、绕过租户 ACL、执行非法工具、伪造审批；保留攻防 trace 和复现脚本；统计注入成功率按攻击类别切片。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "攻击样本阻断与工具权限验证"
+      ],
+      "sourceIds": [
+        "S9",
+        "S25"
+      ],
+      "tags": [
+        "提示注入",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-10",
+      "title": "检索召回不足、术语误匹配（P0）",
+      "category": "检索",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "应找到的文件找不到",
+      "rootCause": "纯向量、分块、别名处理不当",
+      "symptoms": [
+        "应找到的文件找不到"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "成熟方案。 双通道 BM25 + Dense Vector；RRF/归一化融合；Reranker；过滤业务域与权限；标题路径与邻域上下文。Qdrant、OpenSearch、Weaviate、Azure AI Search 均在其产品文档中描述混合检索方案 。 实施。 (1) 用真实查询按错因分桶：精确 ID、同义表达、跨语言、模糊时间、长尾术语；(2) 建 BM25 baseline 与 dense baseline；(3) 采用 RRF 先做无监督融合，后按评测集调权；(4) 从合法候选中取 30–100 个进入 Reranker（取值需做延迟试验）；(5) 去重/同源聚合，避免一个文档占满上下文；(6) 约束必须在召回前或召回中生效，而不是仅删除结果；(7) 记录 retrieval config 版本。",
+          "limitations": "关键限制。 RRF 不提高原始语料缺失时的召回；Rerank 也无法排序未召回的正确证据。RRF 与 DBSF/加权融合不存在通用优胜者，应按企业黄金集选择。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "Recall@K、MRR、漏检分类"
+      ],
+      "sourceIds": [
+        "S26",
+        "S27",
+        "S28",
+        "S29"
+      ],
+      "tags": [
+        "检索",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-11",
+      "title": "答案似是而非，引用无法支持主张（P0）",
+      "category": "答案",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "答案似是而非、引用不支持结论",
+      "rootCause": "证据拼接、生成超出证据",
+      "symptoms": [
+        "答案似是而非、引用不支持结论"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 证据优先生成（evidence-first answering）、逐主张证据绑定、回答后事实支持验证、引用定位到 EvidenceSpan、用户可直接打开原文。Ragas 的 Faithfulness/Context Recall 类指标可辅助评测，但自动指标不能代替高风险人工真值 。 实施。 (1) 输出 schema：`answer, claims:[{text,evidence_span_ids}], gaps, confidence_label, as_of`；(2) 所有关键事实必须有来自已授权、有效版本的 evidence id；(3) 正文由已核验 claim 合成；(4) 对没有证据的 claim 删除或标记无法确认；(5) 整段引用显示来源标题、版本、页码/行/表格坐标；(6) 对数值、日期、比较、否定词做规则检查；(7) 最终答案输出前再次验证 ACL。",
+          "limitations": "失效机理。 生成模型可能拼接不同文档的条件，遗漏“仅适用于试点部门”之类限制，或输出存在引用标记但对应片段没有该主张。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "Claim 支持率、人工正确率"
+      ],
+      "sourceIds": [
+        "S14",
+        "S30"
+      ],
+      "tags": [
+        "答案",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-12",
+      "title": "跨文档、多跳推理及多约束遗漏（P1）",
+      "category": "推理",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "多跳查询遗漏条件",
+      "rootCause": "复杂上下文与约束失配",
+      "symptoms": [
+        "多跳查询遗漏条件"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 Query decomposition、计划—检索—验证的多阶段工作流、结构化中间表示、图关系检索（仅当实体关系密集时）。Microsoft GraphRAG 提供 local/global/DRIFT 等查询模式，但 global search 资源开销较大，不能作为所有查询的默认路径 。 实施。 (1) 先将任务分解为带类型约束 `subject, time_window, region, amount_type, approval_status, required_sources`；(2) 逐约束检索并显式记录证据缺口；(3) 对跨源实体做主数据映射；(4) 数字和时间比较由确定性代码计算；(5) 汇总时执行“所有硬约束已满足”检查；(6) 某个约束证据不足时部分回答并解释缺口，而非强行补齐。 取舍。 多 Agent 规划可能带来更多工具调用和难定位错误；对于固定业务问题，规则/SQL/查询模板常比自由 Agent 更稳定。GraphRAG 索引和问答成本需单独基准测试。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "全约束任务通过率"
+      ],
+      "sourceIds": [
+        "S11",
+        "S31"
+      ],
+      "tags": [
+        "推理",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-13",
+      "title": "无依据强答与错误拒答（P0）",
+      "category": "拒答",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "无依据仍硬答、伪造引用",
+      "rootCause": "缺“不知道”策略",
+      "symptoms": [
+        "无依据仍硬答、伪造引用"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "方案。 将“能否回答”单列二元/三级判定：`SUPPORTED / PARTIAL / UNSUPPORTED`；结合检索覆盖、证据完整性、文档时效、claim 验证与专家复核。针对关键制度可以采用模板化原文回答。 实施。 (1) 构造无答案样本（资料真正缺失）、无权访问样本（不能告知是否存在敏感内容）、冲突样本、只包含旧版样本；(2) 模型生成前检查所需证据槽位；(3) 输出可解释拒答：“当前授权范围内未找到足够依据”；(4) 提供搜索改写、找知识 Owner 或申请权限等合规后续操作；(5) 对多轮对话重新授权和核验。",
+          "limitations": "风险。 过严阈值降低用户任务完成率；过松导致高风险误答。阈值应按业务域与风险分级单独标定，不设全公司统一“0.8 相似度即可信”。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "无答案识别、误答率"
+      ],
+      "sourceIds": [
+        "S10"
+      ],
+      "tags": [
+        "拒答",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-14",
+      "title": "实时库存、金额和交易事实被过期 RAG 替代（P0）",
+      "category": "结构化事实",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "用向量库回答实时库存/金额",
+      "rootCause": "把文件索引当事实数据库",
+      "symptoms": [
+        "用向量库回答实时库存/金额"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "方案。 把问题分成 政策/经验检索 与 事务状态查询 两种路线。后者只通过经授权的 API、带参数白名单的只读查询或可验证报表访问；RAG 提供术语解释和业务口径，不负责最终当前数值。 实施。 (1) 建任务路由器识别“当前/今天/最新/余额/库存”等动态意图；(2) 对每类事实指定 system of record；(3) 输出时间戳、单位、币种、过滤条件和实体 ID；(4) SQL 工具使用参数化查询、白名单视图、只读角色、超时与行数限制，禁止 LLM 直接拼接任意 SQL；(5) 人工定义跨系统对账规则；(6) 若实时源不可达则明确标注不可用，禁止回退到旧快照冒充最新数值。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "API 数据一致性、数值校验"
+      ],
+      "sourceIds": [
+        "S23"
+      ],
+      "tags": [
+        "结构化事实",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-15",
+      "title": "缺少黄金集、只做演示不做回归（P0）",
+      "category": "评估",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "只展示好看的 Demo",
+      "rootCause": "没有黄金集与回归测试",
+      "symptoms": [
+        "只展示好看的 Demo"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 Ragas 的检索/忠实度指标、Langfuse 的数据集、实验、人工标注与在线评估；OpenAI 官方文档同样强调按目标创建评测并持续回归，但平台功能与生命周期须核验，避免依赖已废弃的接口 。 实施。 (1) 从真实工单和搜索日志抽样，去标识化并取得业务许可；(2) 标注问题、身份、参考答案、关键证据、不可见文档和拒答预期；(3) 按难度和安全风险分桶；(4) 同时评检索 Recall@K、引用支持、数值、拒答、全约束、延迟和成本；(5) 每次模型、提示词、索引、ACL、连接器改动跑回归并和基线 diff；(6) 建立标注分歧仲裁及金标准版本。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "测试集、报告、回归阈值"
+      ],
+      "sourceIds": [
+        "S30",
+        "S32",
+        "S33"
+      ],
+      "tags": [
+        "评估",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-16",
+      "title": "P95 延迟高、Token 与运维费用不可控（P1）",
+      "category": "性能",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "P95 很慢、调用费用失控",
+      "rootCause": "多阶段串行、上下文过长",
+      "symptoms": [
+        "P95 很慢、调用费用失控"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "方案。 建立“分阶段延迟账本”和“成功任务总成本”，通过缓存、批处理、并发扇出、top-k 优化、模型路由、异步索引、长内容摘要与容量规划降成本。NVIDIA 的企业 RAG sizing 文档可用于部署估算参考，实际工作负载必须压测 。 实施。 (1) 埋点 `auth_ms/retrieve_ms/rerank_ms/llm_ttft_ms/generate_ms/verify_ms`；(2) 高风险查询禁用无权限隔离的全局答案缓存；(3) 常见 FAQ 优先确定性回答或较小模型；(4) 仅在复杂查询启用多步检索；(5) 设置并发、单请求 Token、超时、重试和月度预算上限；(6) 设计降级：模型故障可返回已授权的搜索结果与引用，不伪造答案；(7) 以真实数据规模、权限过滤基数和并发进行压测。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "P50/P95、每成功任务成本"
+      ],
+      "sourceIds": [
+        "S15"
+      ],
+      "tags": [
+        "性能",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-17",
+      "title": "缺乏可观测、错误无法追溯（P1）",
+      "category": "可观测",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "错误无法定位到检索或生成",
+      "rootCause": "缺 trace、版本、回放",
+      "symptoms": [
+        "错误无法定位到检索或生成"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 OpenTelemetry GenAI 语义规范（仍在演进）、Langfuse traces/evals 和自建审计事件；将隐私保护放在遥测设计之初 。 实施。 (1) 全链路 correlation ID/trace ID；(2) 记录每阶段耗时、错误码、资源量、模型/提示词/索引版本、source_version、policy_version、匿名化用户角色与证据 ID；(3) 内容默认不采集全文，敏感 payload 在隔离环境按审批临时打开；(4) 对每次失败生成可复现的输入引用与配置快照；(5) 区分产品指标、模型质量指标、安全审计指标；(6) 接入告警与 on-call runbook。",
+          "limitations": "风险。 追踪系统本身会成为敏感数据副本，权限与留存要求应至少等同知识系统。日志不可保存 API 密钥和未经处理的全量模型上下文。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "请求级证据链与重现率"
+      ],
+      "sourceIds": [
+        "S32",
+        "S34"
+      ],
+      "tags": [
+        "可观测",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-18",
+      "title": "连接器 API 限流、断连、游标丢失和重复入库（P1）",
+      "category": "集成",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "API 限流、断连、重试导致数据缺漏",
+      "rootCause": "连接器工程与状态机不足",
+      "symptoms": [
+        "API 限流、断连、重试导致数据缺漏"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "成熟方案。 增量 cursor、可靠消息队列、幂等处理、指数退避与 jitter、死信队列、周期对账。Temporal 的官方工程建议明确指出 Activity 重试需要幂等键，避免系统崩溃和重试造成副作用重复 。 实施。 (1) 抽象连接器接口 `initial_scan / next_changes / fetch / permissions / reconcile`；(2) 保存游标、源 etag、重试次数、最后成功时间；(3) 使用稳定事件键 `(source_id, revision, event_type)` 幂等；(4) 队列区分内容处理和撤权高优先级任务；(5) 遇 429/5xx 指数退避，遵从 Retry-After；(6) 断网恢复先消费增量，再做范围对账；(7) 游标失效触发受控重扫，严禁“直接重置为空并假设同步完成”。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "同步成功率、幂等回放"
+      ],
+      "sourceIds": [
+        "S35"
+      ],
+      "tags": [
+        "集成",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-19",
+      "title": "知识归属、审核权与更新责任不清（P0）",
+      "category": "治理",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "谁都可以上传，没人负责纠错",
+      "rootCause": "没有 RACI 和审批权",
+      "symptoms": [
+        "谁都可以上传，没人负责纠错"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "失效机理。 技术团队可以保证索引服务运行，但不能判断“哪个销售折扣政策是正式制度”；无人负责会导致长期内容漂移、互相矛盾和高风险政策缺审。 组织方案。 建知识域所有权（Domain Owner）和 RACI：业务负责人负责权威性与有效期；安全负责人负责数据分级/授权；平台团队负责同步与检索基础设施；产品负责人负责体验和业务效益；AI 负责候选提炼与异常提醒。APQC 2026 明确建议把 KM、业务、法务/人力和技术伙伴纳入 AI 知识项目，而非 IT 独立完成 。 实施。 (1) 设定高价值域与 Owner；(2) 内容状态机 `Draft→Review→Approved→Published→Superseded/Revoked`；(3) 规定不同风险的复审频率和批准人；(4) 设计“错答一键上报→复核→修正→回归样本”的 ticket 闭环；(5) 高风险正式制度变更同步通知相关业务；(6) 统计逾期待审、无人负责、冲突未处理的知识比例。",
+          "limitations": "组织风险。 若只增加审核职责而没有人员预算、考核和省时工具，会形成新的审核瓶颈；低风险知识可采用分级抽检而非一刀切全量审批。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "关键域 owner 覆盖、SLA"
+      ],
+      "sourceIds": [
+        "S36"
+      ],
+      "tags": [
+        "治理",
+        "P0"
+      ]
+    },
+    {
+      "id": "KM-20",
+      "title": "员工不用产品、知识系统无法进入工作流（P1）",
+      "category": "使用",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "员工不用，仍然去问同事",
+      "rootCause": "搜索不准、入口脱离流程",
+      "symptoms": [
+        "员工不用，仍然去问同事"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "可验证方案。 在 Slack/Teams/企业 IM、浏览器、CRM、IDE、客服控制台内嵌知识检索；设计从“答案”跳转到“原始证据/工单/操作”，保留反馈入口；让新用户能看到权限范围和知识有效时间。APQC 推荐在工作流程内嵌知识、结合变革管理与员工早期参与 。 实施。 (1) 在真实岗位进行工作观察，记录 20 个频繁重复问题；(2) 优先优化 3 个高频任务，而不是全功能门户；(3) 结果显示证据、新旧版本、下一步动作和知识负责人；(4) 用户指出错误后生成追踪 Issue；(5) 在 A/B 或阶梯式试点中测量完成率、实际耗时和跨人询问次数；(6) 每周访谈“不再使用”的员工，区分信任、权限、召回和入口问题。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "留存、任务完成率、人工接管率"
+      ],
+      "sourceIds": [
+        "S36"
+      ],
+      "tags": [
+        "使用",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-21",
+      "title": "ROI 难证明，成本和收益归因不清（P1）",
+      "category": "ROI",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "访问量上升但效益不明",
+      "rootCause": "未定义基线、没有对照",
+      "symptoms": [
+        "访问量上升但效益不明"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "方案。 任务级 TCO + 带对照组的业务效果测量。APQC 2026 强调将 KM 与效率、质量、减少返工等业务目标连接，而不只报告活动数量 。 实施。 (1) 选 2–3 个可度量任务：查政策、处理工单、事故复盘等；(2) 上线前采集任务分布与时间、质量、升级率；(3) 按团队或任务构建对照和试点组，避免只对比热情用户；(4) 记录 `infra+LLM+embedding+rerank+source_API+review+support+security+training` 全成本；(5) 计算每成功完成任务成本和净时间差；(6) 将返工率、事故风险、客户满意度作为辅助指标；(7) 对员工节约时间是否带来真实经济价值单独假设并说明。",
+          "limitations": "真实部署需要校验权限语义、版本限制和回退路径；不能将 Demo 视为生产验收。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "时间/质量/业务结果的净改善"
+      ],
+      "sourceIds": [
+        "S2",
+        "S36"
+      ],
+      "tags": [
+        "ROI",
+        "P1"
+      ]
+    },
+    {
+      "id": "KM-22",
+      "title": "知识 Agent 越权执行、错误调用业务工具（P0）",
+      "category": "Agent 行动",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "知识读取权限被误当执行权限",
+      "rootCause": "工具权限与审批未分离",
+      "symptoms": [
+        "知识读取权限被误当执行权限"
+      ],
+      "solutions": [
+        {
+          "name": "现有技术与实施方案",
+          "approach": "现有方案。 身份委托与短时令牌、独立 PDP/PEP、作用域白名单、工具参数 Schema、确定性业务规则、写操作人工审批、工作流补偿与幂等。OWASP 的最小权限及人工确认建议与 Temporal 的幂等/Saga 机制互补 。 实施。 (1) 给工具定义风险等级 `READ / LOW_WRITE / HIGH_WRITE`；(2) 工具执行时以最终用户身份或有限委托再次校验，而不是模型自己声称已授权；(3) 默认只读，所有高风险写操作单独确认“主体、目标、金额/对象、影响、过期时间”；(4) 对每个动作记录 `policy_decision_id, idempotency_key, approval_id, affected_resource`；(5) 防跨租户访问和参数替换；(6) 工作流执行后读取权威系统确认实际结果；(7) 失败时补偿或回滚，不能由模型仅输出“成功”代替事务状态。",
+          "limitations": "实施。 (1) 给工具定义风险等级 `READ / LOW_WRITE / HIGH_WRITE`；(2) 工具执行时以最终用户身份或有限委托再次校验，而不是模型自己声称已授权；(3) 默认只读，所有高风险写操作单独确认“主体、目标、金额/对象、影响、过期时间”；(4) 对每个动作记录 `policy_decision_id, idempotency_key, approval_id, affected_resource`；(5) 防跨租户访问和参数替换；(6) 工作流执行后读取权威系统确认实际结果；(7) 失败时补偿或回滚，不能由模型仅输出“成功”代替事务状态。",
+          "tools": []
+        }
+      ],
+      "metrics": [
+        "高风险动作审批率、审计日志"
+      ],
+      "sourceIds": [
+        "S25",
+        "S35"
+      ],
+      "tags": [
+        "Agent 行动",
+        "P0"
+      ]
+    }
+  ]
+}
