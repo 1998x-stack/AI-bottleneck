@@ -35,3 +35,5 @@
 .compare-stats b{display:block;font:600 24px 'IBM Plex Mono',monospace;color:var(--ink)}
 @media(max-width:900px){.comparison-grid{grid-template-columns:1fr}}
 @media(max-width:540px){.compare-card{padding:17px}.compare-stats b{font-size:21px}}
+
+.matrix-domain-link{background:transparent;border:0;color:var(--accent-dark);font:inherit;font-weight:700;padding:2px 0;text-align:left;cursor:pointer}.matrix-domain-link:hover{text-decoration:underline}
