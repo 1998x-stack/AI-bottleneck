@@ -30,7 +30,11 @@
     "label": "研究标题",
     "description": "本版覆盖范围",
     "path": "reports/ai-short-drama/file.md",
-    "date": "2026-11-17"
+    "date": "2026-11-17",
+    "artifacts": {
+      "docx": "reports/ai-short-drama/exports/unique-report-id.docx",
+      "pdf": "reports/ai-short-drama/exports/unique-report-id.pdf"
+    }
   }],
   "issues": [{
     "id": "DR-01",
@@ -59,3 +63,7 @@
 
 ### 强制校验
 `node scripts/validate.mjs` 负责检查 ID 唯一性、引用存在、来源 HTTPS、报告路径与实际文件存在、类别和枚举合法性。更严格的 schema 和跨域统计在后续迭代引入。
+
+## 版本化 Word / PDF 归档规范
+
+每份已发布报告必须声明 `reports/<domainId>/exports/<reportId>.docx` 与 `.pdf`；这些是**正式的 Git 仓库文件**，不是 Pages 暂存产物。自动构建为每个领域生成同目录的 `manifest.json`，记录 Markdown 来源及 DOCX/PDF SHA-256。CI 中 `scripts/verify_exports.py` 检查源文档变更、文档完整性、PDF 页数及 Pages 下载副本的字节级一致性。报告更新后重新生成的文件由 Actions 自动提交到主分支。
