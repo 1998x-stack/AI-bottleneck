@@ -72,6 +72,15 @@
 - 合并后 Actions 通过 Markdown 自动生成版本化文档、SHA256 清单，提交至 `reports/<domain>/exports/` 并发布到 Pages。
 - [Web UI 设计与可扩展架构 v2](docs/ui-design-v2.md)。
 
+
+## AI 小说生产专题
+
+- [在线研究总览](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=overview) · [20 类问题图谱](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=issues) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=evidence) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?domain=ai-fiction&view=reports)
+- 完整 Markdown：[v1 瓶颈研究](reports/ai-fiction/bottlenecks-2026-11-17.md) · [v2 解决方案](reports/ai-fiction/solutions-2026-11-17.md)
+- 版本化 Word/PDF：[v1 Word](reports/ai-fiction/exports/novel-bottlenecks-v1.docx) / [v1 PDF](reports/ai-fiction/exports/novel-bottlenecks-v1.pdf) · [v2 Word](reports/ai-fiction/exports/novel-solutions-v2.docx) / [v2 PDF](reports/ai-fiction/exports/novel-solutions-v2.pdf)
+- GitHub Pages：[v1 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-bottlenecks-v1.pdf) · [v2 PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-solutions-v2.pdf) · [v1 DOCX](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-bottlenecks-v1.docx) · [v2 DOCX](https://1998x-stack.github.io/AI-bottleneck/downloads/novel-solutions-v2.docx)
+- [可扩展多领域 Web UI / UX 设计](docs/ui-system-v2.md)。小说领域新增不需要重写已有 `app.js` 或 CSS，站点从索引自动读取。
+
 ## 本地运行
 
 需要 Node.js 22+、Python 3.10+；浏览器通过 HTTP 访问（不能直接双击 index.html）。

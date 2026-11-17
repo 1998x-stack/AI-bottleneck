@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-fiction",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "中国作家协会相关《2025 中国网络文学蓝皮书》（2026-08），行业叙事结构、原创性与 AI 发展挑战。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://wyb.chinawriter.com.cn/content/202608/10/content84876.html",
+      "type": "report"
+    },
+    {
+      "id": "S02",
+      "title": "Li et al., *Lost in Stories: Consistency Bugs in Long Story Generation by LLMs*, Findings of ACL 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.findings-acl.410/",
+      "type": "research"
+    },
+    {
+      "id": "S03",
+      "title": "Lu et al., *LitVISTA: A Benchmark for Narrative Orchestration in Literary Text*, ACL 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.acl-long.1024/",
+      "type": "research"
+    },
+    {
+      "id": "S04",
+      "title": "Yang et al., *ChangJuan: A Comprehensive Benchmark for Book-Length Chinese Story Evaluation*, Findings of ACL 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.findings-acl.2044/",
+      "type": "research"
+    },
+    {
+      "id": "S05",
+      "title": "Fein et al., *LitBench: A Benchmark and Dataset for Reliable Evaluation of Creative Writing*, EACL 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.eacl-long.362/",
+      "type": "research"
+    },
+    {
+      "id": "S06",
+      "title": "Xu et al., *Echoes in AI: Quantifying lack of plot diversity in LLM outputs*, PNAS 2025。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12415252/",
+      "type": "research"
+    },
+    {
+      "id": "S07",
+      "title": "*The shrinking landscape of linguistic diversity in the age of large language models*, Nature Human Behaviour 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.nature.com/articles/s41562-026-02550-0",
+      "type": "research"
+    },
+    {
+      "id": "S08",
+      "title": "Liu et al., *Lost in the Middle: How Language Models Use Long Contexts*, TACL 2024。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "type": "research"
+    },
+    {
+      "id": "S09",
+      "title": "Li et al., *ConWriter: Transition-Constrained Stateful Long-Form Story Generation*, Findings of EMNLP 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.findings-emnlp.359/",
+      "type": "research"
+    },
+    {
+      "id": "S10",
+      "title": "Chen et al., *Topo-Narrator: Heterogeneous Topological Memory for Long-form Narrative Generation*, AACL 2026。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.aacl-short.59/",
+      "type": "research"
+    },
+    {
+      "id": "S11",
+      "title": "Novelcrafter, *Codex Tracking* 官方帮助文档。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.novelcrafter.com/help/docs/codex/codex-tracking",
+      "type": "tool"
+    },
+    {
+      "id": "S12",
+      "title": "Sudowrite, *What is Story Bible* 官方帮助文档。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://docs.sudowrite.com/using-sudowrite/1ow1qkGqof9rtcyGnrWUBS/what-is-story-bible/jmWepHcQdJetNrE991fjJC",
+      "type": "tool"
+    },
+    {
+      "id": "S13",
+      "title": "中国作家网转载《AI 洗稿、换皮改编，网文 IP 灰产浮出水面》（2026-11-05），行业调查与案例。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.chinawriter.com.cn/n1/2026/1105/c404023-40827984.html",
+      "type": "report"
+    },
+    {
+      "id": "S14",
+      "title": "国家网信办等，《人工智能生成合成内容标识办法》（2025-03 公布，2025-09 实施）。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+      "type": "policy"
+    },
+    {
+      "id": "S15",
+      "title": "晋江文学城《用户注册协议》，人工智能生成合成内容标识相关规定。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://wap.jjwxc.net/register/registerRule",
+      "type": "policy"
+    },
+    {
+      "id": "S16",
+      "title": "US Copyright Office, *Copyright Office Releases Part 2 of Artificial Intelligence Report* (2025-01)。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+      "type": "policy"
+    },
+    {
+      "id": "S17",
+      "title": "Amazon KDP, *Content Guidelines: Artificial intelligence (AI) content*，官方出版条款。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://kdp.amazon.com/en_US/help/topic/G200644110",
+      "type": "policy"
+    },
+    {
+      "id": "S18",
+      "title": "Associated Press，2026-11 Caine Prize AI 作者身份争议调查案例（获奖作者经审查后被澄清）。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://apnews.com/article/77b354cc6ddd135021c3ac5914fc7d77",
+      "type": "report"
+    },
+    {
+      "id": "S19",
+      "title": "Reddit，2026-07 AI 长篇创作中的剧情与人物记忆讨论（社区个案，不是统计调查）。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.reddit.com/r/AIWritingLounge/comments/1uz3kpu/anyone_actually_solved_the_ai_loses_track_of/",
+      "type": "report"
+    },
+    {
+      "id": "S20",
+      "title": "*The pitfalls of AI detection in academic writing: bias, false positives, and the need for inclusive assessment* (2026)，跨领域检测可靠性讨论，非小说专用。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://link.springer.com/article/10.1007/s43681-026-01376-w",
+      "type": "research"
+    },
+    {
+      "id": "S21",
+      "title": "*Bot or not: Can people tell the difference between stories written by a human or by an AI system?* (2026)，短故事读者实验。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.cambridge.org/core/journals/judgment-and-decision-making/article/bot-or-not-can-people-tell-the-difference-between-stories-written-by-a-human-or-by-an-ai-system/45E6DC0BB90AA648654D5AE243F6C667",
+      "type": "research"
+    },
+    {
+      "id": "S22",
+      "title": "*I, ChatGPT: linguistic properties and human experiences of human- versus AI-generated stories* (2025)，短故事读者沉浸实验。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.nature.com/articles/s41599-025-06341-2",
+      "type": "research"
+    },
+    {
+      "id": "S23",
+      "title": "国家新闻出版署转引《2025 年度中国网络文学发展报告》（2026-10），产业与 AI/IP 趋势。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.nppa.gov.cn/xxfb/ywdt/202610/t20261016_1012682.html",
+      "type": "report"
+    },
+    {
+      "id": "S25",
+      "title": "国家网信办，《生成式人工智能服务管理暂行办法》（2023-08 实施）。",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+      "type": "policy"
+    },
+    {
+      "id": "S26",
+      "title": "Xia et al., *StoryWriter: A Multi-Agent Framework for Long Story Generation*, CIKM 2025；代码",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://github.com/Summer17xia/StoryWriter",
+      "type": "research"
+    },
+    {
+      "id": "S27",
+      "title": "Yang & Jin, *What Matters in Evaluating Book-Length Stories?*, ACL 2025（LongStoryEval / NovelCritique）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2025.acl-long.799/",
+      "type": "research"
+    },
+    {
+      "id": "S28",
+      "title": "Ma et al., *Text-to-Text Automatic Story Generation: A Survey*, EACL 2026（57 篇纳入研究）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.eacl-srw.39/",
+      "type": "research"
+    },
+    {
+      "id": "S29",
+      "title": "OpenSearch 官方，Hybrid Search、RRF 与过滤",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://docs.opensearch.org/latest/vector-search/ai-search/hybrid-search/",
+      "type": "tool"
+    },
+    {
+      "id": "S30",
+      "title": "LangGraph 官方，持久化与人工中断",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://docs.langchain.com/oss/python/langgraph/durable-execution",
+      "type": "tool"
+    },
+    {
+      "id": "S31",
+      "title": "Temporal 官方，Durable Execution、Retry / Idempotency",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://docs.temporal.io/evaluate/understanding-temporal",
+      "type": "tool"
+    },
+    {
+      "id": "S32",
+      "title": "OWASP 2025，LLM08 向量与嵌入弱点",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/",
+      "type": "tool"
+    },
+    {
+      "id": "S33",
+      "title": "Sathya et al., *A Framework for Evaluating AI-Generated Creativity*, AACL-IJCNLP 2026",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.aacl-long.203/",
+      "type": "research"
+    },
+    {
+      "id": "S34",
+      "title": "Amazon KDP 官方最新内容指南（实际正文章节）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://kdp.amazon.com/en_US/help/topic/G200672390",
+      "type": "policy"
+    },
+    {
+      "id": "S35",
+      "title": "Xu et al., *Echoes in AI*, PNAS 2025（原论文另见 [S06]）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12415252/",
+      "type": "research"
+    },
+    {
+      "id": "S36",
+      "title": "Park et al., *Style as a Confound: False Positives in AI Detection of Non-Native Academic Writing*, EMNLP Industry 2026",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.emnlp-industry.109/",
+      "type": "research"
+    },
+    {
+      "id": "S37",
+      "title": "OWASP，LLM02 敏感信息披露",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/",
+      "type": "tool"
+    },
+    {
+      "id": "S38",
+      "title": "Google Cloud，Vertex AI 上下文缓存实践与局限（实际成本依赖供应商报价）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-context-caching",
+      "type": "tool"
+    },
+    {
+      "id": "S39",
+      "title": "Novelcrafter 官方 Codex Tracking、AI Context",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://www.novelcrafter.com/help/docs/codex/codex-tracking",
+      "type": "tool"
+    },
+    {
+      "id": "S40",
+      "title": "Sudowrite 官方 Outline 文档",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://docs.sudowrite.com/using-sudowrite/1ow1qkGqof9rtcyGnrWUBS/outline/3owKyHXUm1bCdp41b2Npjk",
+      "type": "tool"
+    },
+    {
+      "id": "S41",
+      "title": "Huang et al., *DramaAgent: Agentic Storytelling Video Generation*, AACL-IJCNLP 2026（跨媒体参考，不是小说销量证据）",
+      "note": "研究报告 v2.0 参考资料；用途与证据边界请参阅原文。",
+      "url": "https://aclanthology.org/2026.aacl-long.163/",
+      "type": "research"
+    }
+  ]
+}
