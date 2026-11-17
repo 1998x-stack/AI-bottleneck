@@ -39,28 +39,9 @@
 - 数据加载失败有错误界面；无数据时有空状态。
 - 主题切换后内容仍有对比度；键盘能操作导航和核心检索。
 
+## AI Music 的交互与可扩展性验收
 
-## v2：跨领域扩展与研究交互（2026-11-17）
-
-**产品原则：领域是数据，不是硬编码路由。** 站点采用同一套问题分类、证据、方案和报告契约。新增领域自动加入导航、领域总览、问题图谱、研究档案、证据视图与跨领域比较。
-
-### 信息架构
-
-- **Overview**：汇总已发布领域数量；突出当前领域、P0 阻塞与两版研究报告
-- **Issue Atlas**：结构化症状、根因、两条以上方案、限制、验收指标与引用来源；优先级/成熟度/类别筛选
-- **Evidence Library**：领域内编号稳定，外链限制 HTTPS，明确类型；不能把工具文档当作真实生产效果
-- **Report Reader**：Markdown 是版本化源文件，在线 TOC；Word/PDF 为同版本构建生成的可下载衍生品
-- **Cross-domain Compare**：从 catalog 动态读取所有领域，展示问题总量、P0/P1/P2 分布、关键阻塞和可跳转的源领域 Issue
-- **Research Methodology**：对排序、成熟度和不同研究口径的不可比较性进行显式说明
-
-### 可分享链接
-
-以 `?view=issues&domain=ai-coding&issue=CA-01` 跳转具体问题，`?view=reports&domain=ai-coding&report=ai-coding-solutions-v2` 跳转报告。全站搜索结果带 domainId，避免跨领域相同 Issue ID 产生歧义。浏览器前进/后退恢复领域上下文。
-
-### 设计验收
-
-1. PC、平板、手机均支持查看与切换已发布领域；无代码改动即可上新领域。
-2. 跨领域比较只统计已发布领域，不加入规划内容；对不同分母和风险优先级做显著限制说明。
-3. 报告下载链接包括 Markdown、DOCX、PDF。构建时校验实际文件存在且有效。
-4. 交互可用键盘操作，导航和卡片对明暗模式保持对比度；小屏从两列降为一列。
-5. 实际发布状态必须以 GitHub Actions 和线上 Pages URL 核验，不能仅以配置存在为成功。
+音乐为第三个领域，与短剧、企业知识库共享总览领域卡、侧栏切换、Issue 过滤、来源检索、报告阅读、Word/PDF 下载。
+详情视图对 `sop` 执行增量渲染，不要求旧领域数据包含该字段；最新报告按钮使用本领域 reports 最后一份，不写死其他领域的 report ID。
+推荐深链：`?domain=ai-music&view=issues&issue=MU-01` 和 `?domain=ai-music&view=reports&report=ai-music-solutions-v2`。
+新增领域只需内容 JSON、参考来源和 Markdown，沿用当前 UI 组件与 CI 文档导出体系。

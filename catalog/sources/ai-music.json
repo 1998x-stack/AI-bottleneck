@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-music",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Deezer Newsroom（2026-07-21）《AI music has surpassed 50% of new music uploads for the first time》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://newsroom-deezer.com/2026/07/ai-music-exceeds-50-percent-daily-uploads-deezer/",
+      "type": "report"
+    },
+    {
+      "id": "S02",
+      "title": "Spotify Newsroom（2026-10-20）《One Year In: Putting Human Artistry First on Spotify》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://newsroom.spotify.com/2026-10-20/prioritizing-human-artistry/",
+      "type": "report"
+    },
+    {
+      "id": "S03",
+      "title": "Springer（2026）《Recent advances in music generation: methods, evaluation, and challenges》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://doi.org/10.1007/s10462-026-11582-x",
+      "type": "research"
+    },
+    {
+      "id": "S04",
+      "title": "arXiv（2026-04）《SongBench: A Fine-Grained Multi-Aspect Benchmark for Song Quality Assessment》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://arxiv.org/abs/2604.25937",
+      "type": "research"
+    },
+    {
+      "id": "S05",
+      "title": "arXiv（2026-10）《SMEBENCH: Benchmarking Neural Music Editing with Synthetized MIDI Edits》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://arxiv.org/abs/2610.36715",
+      "type": "research"
+    },
+    {
+      "id": "S06",
+      "title": "ISMIR 2026《MPEcho: A Melody and Phoneme-Aware Generative Framework for Controllable Cover Song Generation》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://ismir2026program.ismir.net/poster_269.html",
+      "type": "research"
+    },
+    {
+      "id": "S07",
+      "title": "Transactions of ISMIR（2026-11）《Evaluation Platform and Benchmarks for Music Source Separation》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://reference-global.com/article/10.5334/tismir.366",
+      "type": "research"
+    },
+    {
+      "id": "S08",
+      "title": "Udio 官方帮助（2026-02-17）《Changes associated with UMG partnership》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://help.udio.com/en/articles/12683565-changes-associated-with-the-universal-music-group-umg-partnership",
+      "type": "tool"
+    },
+    {
+      "id": "S09",
+      "title": "Suno 官方帮助（2026-11-13 更新）《How do downloads work?》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://help.suno.com/en/articles/13876865",
+      "type": "tool"
+    },
+    {
+      "id": "S10",
+      "title": "Suno 官方帮助（2026）《Introducing Suno Studio 2.0》，含 timing issues：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://help.suno.com/en/articles/13670529",
+      "type": "tool"
+    },
+    {
+      "id": "S11",
+      "title": "ACE-Step 1.5 官方仓库《GPU Compatibility / Install》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/GPU_COMPATIBILITY.md",
+      "type": "tool"
+    },
+    {
+      "id": "S12",
+      "title": "TuneCore 官方帮助《TuneCore’s GenAI Music Content Framework》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://support.tunecore.com/hc/en-au/articles/46914166185236-TuneCore-s-GenAI-Music-Content-Framework",
+      "type": "policy"
+    },
+    {
+      "id": "S13",
+      "title": "美国版权局（2025-01-29）《Part 2 of Artificial Intelligence Report》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+      "type": "policy"
+    },
+    {
+      "id": "S14",
+      "title": "Suno 官方帮助（2026-09 更新）《What rights do I have with a paid subscription?》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://help.suno.com/en/articles/9601665",
+      "type": "tool"
+    },
+    {
+      "id": "S15",
+      "title": "Bandcamp 官方博客（2026-01-13）《Keeping Bandcamp Human》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://blog.bandcamp.com/2026/01/13/keeping-bandcamp-human/",
+      "type": "policy"
+    },
+    {
+      "id": "S16",
+      "title": "DistroKid 官方帮助《Can I Upload Music Made With AI Tools to DistroKid?》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://support.distrokid.com/hc/en-us/articles/41182362733715-Can-I-Upload-Music-Made-With-AI-Tools-to-DistroKid",
+      "type": "policy"
+    },
+    {
+      "id": "S17",
+      "title": "IFPI（2026-07-30）《Principles for Eligibility of AI-Developed Recordings in Charts》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://www.ifpi.org/ifpi-rolls-out-global-principles-for-the-eligibility-of-recordings-developed-using-ai-in-official-music-charts-worldwide/",
+      "type": "policy"
+    },
+    {
+      "id": "S18",
+      "title": "Audio Engineering Society（2026-05）《A perceptual evaluation of various commercial models of music source separation》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://aes.org/publications/elibrary/elibrary-page/?id=23177",
+      "type": "research"
+    },
+    {
+      "id": "S19",
+      "title": "TuneCore 官方帮助《GenAI and TuneCore Publishing, Explained》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://support.tunecore.com/hc/en-us/articles/53091759028116-GenAI-and-TuneCore-Publishing-Explained",
+      "type": "policy"
+    },
+    {
+      "id": "S20",
+      "title": "YouTube 官方帮助《Disclose Gen AI usage for music content》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://support.google.com/youtube/answer/17124251",
+      "type": "policy"
+    },
+    {
+      "id": "S21",
+      "title": "Reed Smith（2026-10）《Music – Part 1: Litigation & licensing》：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://www.reedsmith.com/articles/entertainment-media-guide-to-ai-three-years-on/music-part-1-litigation-licensing/",
+      "type": "report"
+    },
+    {
+      "id": "S22",
+      "title": "Mureka Region Editing API（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://platform.mureka.ai/docs/api/operations/post-v1-song-region-edit.html",
+      "type": "tool"
+    },
+    {
+      "id": "S23",
+      "title": "ElevenLabs Music v2 / v2.5（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://elevenlabs.io/docs/overview/capabilities/music",
+      "type": "tool"
+    },
+    {
+      "id": "S24",
+      "title": "YuE2 仓库与权重许可（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/multimodal-art-projection/YuE/blob/main/README.md",
+      "type": "tool"
+    },
+    {
+      "id": "S25",
+      "title": "ElevenLabs Music API（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/elevenlabs/skills/blob/main/music/references/api_reference.md",
+      "type": "tool"
+    },
+    {
+      "id": "S26",
+      "title": "Google Gemini API / Lyria 3.5 音乐生成说明（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://ai.google.dev/gemini-api/docs/music-generation",
+      "type": "tool"
+    },
+    {
+      "id": "S27",
+      "title": "ACE-Step 1.5 官方仓库、Gradio 功能与 API（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/ace-step/ACE-Step-1.5",
+      "type": "tool"
+    },
+    {
+      "id": "S28",
+      "title": "Spotify Basic Pitch（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/spotify/basic-pitch",
+      "type": "tool"
+    },
+    {
+      "id": "S29",
+      "title": "Dreamtonics Synthesizer V Studio 2 Pro 发音编辑（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://sv2.docs.dreamtonics.com/en/phonemes",
+      "type": "tool"
+    },
+    {
+      "id": "S30",
+      "title": "Dreamtonics 2.3.0 更新（2026-11-02）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://dreamtonics.com/synthesizer-v-studio-2-pro-2-3-0-update-and-improvements/",
+      "type": "tool"
+    },
+    {
+      "id": "S31",
+      "title": "C2PA 2.4 音乐资产溯源指导（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/music/guidance_applying_content_credential_music_assets.html",
+      "type": "policy"
+    },
+    {
+      "id": "S32",
+      "title": "YouTube 音乐 AI 生成披露说明（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://support.google.com/youtube/answer/17124251",
+      "type": "policy"
+    },
+    {
+      "id": "S33",
+      "title": "Mureka Vocal Clone API（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://platform.mureka.ai/docs/api/operations/post-v1-song-vocal-clone.html",
+      "type": "tool"
+    },
+    {
+      "id": "S34",
+      "title": "Python Audio Separator（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/nomadkaraoke/python-audio-separator",
+      "type": "tool"
+    },
+    {
+      "id": "S35",
+      "title": "Mureka Stem Song API（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://platform.mureka.ai/docs/api/operations/post-v1-song-stem.html",
+      "type": "tool"
+    },
+    {
+      "id": "S36",
+      "title": "Spotify Pedalboard（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/spotify/pedalboard",
+      "type": "tool"
+    },
+    {
+      "id": "S37",
+      "title": "ITU-R BS.1770-5（2023，现行）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://www.itu.int/rec/R-REC-BS.1770/en",
+      "type": "tool"
+    },
+    {
+      "id": "S38",
+      "title": "pyloudnorm（实现 BS.1770-4）（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/csteinmetz1/pyloudnorm",
+      "type": "tool"
+    },
+    {
+      "id": "S39",
+      "title": "ACE Studio Vocal-to-MIDI 文档（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://docs.acestudio.ai/ai-tools/vocal-to-midi",
+      "type": "tool"
+    },
+    {
+      "id": "S40",
+      "title": "Mureka API Docs（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://platform.mureka.ai/docs/",
+      "type": "tool"
+    },
+    {
+      "id": "S41",
+      "title": "C2PA c2patool（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/contentauth/c2patool",
+      "type": "policy"
+    },
+    {
+      "id": "S42",
+      "title": "ACE-Step 1.5 LoRA 使用与训练（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://github.com/ace-step/ACE-Step-1.5/blob/main/docs/en/LoRA_Training_Tutorial.md",
+      "type": "tool"
+    },
+    {
+      "id": "S43",
+      "title": "Google Magenta RealTime 2 模型介绍（2026）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://magenta.withgoogle.com/magenta-realtime-2",
+      "type": "tool"
+    },
+    {
+      "id": "S44",
+      "title": "Audiokinetic Wwise 项目交互音乐过渡示例（访问 2026-11-17）：",
+      "note": "原始研究报告第16章收录；具体适用性与访问日期以完整报告为准。",
+      "url": "https://www.audiokinetic.com/download/documents/WwiseProjectAdventure_en.pdf",
+      "type": "tool"
+    }
+  ]
+}
