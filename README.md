@@ -34,8 +34,10 @@
 ├── reports/
 │   └── ai-short-drama/
 │       ├── bottlenecks-2026-11-17.md
-│       └── solutions-2026-11-17.md
+│       ├── solutions-2026-11-17.md
+│       └── exports/  # 两版 DOCX/PDF + SHA256 manifest
 ├── scripts/
+│   ├── verify_exports.py  # DOCX/PDF/下载副本校验
 │   ├── validate.mjs        # 跨领域合约和引用校验
 │   └── build_site.py       # 静态打包与生成 Word
 ├── docs/
@@ -47,6 +49,19 @@
 ├── CONTRIBUTING.md
 └── AGENTS.md
 ```
+
+## Word / PDF 正式文档归档
+
+**Word 和 PDF 不再只是 Pages 构建时的临时文件。** 每个研究报告的导出文件与 Markdown 一同归档在 Git 的 `reports/<domain>/exports/` 中，并提供 Pages 在线下载。主分支工作流会在报告内容变更时重新生成、校验并提交二进制文件。
+
+| 研究版本 | Word（GitHub 仓库） | PDF（GitHub 仓库） | Pages 下载 |
+|---|---|---|---|
+| AI 短剧瓶颈 v1 | [DOCX](reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.docx) | [PDF](reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.pdf) | [Word](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-bottlenecks-v1.docx) / [PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-bottlenecks-v1.pdf) |
+| AI 短剧解决方案 v2 | [DOCX](reports/ai-short-drama/exports/ai-drama-solutions-v2.docx) | [PDF](reports/ai-short-drama/exports/ai-drama-solutions-v2.pdf) | [Word](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-solutions-v2.docx) / [PDF](https://1998x-stack.github.io/AI-bottleneck/downloads/ai-drama-solutions-v2.pdf) |
+
+归档目录还包含 `manifest.json`，保存 Markdown、DOCX、PDF 的 SHA-256 与文件大小；`scripts/verify_exports.py` 检查源文档一致性、PDF 页数、Word 压缩包完整性及 Pages 下载文件完整性。
+
+**说明：** 已有报告的 Markdown 为版本化来源，Git 归档中的 DOCX/PDF 是由它重新排版并生成的出版版本，不保证字节级等同于此前单独提供的 Word 文件。
 
 ## 本地运行
 
@@ -60,11 +75,13 @@ python3 -m http.server 8000
 # 访问 http://localhost:8000/
 ```
 
-生成与 GitHub Pages 一致的静态站点（包含 Word 下载）：
+生成与 GitHub Pages 一致的站点与 Word/PDF 归档：
 
 ```bash
 python3 -m pip install python-docx==1.2.0
+# 另需安装 LibreOffice Writer 与中文字体（Noto CJK）
 python3 scripts/build_site.py
+python3 scripts/verify_exports.py
 cd dist && python3 -m http.server 8000
 ```
 
