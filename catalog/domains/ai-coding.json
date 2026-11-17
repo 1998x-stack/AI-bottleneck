@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 1,
+  "id": "ai-coding",
+  "title": "AI Coding Agent",
+  "titleEn": "AI Coding Agent",
+  "subtitle": "从需求、代码理解与执行，到验证、安全与持续交付的系统性瓶颈",
+  "description": "16 项核心 Issues、38 条研究与技术来源、两版中文深度报告；每项问题关联工程根因、现有解决路径、局限及验收指标。",
+  "updatedAt": "2026-11-17",
+  "status": "published",
+  "categories": [
+    "需求与验收",
+    "验证与质量",
+    "安全治理",
+    "交付治理",
+    "上下文工程",
+    "工具与集成",
+    "执行环境",
+    "任务编排",
+    "代码质量",
+    "状态与数据",
+    "多智能体协作",
+    "发布交付",
+    "成本与调度",
+    "评测与研究",
+    "知识治理",
+    "观测与审计"
+  ],
+  "issueCount": 16,
+  "reports": [
+    {
+      "id": "ai-coding-bottlenecks-v1",
+      "version": "v1.0",
+      "label": "Coding Agent 高频 Issues 与核心瓶颈",
+      "description": "开发者痛点、失败类型、实证证据、根因模型与风险排序",
+      "path": "reports/ai-coding/bottlenecks-2026-11-17.md",
+      "date": "2026-11-17"
+    },
+    {
+      "id": "ai-coding-solutions-v2",
+      "version": "v2.0",
+      "label": "Coding Agent 逐项解决方案与工程实施研究",
+      "description": "16 类问题、工具选型、实施 SOP、故障注入与验收指标",
+      "path": "reports/ai-coding/solutions-2026-11-17.md",
+      "date": "2026-11-17"
+    }
+  ],
+  "disclaimer": "P0/P1/P2 为工程风险优先级，不是行业故障频率；成熟度为研究者判断。问卷、工具 Issue 和任务基准的分母不同，不可合并为统一故障率。",
+  "issues": [
+    {
+      "id": "CA-01",
+      "title": "需求理解与业务逻辑偏差",
+      "category": "需求与验收",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "界面或实现看似完成，但核心业务约束和异常路径缺失",
+      "rootCause": "目标描述缺少业务不变量、边界条件与明确的非目标",
+      "symptoms": [
+        "正常路径通过但业务规则错误",
+        "需求假设未明确",
+        "重复退款等边界未覆盖"
+      ],
+      "solutions": [
+        {
+          "name": "结构化任务契约",
+          "approach": "定义目标、非目标、授权范围、验收条件与反例",
+          "limitations": "任务发起人仍需定义关键业务规则",
+          "tools": [
+            "Task Contract",
+            "BDD"
+          ]
+        },
+        {
+          "name": "业务不变量与独立审查",
+          "approach": "把金额、状态机、权限等规则转换为可执行断言",
+          "limitations": "不变量不能覆盖全部隐性用户体验",
+          "tools": [
+            "Domain Invariants",
+            "Review"
+          ]
+        }
+      ],
+      "metrics": [
+        "需求验收覆盖率",
+        "隐性需求返工率"
+      ],
+      "sourceIds": [
+        "S03",
+        "S15",
+        "S28"
+      ],
+      "tags": [
+        "需求与验收",
+        "P0",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-02",
+      "title": "测试绿色但实现错误",
+      "category": "验证与质量",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "单测全部通过仍保留逻辑或安全缺陷",
+      "rootCause": "Agent 生成的测试和代码存在共同盲区；测试预言机本身可能有错误",
+      "symptoms": [
+        "遗漏负例或边界",
+        "修改测试规避失败",
+        "正确修复被坏测试拒绝"
+      ],
+      "solutions": [
+        {
+          "name": "独立 Test Oracle",
+          "approach": "将业务验收与 Coder 独立，执行性质、变异和集成测试",
+          "limitations": "需要高质量任务规范与环境基线",
+          "tools": [
+            "Hypothesis",
+            "Playwright"
+          ]
+        },
+        {
+          "name": "干净环境复评",
+          "approach": "用固定版本的外部测试与不可变依赖重新验证真实提交",
+          "limitations": "对外部系统与线上风险无法完全模拟",
+          "tools": [
+            "CI",
+            "Clean-room Regrade"
+          ]
+        }
+      ],
+      "metrics": [
+        "验收误通过率",
+        "变异测试杀伤率",
+        "线上逃逸缺陷率"
+      ],
+      "sourceIds": [
+        "S04",
+        "S05",
+        "S14",
+        "S19",
+        "S27",
+        "S28"
+      ],
+      "tags": [
+        "验证与质量",
+        "P0",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-03",
+      "title": "Prompt Injection、密钥与供应链",
+      "category": "安全治理",
+      "priority": "P0",
+      "maturity": "M2",
+      "summary": "不可信 Issue 或 README 可以诱导高权限 Agent 读取敏感数据",
+      "rootCause": "数据与指令混淆，执行器或 CI 持有过宽权限",
+      "symptoms": [
+        "恶意外部文本要求调用工具",
+        "依赖安装运行不可信脚本",
+        "凭证进入构建环境"
+      ],
+      "solutions": [
+        {
+          "name": "分层权限和无密钥沙箱",
+          "approach": "检索、代码修改、PR 和发布使用不同身份；限制文件与网络",
+          "limitations": "容器并非自动安全，需要内核和出站策略",
+          "tools": [
+            "Sandbox",
+            "Tool Policy"
+          ]
+        },
+        {
+          "name": "高风险审批与供应链审查",
+          "approach": "对工作流、锁文件和发布脚本设置强制检查",
+          "limitations": "静态扫描不能发现所有逻辑攻击",
+          "tools": [
+            "OWASP",
+            "CodeQL"
+          ]
+        }
+      ],
+      "metrics": [
+        "注入攻击成功率",
+        "越权工具调用阻断率"
+      ],
+      "sourceIds": [
+        "S09",
+        "S10",
+        "S20",
+        "S21",
+        "S24",
+        "S25"
+      ],
+      "tags": [
+        "安全治理",
+        "P0",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-04",
+      "title": "自报成功与真实交付状态不一致",
+      "category": "交付治理",
+      "priority": "P0",
+      "maturity": "M3",
+      "summary": "Agent 宣称 PR 已合并或已部署，外部事实却不支持",
+      "rootCause": "混淆工具意图、请求响应与实际最终状态",
+      "symptoms": [
+        "PR 开启被称为合并",
+        "CI 旧提交结果被复用",
+        "文档在报告中声称已发布但路径不存在"
+      ],
+      "solutions": [
+        {
+          "name": "证据账本与状态机",
+          "approach": "由 Git、CI、Deploy API 外部事实决定终态，证据绑定 SHA",
+          "limitations": "各供应商状态语义需适配",
+          "tools": [
+            "Evidence Ledger",
+            "GitHub API"
+          ]
+        },
+        {
+          "name": "失败终态治理",
+          "approach": "阻塞、回滚、待验证均成为明确状态；杜绝自然语言覆盖事实",
+          "limitations": "需要任务存储与定期对账",
+          "tools": [
+            "Workflow State Machine"
+          ]
+        }
+      ],
+      "metrics": [
+        "假完成率",
+        "提交/测试 SHA 一致率"
+      ],
+      "sourceIds": [
+        "S13",
+        "S15",
+        "S24",
+        "S36"
+      ],
+      "tags": [
+        "交付治理",
+        "P0",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-05",
+      "title": "大型代码库上下文不足与知识过时",
+      "category": "上下文工程",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "改错文件、重复造轮子、使用过期配置",
+      "rootCause": "无差别预读造成噪音，缺少符号/调用图和规则版本管理",
+      "symptoms": [
+        "遗漏跨模块消费者",
+        "重复实现已有功能",
+        "旧 API 误用"
+      ],
+      "solutions": [
+        {
+          "name": "分层代码检索",
+          "approach": "先搜索目标，再通过符号和调用图扩展，按需读取上下文",
+          "limitations": "索引需要更新并维护正确性",
+          "tools": [
+            "Aider Repo Map",
+            "tree-sitter",
+            "Zoekt"
+          ]
+        },
+        {
+          "name": "知识版本与来源定位",
+          "approach": "文档附版本/时间，任务使用相同代码 SHA 的上下文",
+          "limitations": "非结构化业务规则仍难检索",
+          "tools": [
+            "AGENTS.md",
+            "RAG"
+          ]
+        }
+      ],
+      "metrics": [
+        "相关文件召回率",
+        "无效上下文占比"
+      ],
+      "sourceIds": [
+        "S01",
+        "S30",
+        "S31"
+      ],
+      "tags": [
+        "上下文工程",
+        "P1",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-06",
+      "title": "CLI、MCP 与 API 工具调用脆弱",
+      "category": "工具与集成",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "参数不符、工具 429、Shell 失败与协议不兼容",
+      "rootCause": "工具模式与权限配置不一致，缺少幂等和错误分级",
+      "symptoms": [
+        "JSON schema 不匹配",
+        "无界重试",
+        "不同 Agent 配置互不兼容"
+      ],
+      "solutions": [
+        {
+          "name": "Tool Gateway 与适配层",
+          "approach": "强制工具 schema、权限、超时、幂等键与结构化错误",
+          "limitations": "需维护模型/工具版本的兼容矩阵",
+          "tools": [
+            "MCP",
+            "Adapter",
+            "JSON Schema"
+          ]
+        },
+        {
+          "name": "可恢复错误分类",
+          "approach": "429/临时错误有限重试；权限和参数错误立即停止",
+          "limitations": "错误码分类需真实工具数据持续校准",
+          "tools": [
+            "Retry Policy",
+            "Circuit Breaker"
+          ]
+        }
+      ],
+      "metrics": [
+        "工具调用成功率",
+        "重复调用放大率"
+      ],
+      "sourceIds": [
+        "S02",
+        "S21",
+        "S22",
+        "S26"
+      ],
+      "tags": [
+        "工具与集成",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-07",
+      "title": "依赖和执行环境不可复现",
+      "category": "执行环境",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "本地通过 CI 失败，或者依赖/平台变化导致任务失效",
+      "rootCause": "运行时版本、基础镜像、锁文件和外部服务不一致",
+      "symptoms": [
+        "缺少系统库",
+        "安装包名称错误",
+        "不同操作系统行为不一致"
+      ],
+      "solutions": [
+        {
+          "name": "不可变构建基线",
+          "approach": "锁依赖和基础镜像 digest，捕获开发与 CI 的环境信息",
+          "limitations": "平台与真实服务仍存在差距",
+          "tools": [
+            "Docker",
+            "Devcontainer",
+            "uv Lock"
+          ]
+        },
+        {
+          "name": "基线测试与干净重放",
+          "approach": "修改前先运行 baseline；在干净环境对同一 SHA 复测",
+          "limitations": "大型集成环境复现成本较高",
+          "tools": [
+            "CI Matrix",
+            "Service Containers"
+          ]
+        }
+      ],
+      "metrics": [
+        "干净构建复现率",
+        "环境相关失败率"
+      ],
+      "sourceIds": [
+        "S01",
+        "S02",
+        "S32"
+      ],
+      "tags": [
+        "执行环境",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-08",
+      "title": "长任务失忆、状态漂移和修复循环",
+      "category": "任务编排",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "长时间重复探索、越改越偏、上下文压缩遗忘关键约束",
+      "rootCause": "仅把模型对话当作任务状态，缺乏持久检查点和预算上限",
+      "symptoms": [
+        "修复同一错误多次",
+        "超过范围改动",
+        "重复工具请求"
+      ],
+      "solutions": [
+        {
+          "name": "持久化任务 DAG",
+          "approach": "任务阶段、依赖、状态与证据独立于模型保存",
+          "limitations": "补偿操作与外部副作用需额外治理",
+          "tools": [
+            "LangGraph",
+            "Temporal"
+          ]
+        },
+        {
+          "name": "有界执行与检查点",
+          "approach": "每阶段输出可验证成果，并设置最大修复轮数和成本",
+          "limitations": "过早终止可能需要人工处理",
+          "tools": [
+            "Checkpoint",
+            "Budget"
+          ]
+        }
+      ],
+      "metrics": [
+        "恢复成功率",
+        "循环率",
+        "任务越界率"
+      ],
+      "sourceIds": [
+        "S06",
+        "S17",
+        "S33",
+        "S34"
+      ],
+      "tags": [
+        "任务编排",
+        "P1",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-09",
+      "title": "代码膨胀、大 Diff 与审查负债",
+      "category": "代码质量",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "重复代码、抽象失控和 PR 审查时间上涨",
+      "rootCause": "优化写代码的局部产量，而非最小可维护变更",
+      "symptoms": [
+        "重复辅助方法",
+        "未解释的大型 Diff",
+        "错误吞掉异常"
+      ],
+      "solutions": [
+        {
+          "name": "增量质量门禁",
+          "approach": "比较变更前后复杂度、重复度和静态分析告警",
+          "limitations": "门槛需要按语言与仓库校准",
+          "tools": [
+            "CodeQL",
+            "Linters"
+          ]
+        },
+        {
+          "name": "Diff 预算与独立 Review",
+          "approach": "对复杂修改拆分 PR，审核架构一致性与失败路径",
+          "limitations": "拆分过度影响跨文件原子性",
+          "tools": [
+            "Review Checklists"
+          ]
+        }
+      ],
+      "metrics": [
+        "新增静态告警",
+        "每 PR 审查分钟数"
+      ],
+      "sourceIds": [
+        "S07",
+        "S12",
+        "S35"
+      ],
+      "tags": [
+        "代码质量",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-10",
+      "title": "数据库与前后端状态一致性",
+      "category": "状态与数据",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "UI 显示成功但数据未提交，并发时重复写入或交易状态错乱",
+      "rootCause": "仅验证呈现层，缺少真实持久化、事务与并发测试",
+      "symptoms": [
+        "刷新后丢失状态",
+        "重复请求导致重复扣款",
+        "失败事务残留"
+      ],
+      "solutions": [
+        {
+          "name": "跨层端到端验证",
+          "approach": "联合验证 UI、HTTP、DB 持久化，覆盖刷新和错误路径",
+          "limitations": "测试隔离及构建数据成本较高",
+          "tools": [
+            "Playwright",
+            "Integration Test"
+          ]
+        },
+        {
+          "name": "性质与并发验证",
+          "approach": "测试状态不变量、幂等与并发交易，保持向后兼容迁移",
+          "limitations": "并发重现和时序覆盖不完全",
+          "tools": [
+            "Hypothesis",
+            "DB Constraint"
+          ]
+        }
+      ],
+      "metrics": [
+        "UI/DB 一致通过率",
+        "幂等测试通过率"
+      ],
+      "sourceIds": [
+        "S03",
+        "S13",
+        "S27",
+        "S28"
+      ],
+      "tags": [
+        "状态与数据",
+        "P1",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-11",
+      "title": "多 Agent 并行冲突",
+      "category": "多智能体协作",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "并行修改同一接口造成覆盖、冲突与返工",
+      "rootCause": "共享 Workdir，任务无依赖 DAG 或接口契约",
+      "symptoms": [
+        "并行提交互相覆盖",
+        "合并后测试失败",
+        "不同 Agent 对接口理解不同"
+      ],
+      "solutions": [
+        {
+          "name": "独立 Worktree 和模块契约",
+          "approach": "每任务独立工作树，先约定接口后按依赖 DAG 并行",
+          "limitations": "Worktree 不是安全隔离，不可替代沙箱",
+          "tools": [
+            "Git Worktree",
+            "Task DAG"
+          ]
+        },
+        {
+          "name": "合并前重新验证",
+          "approach": "在最终候选合并 SHA 上重新测试依赖功能",
+          "limitations": "长 CI 队列可能限制并发",
+          "tools": [
+            "Merge Queue"
+          ]
+        }
+      ],
+      "metrics": [
+        "合并冲突率",
+        "并行任务返工率"
+      ],
+      "sourceIds": [
+        "S06",
+        "S17",
+        "S36"
+      ],
+      "tags": [
+        "多智能体协作",
+        "P1",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-12",
+      "title": "PR、CI/CD 与部署最后一公里",
+      "category": "发布交付",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "检查用错提交、工作流无权限、部署与预期版本不一致",
+      "rootCause": "交付状态未与 GitHub、CI 和真实运行环境对账",
+      "symptoms": [
+        "合成 Merge SHA 未测",
+        "PR 自动合并失败",
+        "Pages 构建失败被忽略"
+      ],
+      "solutions": [
+        {
+          "name": "分支保护与 Merge Queue",
+          "approach": "强制必需 checks，在候选合并 SHA 测试，不允许自报通过",
+          "limitations": "需要正确配置触发器和权限",
+          "tools": [
+            "GitHub Rulesets",
+            "Merge Queue"
+          ]
+        },
+        {
+          "name": "制品证明与回滚",
+          "approach": "制品 digest/签名、灰度与健康检查，失败可回滚",
+          "limitations": "签名证明来源，不证明代码安全",
+          "tools": [
+            "Artifact Attestation",
+            "Canary"
+          ]
+        }
+      ],
+      "metrics": [
+        "被验证的部署比例",
+        "回滚时间"
+      ],
+      "sourceIds": [
+        "S09",
+        "S24",
+        "S29",
+        "S36"
+      ],
+      "tags": [
+        "发布交付",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-13",
+      "title": "Token、调用成本和审查队列",
+      "category": "成本与调度",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "模型成本下降但人工 Review 和返工吞噬收益",
+      "rootCause": "重复检索、无界调用、低价值并发与 WIP 超载",
+      "symptoms": [
+        "重复消耗上下文",
+        "PR 等待过久",
+        "Token 成本与有效产出不成比例"
+      ],
+      "solutions": [
+        {
+          "name": "模型路由和预算控制",
+          "approach": "按风险分配模型和最大调用，缓存稳定检索，失败有限重试",
+          "limitations": "缓存失效和模型切换需要监控",
+          "tools": [
+            "LiteLLM Router",
+            "Budget"
+          ]
+        },
+        {
+          "name": "有效交付总成本核算",
+          "approach": "纳入模型、运行、Review、返工成本而非只看 Token",
+          "limitations": "人工时间记录可能不准确",
+          "tools": [
+            "Cost per Accepted Task"
+          ]
+        }
+      ],
+      "metrics": [
+        "单位验收任务总成本",
+        "Review 队列等待时间"
+      ],
+      "sourceIds": [
+        "S08",
+        "S16",
+        "S37"
+      ],
+      "tags": [
+        "成本与调度",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-14",
+      "title": "Benchmark 污染与评测失真",
+      "category": "评测与研究",
+      "priority": "P1",
+      "maturity": "M2",
+      "summary": "公开榜单高分而内部真实任务表现弱",
+      "rootCause": "隐藏测试不合理、数据污染和单一 pass@1 指标",
+      "symptoms": [
+        "正确修复被拒绝",
+        "过度拟合公开任务",
+        "测试数据可能泄漏"
+      ],
+      "solutions": [
+        {
+          "name": "私有真实任务基准",
+          "approach": "从历史 Issue 提取具有独立验收的封闭任务，进行配对比较",
+          "limitations": "内部样本规模有限",
+          "tools": [
+            "Private Evals"
+          ]
+        },
+        {
+          "name": "评测器双向校验",
+          "approach": "参考补丁能过、空补丁应失败，干净环境重判",
+          "limitations": "评测维护需要专家参与",
+          "tools": [
+            "SWE-Bench Pro V2"
+          ]
+        }
+      ],
+      "metrics": [
+        "真实任务解决率",
+        "错误评分比例"
+      ],
+      "sourceIds": [
+        "S04",
+        "S05",
+        "S19"
+      ],
+      "tags": [
+        "评测与研究",
+        "P1",
+        "M2",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-15",
+      "title": "AGENTS.md、Skills 与项目文档漂移",
+      "category": "知识治理",
+      "priority": "P2",
+      "maturity": "M3",
+      "summary": "运行指令过时、Skill 指向无效配置，导致 Agent 执行错误",
+      "rootCause": "文档与代码不同步，没有所有者和版本适用范围",
+      "symptoms": [
+        "过期命令",
+        "遗漏升级步骤",
+        "重复而冲突的配置"
+      ],
+      "solutions": [
+        {
+          "name": "Docs-as-code 和引用检查",
+          "approach": "将命令、配置和重要引用纳入 CI 与变更评审",
+          "limitations": "部分自然语言约束难自动验证",
+          "tools": [
+            "Markdown Lint",
+            "CI"
+          ]
+        },
+        {
+          "name": "Skill 生命周期治理",
+          "approach": "显式版本、适用模型/工具、参考资料与样例测试",
+          "limitations": "维护成本随领域增长",
+          "tools": [
+            "Skills Registry"
+          ]
+        }
+      ],
+      "metrics": [
+        "文档链接失效率",
+        "Skill 回归通过率"
+      ],
+      "sourceIds": [
+        "S01",
+        "S26"
+      ],
+      "tags": [
+        "知识治理",
+        "P2",
+        "M3",
+        "Coding Agent"
+      ]
+    },
+    {
+      "id": "CA-16",
+      "title": "缺少可观测性与故障复盘",
+      "category": "观测与审计",
+      "priority": "P1",
+      "maturity": "M3",
+      "summary": "工具运行失败无法重演，错误分类依靠猜测",
+      "rootCause": "没有统一 Trace ID、任务状态与验证证据",
+      "symptoms": [
+        "无法定位失败阶段",
+        "多次运行不具可比较性",
+        "安全审计无法还原工具操作"
+      ],
+      "solutions": [
+        {
+          "name": "统一事件与分布式 Trace",
+          "approach": "按任务 ID 记录工具、模型、状态、耗时和成本，脱敏保存",
+          "limitations": "追踪本身必须遵循隐私和保密要求",
+          "tools": [
+            "OpenTelemetry"
+          ]
+        },
+        {
+          "name": "失败分类与闭环评估",
+          "approach": "将真实失败转为回归评测样本，建立修复前后对比",
+          "limitations": "标注成本和口径漂移",
+          "tools": [
+            "Failure Taxonomy",
+            "Evals"
+          ]
+        }
+      ],
+      "metrics": [
+        "Trace 完整率",
+        "无解释失败占比"
+      ],
+      "sourceIds": [
+        "S17",
+        "S18",
+        "S38"
+      ],
+      "tags": [
+        "观测与审计",
+        "P1",
+        "M3",
+        "Coding Agent"
+      ]
+    }
+  ]
+}

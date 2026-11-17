@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "domainId": "ai-coding",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "R01 · Stack Overflow. *Developer Survey 2026 — Technology / AI mistake costs*, 2026. 调查原始数据；n=13,648（该题，多选）。",
+      "note": "历史报告中的原引用 [R01]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://survey.stackoverflow.co/2026/technology/data",
+      "type": "report"
+    },
+    {
+      "id": "S02",
+      "title": "R02 · Zhang, R. et al. *Engineering Pitfalls in AI Coding Tools: An Empirical Study of Bugs in Claude Code, Codex, and Gemini CLI*, 2026，公开 PDF/预印本样式（含出版信息占位）。3,864 个已关闭核实 Bug，数据截至 2025-12-12。",
+      "note": "历史报告中的原引用 [R02]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://www.eecs.yorku.ca/~wangsong/papers/fse26-industry.pdf",
+      "type": "report"
+    },
+    {
+      "id": "S03",
+      "title": "R03 · Columbia DAPLab. *9 Critical Failure Patterns of Coding Agents*, 2026-01-08。15+ 应用、5 种工具，质性失效分析。",
+      "note": "历史报告中的原引用 [R03]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://daplab.cs.columbia.edu/general/2026/01/08/9-critical-failure-patterns-of-coding-agents.html",
+      "type": "report"
+    },
+    {
+      "id": "S04",
+      "title": "R04 · OpenAI. *Separating signal from noise in coding evaluations*, 2026-07-08。SWE-bench Pro 问题审计；不能把估计比例当所有基准的缺陷率。",
+      "note": "历史报告中的原引用 [R04]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "type": "report"
+    },
+    {
+      "id": "S05",
+      "title": "R05 · Scale AI. *SWE-Bench Pro V2*, 2026-09-22。任务清洗、干净环境复评、验证协议。",
+      "note": "历史报告中的原引用 [R05]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2",
+      "type": "report"
+    },
+    {
+      "id": "S06",
+      "title": "R06 · Jin, Q. et al. *ChainSWE: Benchmarking Coding Agents on Multi-Bug Software Maintenance*, 2026。304 Issue / 54 项目；任务链相关性能退化。",
+      "note": "历史报告中的原引用 [R06]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2607.02606",
+      "type": "research"
+    },
+    {
+      "id": "S07",
+      "title": "R07 · Cynthia, S. T. et al. *Beyond Bug Fixes: An Empirical Investigation of Post-Merge Code Quality Issues in Agent-Generated Pull Requests*, MSR 2026。1,210 个已合并 Agent Bug-fix PR。",
+      "note": "历史报告中的原引用 [R07]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2601.20109",
+      "type": "research"
+    },
+    {
+      "id": "S08",
+      "title": "R08 · DORA / Google. *Balancing AI tensions: Moving from AI adoption to effective SDLC use*, 2026-03-10；基于 DORA 2025 和工程师反馈。",
+      "note": "历史报告中的原引用 [R08]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://dora.dev/insights/balancing-ai-tensions/",
+      "type": "report"
+    },
+    {
+      "id": "S09",
+      "title": "R09 · Microsoft Defender Security Research. *Securing CI/CD in an agentic world: Claude Code Github action case*, 2026-06-05。带有复现实证的 CI/CD 安全研究。",
+      "note": "历史报告中的原引用 [R09]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/",
+      "type": "report"
+    },
+    {
+      "id": "S10",
+      "title": "R10 · OWASP. *Agentic Skills Top 10*, 2026；公开审议中的风险分类与实践建议。",
+      "note": "历史报告中的原引用 [R10]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://owasp.github.io/www-project-agentic-skills-top-10/",
+      "type": "report"
+    },
+    {
+      "id": "S11",
+      "title": "R11 · Veracode. *Fall 2026 GenAI Code Security Update*, 2026-10。样本限定于所测模型、四种语言和四类 CWE；平均安全通过率约 62%，**不可解释为生产代码 38% 一定有漏洞**。",
+      "note": "历史报告中的原引用 [R11]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://www.veracode.com/blog/fall-2026-genai-code-security",
+      "type": "report"
+    },
+    {
+      "id": "S12",
+      "title": "R12 · GitClear. *The Maintainability Gap: 2026 AI Code Quality Research*, 2026。大规模代码变更趋势研究，观察性非因果。",
+      "note": "历史报告中的原引用 [R12]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://www.gitclear.com/the_ai_code_quality_maintainability_gap",
+      "type": "report"
+    },
+    {
+      "id": "S13",
+      "title": "R13 · Columbia DAPLab. *Coding Agents Keep Shipping Silent Failures — Here Is How to Catch Them*, 2026-09-18。UI 与状态管理的静默故障案例。",
+      "note": "历史报告中的原引用 [R13]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://daplab.cs.columbia.edu/general/2026/09/18/flowcheck-catching-silent-failures.html",
+      "type": "report"
+    },
+    {
+      "id": "S14",
+      "title": "R14 · Bai, W. et al. *When Passing Tests Hides Vulnerabilities: An Empirical Study of Silent Failures in Agentic Systems*, 2026。1,030 条执行轨迹中鉴定 170 个安全静默失败（研究样本与模型限制明显）。",
+      "note": "历史报告中的原引用 [R14]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2609.10548",
+      "type": "research"
+    },
+    {
+      "id": "S15",
+      "title": "R15 · Krentsel, A. et al. *Reality Is the Final Verifier: On Two Key Gaps in Agentic Software Engineering*, 2026。需求落差与环境模型落差框架。",
+      "note": "历史报告中的原引用 [R15]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2609.12039",
+      "type": "research"
+    },
+    {
+      "id": "S16",
+      "title": "R16 · METR. *We are Changing our Developer Productivity Experiment Design*, 2026-02-24。强调当前生产率估计偏差；切勿外推 2025 实验。",
+      "note": "历史报告中的原引用 [R16]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://metr.org/blog/2026-02-24-uplift-update/",
+      "type": "report"
+    },
+    {
+      "id": "S17",
+      "title": "R17 · Albayaydh, W. et al. *Beyond the Leaderboard: A Synthesis of Tool-Use, Planning, and Reasoning Failures in Large Language Model Agents*, 2026。综述 27 篇相关研究、19 个基准。",
+      "note": "历史报告中的原引用 [R17]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2607.05775",
+      "type": "research"
+    },
+    {
+      "id": "S18",
+      "title": "R18 · Dai, W. et al. *A Large-Scale Empirical Study of Quality Assurance Practices and Gaps in AI Agents*, 2026。157 个开源 Agent 项目，测试保护不均匀。",
+      "note": "历史报告中的原引用 [R18]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://arxiv.org/abs/2609.17698",
+      "type": "research"
+    },
+    {
+      "id": "S19",
+      "title": "S01 · Scale AI, *SWE-Bench Pro V2*（2026-09-22）：",
+      "note": "历史报告中的原引用 [S01]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2",
+      "type": "tool"
+    },
+    {
+      "id": "S20",
+      "title": "S02 · OWASP, *LLM Prompt Injection Prevention Cheat Sheet*：",
+      "note": "历史报告中的原引用 [S02]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "type": "tool"
+    },
+    {
+      "id": "S21",
+      "title": "S03 · OWASP, *MCP Security Cheat Sheet*：",
+      "note": "历史报告中的原引用 [S03]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html",
+      "type": "tool"
+    },
+    {
+      "id": "S22",
+      "title": "S04 · Model Context Protocol, *One Year of MCP: November 2025 Spec Release*（授权扩展参考）：",
+      "note": "历史报告中的原引用 [S04]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/",
+      "type": "tool"
+    },
+    {
+      "id": "S23",
+      "title": "S05 · OpenAI, *Agent approvals & security*：",
+      "note": "历史报告中的原引用 [S05]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "type": "tool"
+    },
+    {
+      "id": "S24",
+      "title": "S06 · GitHub, *About protected branches / required checks*：",
+      "note": "历史报告中的原引用 [S06]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "type": "tool"
+    },
+    {
+      "id": "S25",
+      "title": "S07 · GitHub, *Securely using pull_request_target*：",
+      "note": "历史报告中的原引用 [S07]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target",
+      "type": "tool"
+    },
+    {
+      "id": "S26",
+      "title": "S08 · Anthropic, *Claude Code Settings files and precedence*：",
+      "note": "历史报告中的原引用 [S08]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://code.claude.com/docs/en/settings",
+      "type": "tool"
+    },
+    {
+      "id": "S27",
+      "title": "S09 · Playwright, *Assertions and auto-retrying*：",
+      "note": "历史报告中的原引用 [S09]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://playwright.dev/docs/test-assertions",
+      "type": "tool"
+    },
+    {
+      "id": "S28",
+      "title": "S10 · Hypothesis, *Quickstart and property-based tests*：",
+      "note": "历史报告中的原引用 [S10]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://hypothesis.readthedocs.io/en/latest/quickstart.html",
+      "type": "tool"
+    },
+    {
+      "id": "S29",
+      "title": "S11 · GitHub, *Artifact attestations*：",
+      "note": "历史报告中的原引用 [S11]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.github.com/en/actions/concepts/security/artifact-attestations",
+      "type": "tool"
+    },
+    {
+      "id": "S30",
+      "title": "S12 · Aider, *Repository map*：",
+      "note": "历史报告中的原引用 [S12]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://aider.chat/docs/repomap.html",
+      "type": "tool"
+    },
+    {
+      "id": "S31",
+      "title": "S13 · Zoekt, *FAQ / indexing and code search*：",
+      "note": "历史报告中的原引用 [S13]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://github.com/sourcegraph/zoekt/blob/main/doc/faq.md",
+      "type": "tool"
+    },
+    {
+      "id": "S32",
+      "title": "S14 · Astral, *uv Locking and syncing*：",
+      "note": "历史报告中的原引用 [S14]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.astral.sh/uv/concepts/projects/sync/",
+      "type": "tool"
+    },
+    {
+      "id": "S33",
+      "title": "S15 · LangGraph, *Checkpoint reference*：",
+      "note": "历史报告中的原引用 [S15]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://langchain-ai.github.io/langgraph/reference/checkpoints/",
+      "type": "tool"
+    },
+    {
+      "id": "S34",
+      "title": "S16 · Temporal, *Activity Definition / idempotency*：",
+      "note": "历史报告中的原引用 [S16]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.temporal.io/activity-definition",
+      "type": "tool"
+    },
+    {
+      "id": "S35",
+      "title": "S17 · GitHub, *Code scanning with CodeQL*：",
+      "note": "历史报告中的原引用 [S17]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning",
+      "type": "tool"
+    },
+    {
+      "id": "S36",
+      "title": "S18 · GitHub, *Managing a merge queue*：",
+      "note": "历史报告中的原引用 [S18]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue",
+      "type": "tool"
+    },
+    {
+      "id": "S37",
+      "title": "S19 · LiteLLM, *Router, retries, fallbacks and cooldowns*：",
+      "note": "历史报告中的原引用 [S19]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://docs.litellm.ai/docs/router/learn/reliability",
+      "type": "tool"
+    },
+    {
+      "id": "S38",
+      "title": "S20 · OpenTelemetry, *GenAI semantic conventions*：",
+      "note": "历史报告中的原引用 [S20]；具体证据范围和局限见 Markdown 原文。",
+      "url": "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+      "type": "tool"
+    }
+  ]
+}
