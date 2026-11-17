@@ -23,7 +23,11 @@
       "label": "瓶颈深度调查",
       "description": "问题清单、成因、证据与工程优先级",
       "path": "reports/ai-short-drama/bottlenecks-2026-11-17.md",
-      "date": "2026-11-17"
+      "date": "2026-11-17",
+      "artifacts": {
+        "docx": "reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.docx",
+        "pdf": "reports/ai-short-drama/exports/ai-drama-bottlenecks-v1.pdf"
+      }
     },
     {
       "id": "ai-drama-solutions-v2",
@@ -31,7 +35,11 @@
       "label": "瓶颈与现有解决方案深度研究",
       "description": "12个 Issue 解决方案、工具成熟度、实施 SOP 和验收",
       "path": "reports/ai-short-drama/solutions-2026-11-17.md",
-      "date": "2026-11-17"
+      "date": "2026-11-17",
+      "artifacts": {
+        "docx": "reports/ai-short-drama/exports/ai-drama-solutions-v2.docx",
+        "pdf": "reports/ai-short-drama/exports/ai-drama-solutions-v2.pdf"
+      }
     }
   ],
   "disclaimer": "研究为公开材料综合整理，优先级是工程判断，不代表行业统一统计。技术成熟度是本研究标注，非官方等级。",
