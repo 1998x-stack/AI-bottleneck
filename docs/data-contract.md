@@ -67,3 +67,9 @@
 - 完整 Markdown 与 `catalog/domains/<slug>.json` 是分离的：前者用于完整阅读和下载，后者用于筛选、Issue 抽屉和跨领域搜索。
 - 研究中标注的 M2/M3 为现有方案可集成性评估，不代表问题已在任何具体企业消除。
 - 新领域的 Issue ID 在领域内唯一，跨领域引用使用 `<domain>/<issue>`。
+
+
+## Cross-domain issue identity · 2026-11-17
+- Global issue key is `<domainId>/<issueId>`, not issue ID alone.
+- Share links preserve domain: `?view=issues&domain=ai-coding&issue=CA-01`.
+- Planned domains do not contribute to the published statistics; P0/P1/P2 are engineering priorities rather than incidence rates.

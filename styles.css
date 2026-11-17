@@ -21,3 +21,17 @@
 .side-domain{margin-bottom:8px;transition:background .2s,border-color .2s,transform .2s}.side-domain:hover{transform:translateX(2px);border-color:var(--accent)}.side-domain.is-active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-dark)}.side-domain.is-active:before{box-shadow:0 0 0 4px rgba(41,158,147,.13)}.report-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.report-card .report-actions{margin-top:auto}.report-card{display:flex;flex-direction:column}.source-pills{flex-wrap:wrap}
 
 .domain-overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0 24px}.domain-overview-card{text-align:left;display:flex;flex-direction:column;gap:9px;padding:22px;border:1px solid var(--line);background:var(--paper);border-radius:14px;min-height:196px;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.domain-overview-card:hover{transform:translateY(-3px);border-color:var(--accent)}.domain-overview-card.selected{border-color:var(--accent);background:var(--accent-soft)}.domain-overview-card strong{font-size:20px;color:var(--ink)}.domain-overview-card small{line-height:1.7;color:var(--muted)}.domain-overview-eyebrow,.domain-overview-stats{font:10px 'IBM Plex Mono',monospace;color:var(--accent-dark)}.domain-overview-stats{margin-top:auto;letter-spacing:.025em}
+
+/* Research Observatory v2: domain comparison */
+.side-domain.current{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-dark)}
+.comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:20px 0}
+.compare-card{min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:25px;display:flex;flex-direction:column;gap:13px}
+.compare-card h3{font-size:21px;margin:0;line-height:1.35;letter-spacing:-.03em}
+.compare-card p{font-size:12px;color:var(--muted);line-height:1.9;margin:0}
+.compare-card .compare-legend{font-size:11px;font-weight:700}
+.compare-card .small-button{align-self:start;margin-top:auto}
+.compare-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.compare-stats span{font:10px 'IBM Plex Mono',monospace;color:var(--muted)}
+.compare-stats b{display:block;font:600 24px 'IBM Plex Mono',monospace;color:var(--ink)}
+@media(max-width:900px){.comparison-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.compare-card{padding:17px}.compare-stats b{font-size:21px}}

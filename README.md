@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 已发布 **AI 短剧**（12 项 DR issues）和 **企业 AI 知识库**（22 项 KM issues、36 条来源、v2.0 完整研究手册），其他领域按统一数据契约逐步扩展。
+**状态：** 已发布 **AI 短剧**（12 项）、**企业 AI 知识库**（22 项）和 **AI Coding Agent**（16 项、38 条来源、两份深度研究报告）；后续领域按统一数据契约逐步扩展。
 
 ## 产品定位
 
@@ -117,3 +117,12 @@ cd dist && python3 -m http.server 8000
 ## 许可
 
 研究文档引用的第三方资料受其各自权利声明约束；引用与链接并不代表获得第三方素材的再发行许可。站点代码可以进一步采用明确的开源 LICENSE 后对外授权；在仓库指定许可证前，不应默认允许无限制复制和商业再使用。
+
+
+## AI Coding Agent · 2026-11-17
+
+- [Coding Agent 核心 Issues](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding)
+- [逐项解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2)
+- [跨领域研究对照](https://1998x-stack.github.io/AI-bottleneck/?view=compare)
+
+源文档：`reports/ai-coding/`。Word、PDF 及 SHA256 版本清单：`reports/ai-coding/exports/`；GitHub Actions 校验站点下载内容与归档字节一致。
