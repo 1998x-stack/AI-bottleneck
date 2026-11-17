@@ -4,7 +4,7 @@
 
 [GitHub Pages](https://1998x-stack.github.io/AI-bottleneck/) · [问题图谱](https://1998x-stack.github.io/AI-bottleneck/?view=issues) · [研究报告](https://1998x-stack.github.io/AI-bottleneck/?view=reports) · [证据库](https://1998x-stack.github.io/AI-bottleneck/?view=evidence)
 
-**状态：** 当前已导入 **AI 短剧** 专题（12 个 DR issues、33 条来源、2 份完整 Markdown 研究报告）。其他领域显示为**规划中**，不冒充已完成研究。
+**状态：** 已导入 **AI 短剧**（12 个核心问题）与 **AI Coding Agent**（16 个核心问题、38 条来源、两版中文研究报告）；其它领域显示为**规划中**，不冒充已完成研究。
 
 ## 产品定位
 
@@ -12,9 +12,9 @@
 
 - 从「现象与严重度」进入「技术根因」，逐项对应「已有工具/方法」、「适用边界」、「验收指标」和「证据来源」。
 - 单一领域报告与结构化问题索引同时存在；研究更新可追溯，不以模型宣传值代替实测指标。
-- 全站搜索、问题筛选、详情抽屉、文档阅读、来源登记、明暗主题、响应式布局。
+- 全站跨领域搜索、领域切换、问题筛选、跨领域对照、详情抽屉、报告阅读、来源登记、Word/PDF 下载、明暗主题、响应式布局。
 - 使用 GitHub Pages 发布，**前端无框架依赖、无数据库、无账号系统**；每加入一个行业不需要重写前端。
-- GitHub Actions 校验 JSON schema 合约、引用、报告文件，构建 Word 下载版本并部署 Pages。
+- GitHub Actions 校验 JSON schema 合约、引用、报告文件，构建 Word/PDF 下载版本并部署 Pages。
 
 ## 目录
 
@@ -60,10 +60,10 @@ python3 -m http.server 8000
 # 访问 http://localhost:8000/
 ```
 
-生成与 GitHub Pages 一致的静态站点（包含 Word 下载）：
+生成与 GitHub Pages 一致的静态站点（包含 Word/PDF 下载）：
 
 ```bash
-python3 -m pip install python-docx==1.2.0
+python3 -m pip install python-docx==1.2.0  # PDF 转换另需 LibreOffice / soffice
 python3 scripts/build_site.py
 cd dist && python3 -m http.server 8000
 ```
@@ -91,3 +91,13 @@ cd dist && python3 -m http.server 8000
 ## 许可
 
 研究文档引用的第三方资料受其各自权利声明约束；引用与链接并不代表获得第三方素材的再发行许可。站点代码可以进一步采用明确的开源 LICENSE 后对外授权；在仓库指定许可证前，不应默认允许无限制复制和商业再使用。
+
+
+## 已发布专题与下载
+
+- [AI Coding Agent · Issues](https://1998x-stack.github.io/AI-bottleneck/?view=issues&domain=ai-coding)
+- [AI Coding Agent · 解决方案 v2](https://1998x-stack.github.io/AI-bottleneck/?view=reports&domain=ai-coding&report=ai-coding-solutions-v2)
+- [AI 短剧 · 原研究](https://1998x-stack.github.io/AI-bottleneck/?view=overview&domain=ai-short-drama)
+- [跨领域瓶颈对照](https://1998x-stack.github.io/AI-bottleneck/?view=compare)
+
+源文件：`reports/<domain>/`；可下载格式：`downloads/<report-id>.docx`、`downloads/<report-id>.pdf`（GitHub Pages 构建产物）。`publications/<domain>/` 用于 Git 历史中的二进制镜像（由 CI 生成，不是人工编辑源）。

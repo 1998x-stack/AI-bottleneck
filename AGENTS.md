@@ -20,3 +20,10 @@ Keep an extensible, source-traceable cross-domain research library of AI product
 3. Validate links and evidence strength, preserve uncertainty.
 4. Run tests/build; inspect mobile viewport and dark/light modes.
 5. Open PR with issue scope, source list, QA results, and impact on previous domains.
+
+## Version 2 commitments
+- Preserve domain-specific URLs in global search results and deep links; navigate with `?domain=<id>`.
+- All published reports have downloadable Markdown, DOCX and PDF, verified by build and content tests.
+- Do not treat `git worktree` as a sandbox, signatures as vulnerability proof, or green tests as full business acceptance.
+- CI may publish generated `publications/<domain>/` assets; Markdown + catalog stay authoritative.
+- Cross-domain comparison must never imply directly comparable incidence rates.

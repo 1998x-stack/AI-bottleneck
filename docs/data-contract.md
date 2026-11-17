@@ -59,3 +59,14 @@
 
 ### 强制校验
 `node scripts/validate.mjs` 负责检查 ID 唯一性、引用存在、来源 HTTPS、报告路径与实际文件存在、类别和枚举合法性。更严格的 schema 和跨域统计在后续迭代引入。
+
+
+## v2 实施说明：跨领域与文档衍生物
+
+- `catalog/index.json` 的 `domains` 列表只存已发布领域，`planned` 列表不可计入统计。
+- Issue ID 只需领域内唯一；全局标识使用 `domainId/issueId`，例如 `ai-coding/CA-01`。
+- `sourceIds` 始终指向本领域的 `catalog/sources/<domain>.json`；同一 `S01` 在两个领域不表示同一来源。
+- `reports[].path` 指向 Git 内真实 Markdown 源文档；站点构建衍生 `downloads/<report.id>.docx` 和 `.pdf`，站点不依赖外部 PDF URL。
+- `publications/<domainId>/` 可以镜像生成的 Word/PDF 文件用于 Git 历史留存；这些是衍生物，Markdown + Catalog 仍是唯一可编辑源。
+- 扩展字段使用可选策略，不能在不升级 `schemaVersion` 的情况下破坏 v1 必填字段。
+- 所有来源需有类型与 URL；公开调查百分比与工程风险优先级禁止直接进行算术比较。
