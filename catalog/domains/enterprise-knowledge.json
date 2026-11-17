@@ -40,7 +40,10 @@
       "description": "完整研究报告；包含问题调查、22 项解决方案、接口范式、评测与 90 天实施路线",
       "path": "reports/enterprise-knowledge/enterprise-knowledge-research-2026-11-17.md",
       "date": "2026-11-17",
-      "pdf": true
+      "artifacts": {
+        "docx": "reports/enterprise-knowledge/exports/enterprise-km-research-v2.docx",
+        "pdf": "reports/enterprise-knowledge/exports/enterprise-km-research-v2.pdf"
+      }
     }
   ],
   "disclaimer": "研究基于公开来源，问题优先级与方案成熟度为本报告工程判断；不构成企业安全审计结论。",
