@@ -31,14 +31,12 @@ def export_docx(markdown: Path, output: Path) -> None:
     code=False
     for line in text.splitlines():
         raw=line.rstrip()
-        if raw.strip().startswith('\\\\\\\\'):
-            continue
         if raw.startswith('```'):
             code=not code
             continue
         if not raw.strip():
             continue
-        h=re.match(r'^(#{1,6})\\s+(.+)$',raw)
+        h=re.match(r'^(#{1,6})\s+(.+)$',raw)
         if h and not code:
             lvl=min(len(h.group(1)),3)
             doc.add_heading(h.group(2).replace('**',''),level=lvl)
@@ -46,11 +44,11 @@ def export_docx(markdown: Path, output: Path) -> None:
         if code:
             doc.add_paragraph(raw,style='Normal')
             continue
-        if re.match(r'^\\s*[-*]\\s+',raw):
-            doc.add_paragraph(re.sub(r'^\\s*[-*]\\s+','',raw).replace('**',''),style='List Bullet')
-        elif re.match(r'^\\s*\\d+\\.\\s+',raw):
-            doc.add_paragraph(re.sub(r'^\\s*\\d+\\.\\s+','',raw).replace('**',''),style='List Number')
-        elif re.match(r'^\\s*>',raw):
+        if re.match(r'^\s*[-*]\s+',raw):
+            doc.add_paragraph(re.sub(r'^\s*[-*]\s+','',raw).replace('**',''),style='List Bullet')
+        elif re.match(r'^\s*\d+\.\s+',raw):
+            doc.add_paragraph(re.sub(r'^\s*\d+\.\s+','',raw).replace('**',''),style='List Number')
+        elif re.match(r'^\s*>',raw):
             doc.add_paragraph(raw.lstrip('> ').replace('**',''))
         else:
             doc.add_paragraph(raw.replace('**',''))
