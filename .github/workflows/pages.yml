@@ -50,6 +50,11 @@ jobs:
           python scripts/verify_exports.py
           test -s dist/index.html
           test -s dist/catalog/domains/ai-short-drama.json
+          test -s dist/catalog/domains/ai-music.json
+          test -s dist/downloads/ai-music-bottlenecks-v1.docx
+          test -s dist/downloads/ai-music-bottlenecks-v1.pdf
+          test -s dist/downloads/ai-music-solutions-v2.docx
+          test -s dist/downloads/ai-music-solutions-v2.pdf
           test -s dist/downloads/ai-drama-bottlenecks-v1.docx
           test -s dist/downloads/ai-drama-bottlenecks-v1.pdf
           test -s dist/downloads/ai-drama-solutions-v2.docx
