@@ -1,1 +1,5 @@
-dist/\n__pycache__/\n*.pyc\n.DS_Store\nnode_modules/\n
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/

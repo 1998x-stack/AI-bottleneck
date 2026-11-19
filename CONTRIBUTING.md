@@ -12,6 +12,7 @@
 - 报告原文与 catalog 一致
 - 新增来源有稳定 ID 和 HTTPS 链接
 - `node scripts/validate.mjs` 通过
+- `node scripts/test_render.mjs` 通过（渲染与搜索回归测试）
 - `python scripts/build_site.py` 通过
 - Web UI 的搜索、筛选、报告阅读与移动端没有退化
 

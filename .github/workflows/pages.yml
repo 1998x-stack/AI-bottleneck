@@ -38,6 +38,8 @@ jobs:
           node --check app.js
           node --check markdown.js
           python -m py_compile scripts/build_site.py
+      - name: Run render regression tests
+        run: node scripts/test_render.mjs
       - name: Install DOCX and PDF rendering dependencies
         run: |
           sudo apt-get update -qq

@@ -10,7 +10,7 @@ Keep an extensible, source-traceable cross-domain research library of AI product
 - Never label a planned domain as published. Never conflate engineering priority with statistical prevalence.
 - No remote calls needed to render the published website; maintain relative asset paths for GitHub Pages subdirectory URLs.
 - Escape untrusted strings in DOM. External links must use HTTPS, target=_blank, rel=noopener noreferrer.
-- Changes must pass `node scripts/validate.mjs`, `node --check app.js`, `node --check markdown.js`, and `python scripts/build_site.py` after python-docx install.
+- Changes must pass `node scripts/validate.mjs`, `node scripts/test_render.mjs`, `node --check app.js`, `node --check markdown.js`, and `python scripts/build_site.py` after python-docx install.
 - Preserve original report files; publish new dated versions rather than silently rewriting factual historical studies.
 - Deployment is only confirmed after the GitHub Pages action succeeds AND the public URL responds successfully.
 

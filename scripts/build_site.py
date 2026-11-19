@@ -56,7 +56,27 @@ def repeat_header(row) -> None:
     tr_pr.append(el)
 
 def table_cells(line: str) -> list[str]:
-    return [x.strip() for x in line.strip().strip('|').split('|')]
+    """Split a Markdown table row, honouring escaped pipes (\|) in cell content."""
+    text = line.strip()
+    if text.startswith('|'):
+        text = text[1:]
+    if text.endswith('|') and not text.endswith('\\|'):
+        text = text[:-1]
+    cells, current, i = [], '', 0
+    while i < len(text):
+        if text[i] == '\\' and i + 1 < len(text) and text[i + 1] == '|':
+            current += '|'
+            i += 2
+            continue
+        if text[i] == '|':
+            cells.append(current)
+            current = ''
+            i += 1
+            continue
+        current += text[i]
+        i += 1
+    cells.append(current)
+    return [x.strip() for x in cells]
 
 def is_table_rule(line: str) -> bool:
     cells = table_cells(line)

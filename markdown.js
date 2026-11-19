@@ -1,13 +1,16 @@
 // Minimal dependency-free Markdown reader for reviewed, repository-owned research documents.
-// It escapes raw HTML and permits only absolute https/http Markdown links.
+// It escapes raw HTML, permits only absolute https Markdown links, protects inline code from
+// emphasis parsing, and keeps escaped pipes inside a single table cell.
 export function escapeHtml(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 function inline(s){
  let a=escapeHtml(s);
- a=a.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,(_m,label,url)=>'<a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+label+'</a>');
+ const codes=[];
+ a=a.replace(/`([^`]+)`/g,(_m,c)=>{codes.push(c);return '\u0000'+(codes.length-1)+'\u0000'});
+ a=a.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g,(_m,label,url)=>'<a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+label+'</a>');
  a=a.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
  a=a.replace(/~~(.+?)~~/g,'<del>$1</del>');
  a=a.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g,'<em>$1</em>');
- a=a.replace(/`([^`]+)`/g,'<code>$1</code>');
+ a=a.replace(/\u0000(\d+)\u0000/g,(_m,i)=>'<code>'+codes[+i]+'</code>');
  return a;
 }
 const heading=/^(#{1,6})\s+(.+)$/;
@@ -16,7 +19,7 @@ export function extractToc(markdown){
  for(const line of lines){if(/^\s*```/.test(line)){code=!code;continue}if(code)continue;const m=line.match(heading);if(m){count++;toc.push({id:'section-'+count,level:m[1].length,text:m[2].replace(/\*\*/g,'').trim()})}}
  return toc;
 }
-function tableCells(s){let x=s.trim();if(x.startsWith('|'))x=x.slice(1);if(x.endsWith('|'))x=x.slice(0,-1);return x.split('|').map(a=>a.trim())}
+function tableCells(s){let x=s.trim();if(x.startsWith('|'))x=x.slice(1);if(x.endsWith('|')&&!x.endsWith('\\|'))x=x.slice(0,-1);const out=[];let cur='';for(let i=0;i<x.length;i++){const ch=x[i];if(ch==='\\'&&x[i+1]==='|'){cur+='|';i++;continue}if(ch==='|'){out.push(cur);cur='';continue}cur+=ch}out.push(cur);return out.map(a=>a.trim())}
 function isSeparator(s){return /^\s*\|?\s*:?-{3,}:?(?:\s*\|\s*:?-{3,}:?)*\s*\|?\s*$/.test(s)}
 export function renderMarkdown(markdown){
  const lines=String(markdown).replace(/\r\n?/g,'\n').split('\n'),out=[];let para=[],list=null,quote=false,code=false,codeLines=[],count=0;
